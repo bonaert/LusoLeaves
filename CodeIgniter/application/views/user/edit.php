@@ -50,6 +50,12 @@ Released   : 20130910
             </a>
         </li>
 
+        <li>
+            <a href="<?= site_url('users') ?>" accesskey="2" title="">
+                Users
+            </a>
+        </li>
+
         <?php if ($is_logged_in): ?>
             <li>
                 <a href="<?= site_url('users/logout') ?>" accesskey="3" title="">
@@ -91,12 +97,19 @@ Released   : 20130910
         </div>
 
         <p>Name: <?php echo $user['name']; ?></p>
+
         <p>ID : <?php echo $user['id']; ?></p>
+
         <p>Company Name: <?php echo $user['companyName']; ?></p>
+
         <p>VAT Number: <?php echo $user['contribuinteNumber']; ?></p>
+
         <p>Phone Number: <?php echo $user['phoneNumber']; ?></p>
+
         <p>Address: <?php echo $user['address']; ?></p>
-        <p>Email: <?php echo $user['email']?></p>
+
+        <p>Email: <?php echo $user['email'] ?></p>
+
         <form class="ui tertiary form segment" method="POST" enctype="multipart/form-data">
             <div style="color:red;">
                 <?php echo validation_errors(); ?>
@@ -105,7 +118,7 @@ Released   : 20130910
 
             <?php echo form_open('users/edit'); ?>
 
-            <div class="ui field" >
+            <div class="ui field">
                 <select name="companyType" style="width: 300px;">
                     <option value="Select company type" disabled selected>Select company type</option>
                     <option value="Floriste">Floriste</option>

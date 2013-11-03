@@ -51,6 +51,12 @@ Released   : 20130910
             </a>
         </li>
 
+        <li>
+            <a href="<?= site_url('users') ?>" accesskey="2" title="">
+                Users
+            </a>
+        </li>
+
         <?php if ($is_logged_in): ?>
             <li>
                 <a href="<?= site_url('users/logout') ?>" accesskey="3" title="">

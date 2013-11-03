@@ -21,8 +21,8 @@ Released   : 20130910
     <!--<link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">-->
     <link type="text/css" rel="stylesheet"
           href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.3.4/css/semantic.min.css">
-    <link href="<?php echo asset_url()?>/css/default.css" rel="stylesheet" type="text/css"/>
-    <link href="<?php echo asset_url()?>/css/main.css" rel="stylesheet" type="text/css"/>
+    <link href="<?php echo asset_url() ?>/css/default.css" rel="stylesheet" type="text/css"/>
+    <link href="<?php echo asset_url() ?>/css/main.css" rel="stylesheet" type="text/css"/>
 
 </head>
 <body>
@@ -50,20 +50,17 @@ Released   : 20130910
             </a>
         </li>
 
-        <?php if ($is_logged_in): ?>
-            <li>
-                <a href="<?= site_url('users/logout') ?>" accesskey="3" title="">
-                    <?php echo $this->lang->line("logout"); ?>
-                </a>
-            </li>
-        <?php else: ?>
-            <li>
-                <a href="<?= site_url('users/login') ?>" accesskey="3" title="">
-                    <?php echo $this->lang->line("login"); ?>
-                </a>
-            </li>
-        <?php endif; ?>
+        <li>
+            <a href="<?= site_url('users') ?>" accesskey="2" title="">
+                Users
+            </a>
+        </li>
 
+        <li>
+            <a href="<?= site_url('users/logout') ?>" accesskey="3" title="">
+                <?php echo $this->lang->line("logout"); ?>
+            </a>
+        </li>
 
         <li>
             <a href="<?= site_url('users/register') ?>" accesskey="4" title="">
@@ -74,7 +71,7 @@ Released   : 20130910
 </div>
 <div id="header-wrapper">
     <div id="header" class="container">
-        <img src="<?php echo base_url()?>/assets/images/logo.png" class="image-centered headerImg">
+        <img src="<?php echo base_url() ?>/assets/images/logo.png" class="image-centered headerImg">
     </div>
 </div>
 <div id="wrapper1">
@@ -136,7 +133,7 @@ Released   : 20130910
             Or
         </div>
 
-        <a href="<?= site_url('products/delete/') . '/' .  $product['id'] ?>" class="ui red submit button">
+        <a href="<?= site_url('products/delete/') . '/' . $product['id'] ?>" class="ui red submit button">
             Delete
         </a>
 

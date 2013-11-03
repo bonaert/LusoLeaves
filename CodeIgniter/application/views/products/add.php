@@ -49,19 +49,17 @@ Released   : 20130910
             </a>
         </li>
 
-        <?php if ($is_logged_in): ?>
-            <li>
-                <a href="<?= site_url('users/logout') ?>" accesskey="3" title="">
-                    <?php echo $this->lang->line("logout"); ?>
-                </a>
-            </li>
-        <?php else: ?>
-            <li>
-                <a href="<?= site_url('users/login') ?>" accesskey="3" title="">
-                    <?php echo $this->lang->line("login"); ?>
-                </a>
-            </li>
-        <?php endif; ?>
+        <li>
+            <a href="<?= site_url('users') ?>" accesskey="2" title="">
+                Users
+            </a>
+        </li>
+
+        <li>
+            <a href="<?= site_url('users/logout') ?>" accesskey="3" title="">
+                <?php echo $this->lang->line("logout"); ?>
+            </a>
+        </li>
 
 
         <li>
@@ -73,7 +71,7 @@ Released   : 20130910
 </div>
 <div id="header-wrapper">
     <div id="header" class="container">
-        <img src="<?php echo base_url()?>/assets/images/logo.png" class="image-centered headerImg">
+        <img src="<?php echo base_url() ?>/assets/images/logo.png" class="image-centered headerImg">
     </div>
 </div>
 <div id="wrapper1">
