@@ -150,7 +150,7 @@ Released   : 20130910
                             </a>
                         </td>
                         <td class="ui icon">
-                            <a href="<?= site_url('users/delete/') . '/' . $user['id'] ?>" class="ui icon">
+                            <a href="<?= site_url('users/delete/') . '/' . $user['id'] ?>" class="ui icon" style="color:red;">
                                 <i class="ui large remove icon"></i>
                             </a>
                         </td>
