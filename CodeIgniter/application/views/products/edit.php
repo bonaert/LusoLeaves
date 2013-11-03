@@ -74,7 +74,7 @@ Released   : 20130910
 </div>
 <div id="header-wrapper">
     <div id="header" class="container">
-        <img src="/images/logo.png" class="image-centered headerImg">
+        <img src="<?php echo base_url()?>/assets/images/logo.png" class="image-centered headerImg">
     </div>
 </div>
 <div id="wrapper1">
@@ -91,9 +91,22 @@ Released   : 20130910
         </div>
 
         <form class="ui tertiary form segment" method="POST" enctype="multipart/form-data">
+            <div style="color:red;">
+                <?php echo validation_errors(); ?>
+                <br>
+            </div>
+
+            <?php echo form_open('products/edit'); ?>
+
+
             <div class="field">
                 <label>Name</label>
                 <input type="text" value="<?php echo $product['name']; ?>" name="name">
+            </div>
+
+            <div class="field">
+                <label>Image</label>
+                <input type="file" name="image"/>
             </div>
 
             <div class="field">
@@ -107,14 +120,15 @@ Released   : 20130910
             </div>
 
             <div class="field">
-                <label>Prix Unité</label>
-                <input type="text" value="<?php echo $product['prixunite'] ?>" name="prixunite">
+                <label>Prix Floriste</label>
+                <input type="text" value="<?php echo $product['prixFloriste'] ?>" name="prixFloriste">
             </div>
 
             <div class="field">
-                <label>Image</label>
-                <input type="file" name="image">
+                <label>Prix Grossiste</label>
+                <input type="text" value="<?php echo $product['prixGrossiste'] ?>" name="prixGrossiste">
             </div>
+
             <input class="ui green submit button" type="submit" name="submit" value="Save"/>
         </form>
 
@@ -122,7 +136,7 @@ Released   : 20130910
             Or
         </div>
 
-        <a href="edit.php?delete=<?php echo $product['id'] ?>" class="ui red submit button">
+        <a href="<?= site_url('products/delete/') . '/' .  $product['id'] ?>" class="ui red submit button">
             Delete
         </a>
 

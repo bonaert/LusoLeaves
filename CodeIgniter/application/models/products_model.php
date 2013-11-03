@@ -20,18 +20,17 @@ class Products_model extends CI_MODEL
 
     public function add_product()
     {
+        $image_path = $this->get_image_directory() . basename($_FILES['image']['name']);
 
-        $target_path = "products/";
-        $target_path = $target_path . basename($_FILES['image']['name']);
-
-        if (!move_uploaded_file($_FILES['image']['tmp_name'], $target_path)) {
-            echo "There was an error uploading the file, please try again!";
+        if (!move_uploaded_file($_FILES['image']['tmp_name'], $image_path)) {
+            exit("There was an error uploading the file, please try again!");
+            return;
         }
 
         $data = array(
             'name' => $this->input->post('name'),
-            'image' => $target_path,
-            'prixunite' => $this->input->post('prixunite'),
+            'imageSitePath' => $this->get_image_site_directory() . basename($_FILES['image']['name']),
+            'imageFilePath' => $image_path,
             'tpb' => $this->input->post('tpb'),
             'bpc' => $this->input->post('bpc'),
             'prixGrossiste' => $this->input->post('prixGrossiste'),
@@ -46,21 +45,20 @@ class Products_model extends CI_MODEL
 
         $data = array(
             'name' => $this->input->post('name'),
-            'prixunite' => $this->input->post('prixunite'),
             'tpb' => $this->input->post('tpb'),
             'bpc' => $this->input->post('bpc'),
             'prixGrossiste' => $this->input->post('prixGrossiste'),
             'prixFloriste' => $this->input->post('prixFloriste')
         );
 
-        if ($this->input->post('image')) {
-            $target_path = "products/";
-            $target_path = $target_path . basename($_FILES['image']['name']);
+        if (isset($_FILES) && isset($_FILES['image'])) {
+            $image_path = $this->get_image_directory() . basename($_FILES['image']['name']);
 
-            if (!move_uploaded_file($_FILES['image']['tmp_name'], $target_path)) {
+            if (!move_uploaded_file($_FILES['image']['tmp_name'], $image_path)) {
                 echo "There was an error uploading the file, please try again!";
             } else {
-                $data['image'] = $target_path;
+                $data['imageFilePath'] = $image_path;
+                $data['imageSitePath'] = $this->get_image_site_directory() . basename($_FILES['image']['name']);
             }
         }
 
@@ -68,11 +66,20 @@ class Products_model extends CI_MODEL
         $this->db->update('Product', $data);
     }
 
+    public function get_image_directory()
+    {
+        return __DIR__ . "/../../products/";
+    }
+
+    public function get_image_site_directory()
+    {
+        return base_url() . 'products/';
+    }
+
     public function delete_product($id)
     {
 
-        $image = $this->db->select("image")->from('Product')->where('id', $id)->get();
-        echo $image;
+        $image = $this->db->select("imageFilePath")->from('Product')->where('id', $id)->get();
         unlink($image);
 
         $data = array(

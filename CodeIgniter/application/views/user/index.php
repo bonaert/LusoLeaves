@@ -89,86 +89,70 @@ Released   : 20130910
 
         <div class="title">
             <h2>
-                <?= lang("productsTitle"); ?>
+                Users
             </h2>
         </div>
 
 
-        <?php if (sizeof($products) == 0): ?>
+        <?php if (sizeof($users) == 0): ?>
             <p>
-                <?= lang("productsNone"); ?>
+                No users.
             </p>
         <?php else: ?>
-        <table class="ui celled large column table segment">
-            <thead>
-            <tr>
-                <th>
-                    <?= lang("productsProduct"); ?>
-                </th>
-                <th>
-                    <?= lang("productsImage"); ?>
-                </th>
-                <th>
-                    <?= lang("productsTPB"); ?>
-                </th>
-                <th>
-                    <?= lang("productsBPC"); ?>
-                </th>
-
-                <?php if ($is_logged_in && $companyType !== 'unknown'): ?>
+            <table class="ui celled large column table segment">
+                <thead>
+                <tr>
                     <th>
-                        <?= lang("productsPrice"); ?>
+                        User Name
                     </th>
-                <?php endif; ?>
 
-                <?php if ($is_admin): ?>
-                    <th>Edit</th>
-                <?php endif; ?>
-            </tr>
+                    <th>
+                        Company Name
+                    </th>
+                    <th>
+                        User ID
+                    </th>
+                    <th>
+                        Company Type
+                    </th>
+                    <th>
+                        VAT Number
+                    </th>
+                    <th>
+                        Edit
+                    </th>
 
-            </thead>
-            <tbody>
+                    <th>
+                        Delete
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
 
 
-            <?php foreach ($products as $product) : ?>
-                <tr class="productRow">
-                    <td><?php echo $product['name']; ?></td>
-                    <td>
-                        <a href="<?php echo $product['imageSitePath']; ?>">
-                            <img src="<?php echo $product['imageSitePath']; ?>"
-                                 class="productImg">
-                        </a>
-                    </td>
-                    <td><?php echo $product['tpb']; ?></td>
-                    <td><?php echo $product['bpc']; ?></td>
-                    <?php if ($is_logged_in && $companyType == 'Floriste'): ?>
-                        <td><?php echo $product['prixFloriste']; ?> €</td>
-                    <?php elseif ($is_logged_in && $companyType == 'Grossiste'): ?>
-                        <td><?php echo $product['prixGrossiste']; ?></td>
-                    <?php endif; ?>
-
-                    <?php if ($is_admin): ?>
+                <?php foreach ($users as $user) : ?>
+                    <tr class="productRow">
+                        <td><?php echo $user['name']; ?></td>
+                        <td><?php echo $user['companyName'] ?></td>
+                        <td><?php echo $user['id']; ?></td>
+                        <td><?php echo $user['companyType']; ?></td>
+                        <td><?php echo $user['contribuinteNumber']; ?></td>
                         <td>
-                            <a href="<?= site_url('products/edit/') . '/' . $product['id'] ?>">
+                            <a href="<?= site_url('users/edit/') . '/' . $user['id'] ?>">
                                 <img class="productImg"
                                      src="https://cdn2.iconfinder.com/data/icons/flat-ui-icons-24-px/24/new-24-32.png"/>
                             </a>
                         </td>
-                    <?php endif; ?>
-                </tr>
-            <?php endforeach ?>
+                        <td class="ui icon">
+                            <a href="<?= site_url('users/delete/') . '/' . $user['id'] ?>" class="ui icon">
+                                <i class="ui large remove icon"></i>
+                            </a>
+                        </td>
+                    </tr>
+                <?php endforeach ?>
 
-            </tbody>
-        </table>
-        <?php endif; ?>
-
-        * <?= lang('priceFOB') ?>
-        <br>
-        * <?= lang('boxSize') ?> : 100 x 40 x 20 cm
-        <br><br>
-
-        <?php if ($is_admin): ?>
-            <a href="<?= site_url('products/create') ?>" class="ui green button">Add a new product</a>
+                </tbody>
+            </table>
         <?php endif; ?>
 
     </div>

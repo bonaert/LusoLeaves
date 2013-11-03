@@ -71,6 +71,14 @@ Released   : 20130910
             </a>
         </li>
 
+        <?php if ($is_admin): ?>
+            <li>
+                <a href="<?= site_url('users') ?>" accesskey="2" title="">
+                    Users
+                </a>
+            </li>
+        <?php endif; ?>
+
         <?php if ($is_logged_in): ?>
             <li>
                 <a href="<?= site_url('users/logout') ?>" accesskey="3" title="">
@@ -95,7 +103,7 @@ Released   : 20130910
 </div>
 <div id="header-wrapper">
     <div id="header" class="container">
-        <img src="/images/logo.png" class="image-centered headerImg">
+        <img src="<?php echo base_url() ?>/assets/images/logo.png" class="image-centered headerImg">
     </div>
 </div>
 <div id="wrapper1">
@@ -105,26 +113,16 @@ Released   : 20130910
             <h2>Luso Leaves</h2>
         </div>
         <div class="content">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium dolorem itaque quaerat? Accusantium
-                consequuntur culpa cum cumque deserunt error esse fuga fugiat incidunt laborum magni maxime nesciunt
-                optio pariatur, praesentium quibusdam ratione rem saepe sequi soluta suscipit temporibus ut vitae!
-                Consectetur doloribus dolorum excepturi modi nulla perferendis placeat reiciendis, sequi. Aliquid animi
-                architecto aspernatur beatae commodi cupiditate dignissimos, doloremque dolores eius esse ex expedita
-                fugit hic illo, impedit in inventore ipsam iste magni molestiae nam nemo nesciunt nisi odio officiis
-                omnis optio porro praesentium quisquam recusandae repellat sequi tenetur unde vel, voluptas voluptate
-                voluptates?
+            <p>
+                <?php echo $this->lang->line("companyDescription1"); ?>
             </p>
 
             <p>
-                A ad animi aspernatur atque commodi dolorem earum eos excepturi facere facilis in, laborum,
-                nam nisi pariatur ratione sed similique soluta suscipit unde veniam. Aperiam beatae blanditiis corporis
-                distinctio, dolore doloremque doloribus ea exercitationem expedita ipsam laudantium minus nemo non
-                officia perferendis perspiciatis quidem quis repudiandae similique voluptatibus. Deleniti dicta eligendi
-                et nesciunt optio. Accusamus ad assumenda commodi earum fugit molestiae omnis, qui reprehenderit.
-                Aliquid aspernatur autem cupiditate, doloremque dolorum eaque eius enim est impedit in iusto laboriosam
-                neque nesciunt officia praesentium quas tempore totam voluptatibus. Accusamus architecto facere incidunt
-                ipsum modi natus repellat vitae voluptates. Cupiditate eaque ex minus, provident quo unde. Dolore, quia,
-                ullam.
+                <?php echo $this->lang->line("companyDescription2"); ?>
+            </p>
+
+            <p>
+                <?php echo $this->lang->line("companyDescription3"); ?>
             </p>
 
         </div>

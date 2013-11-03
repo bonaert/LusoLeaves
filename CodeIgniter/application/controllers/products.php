@@ -36,7 +36,8 @@ class Products extends CI_CONTROLLER
         $this->load->library('form_validation');
 
         $this->form_validation->set_rules('name', 'Name', 'required');
-        $this->form_validation->set_rules('prixunite', 'Prix Unité', 'required');
+        $this->form_validation->set_rules('prixFloriste', 'Prix Floriste', 'required|is_numeric');
+        $this->form_validation->set_rules('prixGrossiste', 'Prix Grossiste', 'required|is_numeric');
         $this->form_validation->set_rules('tpb', 'Tiges par bouquet', 'required|integer');
         $this->form_validation->set_rules('bpc', 'Bouquets par caisse', 'required|integer');
 
@@ -47,7 +48,6 @@ class Products extends CI_CONTROLLER
             redirect(site_url('products'));
         }
     }
-
 
 
     public function edit($id)
@@ -65,7 +65,8 @@ class Products extends CI_CONTROLLER
         $this->load->helper('form');
         $this->load->library('form_validation');
         $this->form_validation->set_rules('name', 'Name', 'required');
-        $this->form_validation->set_rules('prixunite', 'Prix Unité', 'required|is_numeric');
+        $this->form_validation->set_rules('prixFloriste', 'Prix Floriste', 'required|is_numeric');
+        $this->form_validation->set_rules('prixGrossiste', 'Prix Grossiste', 'required|is_numeric');
         $this->form_validation->set_rules('tpb', 'Tiges par bouquet', 'required|integer');
         $this->form_validation->set_rules('bpc', 'Bouquets par caisse', 'required|integer');
 

@@ -9,6 +9,21 @@ class Users extends CI_CONTROLLER
 
     }
 
+    public function index()
+    {
+        $this->lang->load('lusoleaves');
+        $data['users'] = $this->users_model->get_users();
+        $data['is_admin'] = $this->session->userdata('is_admin');
+        $data['is_logged_in'] = $this->session->userdata('is_logged_in');
+        $data['companyType'] = $this->session->userdata('companyType');
+
+        if (!$data['is_logged_in'] || !$data['is_admin']) {
+            redirect(site_url('products'));
+        }
+
+        $this->load->view('user/index', $data);
+    }
+
     public function register()
     {
         $this->lang->load('lusoleaves');
@@ -16,8 +31,6 @@ class Users extends CI_CONTROLLER
 
         $this->load->helper('form');
         $this->load->library('form_validation');
-
-        $data['title'] = "LusoLeaves";
 
         $this->form_validation->set_rules('name', 'Name', 'required|min_length[4]|max_length[80]');
         $this->form_validation->set_rules('hashedPassword', 'Password', 'required|exact_length[128]');
@@ -51,20 +64,18 @@ class Users extends CI_CONTROLLER
         $this->load->helper('form');
         $this->load->library('form_validation');
 
-        $data['title'] = "LusoLeaves";
-
         $this->form_validation->set_rules('hashedPassword', 'Password', 'required|exact_length[128]');
         $this->form_validation->set_rules('email', 'Email', 'required|valid_email|max_length[128]|callback_is_email_used');
 
         if ($this->form_validation->run() === FALSE) {
-            $this->load->view('user/login', $data);
+            $this->load->view('user/login');
             return;
         }
 
         $email = $this->input->post('email');
         $hashedPassword = $this->input->post('hashedPassword');
         if (!$this->users_model->is_correct_credentials($email, $hashedPassword)) {
-            $this->load->view('user/login', $data);
+            $this->load->view('user/login');
             return;
         }
 
@@ -87,6 +98,29 @@ class Users extends CI_CONTROLLER
         redirect(site_url('main'));
     }
 
+    public function edit($id)
+    {
+        $data['user'] = $this->users_model->get_users($id);
+        $data['is_admin'] = $this->session->userdata('is_admin');
+        $data['is_logged_in'] = $this->session->userdata('is_logged_in');
+
+        if (!$data['is_logged_in'] || !$data['is_admin']) {
+            redirect(site_url('products'));
+        }
+
+        $this->lang->load('lusoleaves');
+        $this->load->helper('form');
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('companyType', 'Company Type', 'required');
+
+        if ($this->form_validation->run() === FALSE) {
+            $this->load->view('user/edit', $data);
+        } else {
+            $this->users_model->update_company_type($id);
+            redirect(site_url('users/index'));
+        }
+    }
+
 
     public function is_email_used($email)
     {
@@ -104,10 +138,12 @@ class Users extends CI_CONTROLLER
 
     public function delete($id)
     {
-        $this->lang->load('lusoleaves', 'portuguese');
-        $date['title'] = "LusoLeaves";
+        $data['is_admin'] = $this->session->userdata('is_admin');
+        $data['is_logged_in'] = $this->session->userdata('is_logged_in');
 
-        $this->users_model->delete_user($id);
-        $this->load->view('products/index');
+        if ($data['is_logged_in'] && $data['is_admin']) {
+            $this->users_model->delete_user($id);
+        }
+        redirect(site_url('products'));
     }
 }

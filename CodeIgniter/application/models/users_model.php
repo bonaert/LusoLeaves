@@ -7,6 +7,15 @@ class Users_model extends CI_MODEL
         $this->load->database();
     }
 
+    public function get_users($id = FALSE)
+    {
+        if ($id === FALSE) {
+            return $this->db->from('User')->where('email !=', "admin@lusoleaves.com")->get()->result_array();
+        }
+
+        return $this->db->from('User')->where('id', $id)->where('email !=', "admin@lusoleaves.com")->get()->row_array();
+    }
+
     public function add_user()
     {
 
@@ -27,16 +36,12 @@ class Users_model extends CI_MODEL
             'user_level' => 0
         );
 
-        return $this->db->insert('User', $data);
+        $this->db->insert('User', $data);
     }
 
     public function delete_user($id)
     {
-        $data = array(
-            'id' => $id
-        );
-
-        return $this->db->delete('User', $data);
+        $this->db->delete('User', array('id' => $id));
     }
 
     function is_email_used($email)
@@ -77,8 +82,14 @@ class Users_model extends CI_MODEL
         }
     }
 
-    function get_company_type($email){
+    function get_company_type($email)
+    {
         $query = $this->db->select('companyType')->from('User')->where('email', $email)->get();
         return $query->row()->companyType;
+    }
+
+    function update_company_type($id)
+    {
+        $this->db->where('id', $id)->update('User', array('companyType' => $this->input->post('companyType')));
     }
 }
