@@ -108,71 +108,79 @@ Released   : 20130910
                 <?= lang("productsNone"); ?>
             </p>
         <?php else: ?>
-        <table class="ui celled large column table segment">
-            <thead>
-            <tr>
-                <th>
-                    <?= lang("productsProduct"); ?>
-                </th>
-                <th>
-                    <?= lang("productsImage"); ?>
-                </th>
-                <th>
-                    <?= lang("productsTPB"); ?>
-                </th>
-                <th>
-                    <?= lang("productsBPC"); ?>
-                </th>
-
-                <?php if ($is_logged_in && $companyType !== 'unknown'): ?>
+            <table class="ui celled large column table segment">
+                <thead>
+                <tr>
                     <th>
-                        <?= lang("productsPrice"); ?>
+                        <?= lang("productsProduct"); ?>
+                    </th>
+                    <th>
+                        <?= lang("productsImage"); ?>
+                    </th>
+                    <th>
+                        <?= lang("productsTPB"); ?>
+                    </th>
+                    <th>
+                        <?= lang("productsBPC"); ?>
                     </th>
 
-                    <th>
-                        <?= lang('isAvailable'); ?>
-                    </th>
-                <?php endif; ?>
+                    <?php if ($is_logged_in && $companyType !== 'unknown'): ?>
+                        <th>
+                            <?= lang("productsPrice"); ?>
+                        </th>
 
-                <?php if ($is_admin): ?>
-                    <th>Edit</th>
-                <?php endif; ?>
-            </tr>
-
-            </thead>
-            <tbody>
-
-
-            <?php foreach ($products as $product) : ?>
-                <tr class="productRow">
-                    <td><?php echo $product['name']; ?></td>
-                    <td>
-                        <a href="<?php echo $product['imageSitePath']; ?>">
-                            <img src="<?php echo $product['imageSitePath']; ?>"
-                                 class="productImg">
-                        </a>
-                    </td>
-                    <td><?php echo $product['tpb']; ?></td>
-                    <td><?php echo $product['bpc']; ?></td>
-                    <?php if ($is_logged_in && $companyType == 'Floriste'): ?>
-                        <td><?php echo $product['prixFloriste']; ?> €</td>
-                    <?php elseif ($is_logged_in && $companyType == 'Grossiste'): ?>
-                        <td><?php echo $product['prixGrossiste']; ?></td>
+                        <th>
+                            <?= lang('isAvailable'); ?>
+                        </th>
                     <?php endif; ?>
 
                     <?php if ($is_admin): ?>
-                        <td>
-                            <a href="<?= site_url('products/edit/') . '/' . $product['id'] ?>">
-                                <img class="productImg"
-                                     src="https://cdn2.iconfinder.com/data/icons/flat-ui-icons-24-px/24/new-24-32.png"/>
-                            </a>
-                        </td>
+                        <th>Edit</th>
                     <?php endif; ?>
                 </tr>
-            <?php endforeach ?>
 
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+
+
+                <?php foreach ($products as $product) : ?>
+                    <tr class="productRow">
+                        <td><?php echo $product['name']; ?></td>
+                        <td>
+                            <a href="<?php echo $product['imageSitePath']; ?>">
+                                <img src="<?php echo $product['imageSitePath']; ?>"
+                                     class="productImg">
+                            </a>
+                        </td>
+                        <td><?php echo $product['tpb']; ?></td>
+                        <td><?php echo $product['bpc']; ?></td>
+                        <?php if ($is_logged_in && $companyType == 'Floriste'): ?>
+                            <td><?php echo $product['prixFloriste']; ?> €</td>
+                        <?php elseif ($is_logged_in && $companyType == 'Grossiste'): ?>
+                            <td><?php echo $product['prixGrossiste']; ?></td>
+                            <td>
+                                <?php if ($product['isAvailable']): ?>
+                                    Bolinha verde
+                                <?php else: ?>
+                                    Bolinha Vermelha
+                                    Avaiblable from (use lang): <?= $product['availabilityDate'] ?>
+                                <?php endif; ?>
+                            </td>
+                        <?php endif; ?>
+
+                        <?php if ($is_admin): ?>
+                            <td>
+                                <a href="<?= site_url('products/edit/') . '/' . $product['id'] ?>">
+                                    <img class="productImg"
+                                         src="https://cdn2.iconfinder.com/data/icons/flat-ui-icons-24-px/24/new-24-32.png"/>
+                                </a>
+                            </td>
+                        <?php endif; ?>
+                    </tr>
+                <?php endforeach ?>
+
+                </tbody>
+            </table>
         <?php endif; ?>
 
         * <?= lang('priceFOB') ?>
