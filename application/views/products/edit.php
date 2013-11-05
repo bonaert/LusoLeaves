@@ -126,6 +126,16 @@ Released   : 20130910
                 <input type="text" value="<?php echo $product['prixGrossiste'] ?>" name="prixGrossiste">
             </div>
 
+            <div class="field">
+                <label>Is Available (1: true, 0:false)</label>
+                <input type="text" value="<?php echo $product['isAvailable'] ?>" name="isAvailable">
+            </div>
+
+            <div class="field">
+                <label>Availability date</label>
+                <input type="text" value="<?php echo $product['availabilityDate'] ?>" name="availabilityDate">
+            </div>
+
             <input class="ui green submit button" type="submit" name="submit" value="Save"/>
         </form>
 

@@ -128,6 +128,10 @@ Released   : 20130910
                     <th>
                         <?= lang("productsPrice"); ?>
                     </th>
+
+                    <th>
+                        <?= lang('isAvailable'); ?>
+                    </th>
                 <?php endif; ?>
 
                 <?php if ($is_admin): ?>

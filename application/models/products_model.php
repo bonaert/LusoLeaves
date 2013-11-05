@@ -34,7 +34,9 @@ class Products_model extends CI_MODEL
             'tpb' => $this->input->post('tpb'),
             'bpc' => $this->input->post('bpc'),
             'prixGrossiste' => $this->input->post('prixGrossiste'),
-            'prixFloriste' => $this->input->post('prixFloriste')
+            'prixFloriste' => $this->input->post('prixFloriste'),
+            'isAvailable' => 1,
+            'availabilityDate' => ""
         );
 
         $this->db->insert('Product', $data);
@@ -48,7 +50,9 @@ class Products_model extends CI_MODEL
             'tpb' => $this->input->post('tpb'),
             'bpc' => $this->input->post('bpc'),
             'prixGrossiste' => $this->input->post('prixGrossiste'),
-            'prixFloriste' => $this->input->post('prixFloriste')
+            'prixFloriste' => $this->input->post('prixFloriste'),
+            'isAvailable' => $this->input->post('isAvailable'),
+            'availabilityDate' => $this->input->post('availabilityDate')
         );
 
         if (isset($_FILES) && isset($_FILES['image'])) {
