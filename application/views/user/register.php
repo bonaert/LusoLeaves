@@ -98,12 +98,12 @@
 
 
         <p>
-            <input type="number" name="phoneNumber" required="true"
+            <input type="text" name="phoneNumber" required="true"
                    placeholder="<?= lang("registerPhoneNumber"); ?>">
         </p>
 
         <p>
-            <input type="number" name="contribuinteNumber" required="true"
+            <input type="text" name="contribuinteNumber" required="true"
                    placeholder="<?= lang("registerContribuinteNumber"); ?>">
         </p>
 
