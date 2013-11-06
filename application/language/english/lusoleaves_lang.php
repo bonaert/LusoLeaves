@@ -16,7 +16,7 @@ Proteas, Leucospermum and Bamboos. ';
 $lang['companyDescription2'] = '
 Rogil is well located for exports. There are many transport companies going to Holland and Great Britain
 twice a week assuring constant delivery to the main markets. We have 1,80 hectares of shadehouses
-planted mostly with leatherleaf and in a smaller amounts with Ruscus. We are also introducing new kind of greens which are not yet in production.
+planted mostly with leatherleaf and in smaller amounts with Ruscus. We are also introducing new kind of greens which are not yet in production.
 Apart from the shadehouse, we also have greenhouses planted with aspidistras, Aralias, Phil. Xanadu, Falcatum.';
 
 $lang['companyDescription3'] = 'For any inquiry, please feel free to send us a email.';
