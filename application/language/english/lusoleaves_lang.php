@@ -7,10 +7,10 @@ $lang['login'] = 'Log In';
 $lang['register'] = 'Register';
 
 $lang['companyDescription1'] = '
-Rogil is part of the Aljezur municipality and being close to the Atlantic coast, it provides
+Rogil is part of the Aljezur municipality and close to the Atlantic coast, it provides
 good temperatures  the  whole  year.  There are few  frost  days  in  the  winter and
-few hot temperatures (above  30º) during the summer. The farm is located between other
-large flower producing companies who are growing all kind of greens, Leucadendron,
+few hot temperatures (above  30º) during the summer. The farm is located among other
+large flower producing companies, which are growing all kind of greens, Leucadendron,
 Proteas, Leucospermum and Bamboos. ';
 
 $lang['companyDescription2'] = '
