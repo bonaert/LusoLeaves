@@ -104,12 +104,12 @@ body {
 }
 
 :-moz-placeholder {
-    color: #c9c9c9 !important;
+    color: black !important;
     font-size: 13px;
 }
 
 ::-webkit-input-placeholder {
-    color: #ccc;
+    color: black;
     font-size: 13px;
 }
 
