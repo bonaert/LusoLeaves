@@ -13,6 +13,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Luso Leaves - Login</title>
     <link type="text/css" rel="stylesheet" href="<?php echo asset_url() ?>/css/form.css">
+    <link type="text/css" rel="stylesheet" href="<?php echo asset_url() ?>/css/default.css">
 
     <script src="<?php echo asset_url() ?>/js/sha512.js"></script>
     <script src="<?php echo asset_url() ?>/js/forms.js"></script>
