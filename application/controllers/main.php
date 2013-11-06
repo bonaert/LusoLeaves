@@ -5,9 +5,9 @@ class Main extends CI_CONTROLLER
     public function __construct()
     {
         parent::__construct();
+        use_ssl(false);
         $this->load->model('users_model');
         $this->lang->load('lusoleaves');
-        use_ssl(false);
     }
 
     public function index()
