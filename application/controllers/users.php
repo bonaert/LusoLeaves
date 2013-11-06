@@ -6,7 +6,7 @@ class Users extends CI_CONTROLLER
     {
         parent::__construct();
         $this->load->model('users_model');
-
+        use_ssl();
     }
 
     public function index()
