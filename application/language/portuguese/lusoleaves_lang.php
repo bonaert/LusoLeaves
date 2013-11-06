@@ -7,8 +7,8 @@ $lang['login'] = 'Log In';
 $lang['register'] = 'Registo';
 
 $lang['companyDescription1'] = '
-Rogil faz parte do concelho de Aljezur, situado perto do oceano Atlântico e permite uma produçao continua em boas condições.
-No Inverno, temos poucos dias de frio e no Verão, poucos dias de grande calor. A nossa empresa está situada entre outros
+Rogil faz parte do concelho de Aljezur, situado perto do oceano Atlântico e permite uma produção conténua em boas condições.
+Temos poucos dias de frio no Inverno e de Verão temos temperaturas amenas. A nossa empresa está situada entre outros
 grandes produtores de verduras decorativas, nomeadamente Luecodendron, leucospermum, proteas e bamboos.';
 
 $lang['companyDescription2'] = '
