@@ -21,8 +21,8 @@ Released   : 20130910
     <!--<link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">-->
     <link type="text/css" rel="stylesheet"
           href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.3.4/css/semantic.min.css">
-    <link href="<?php echo asset_url() ?>/css/default.css" rel="stylesheet" type="text/css"/>
-    <link href="<?php echo asset_url() ?>/css/main.css" rel="stylesheet" type="text/css"/>
+    <link href="<?php echo asset_url() ?>css/default.css" rel="stylesheet" type="text/css"/>
+    <link href="<?php echo asset_url() ?>css/main.css" rel="stylesheet" type="text/css"/>
 
 </head>
 <body>
