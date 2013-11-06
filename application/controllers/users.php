@@ -28,7 +28,7 @@ class Users extends CI_CONTROLLER
     {
         $this->lang->load('lusoleaves');
         $data['is_logged_in'] = $this->session->userdata('is_logged_in');
-        $data['is_logged_in'] = $this->session->userdata('is_admin');
+        $data['is_admin'] = $this->session->userdata('is_admin');
 
         $this->load->helper('form');
         $this->load->library('form_validation');
