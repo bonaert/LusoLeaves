@@ -7,20 +7,19 @@ $lang['login'] = 'Log In';
 $lang['register'] = 'Register';
 
 $lang['companyDescription1'] = '
-Rogil is part of the Aljezur municipality and being close to the Atlantic coast, provides
-Good growing  temperature  the  whole  year.  Few  frost  days  in  the  winter  period  and
-few  hot  (above  30º)  temperature during  summer.  The  farm  is  located between other
+Rogil is part of the Aljezur municipality and being close to the Atlantic coast, it provides
+good growing temperatures  the  whole  year.  There are few  frost  days  in  the  winter and
+few hot temperatures (above  30º) during the summer. The farm is located between other
 large flower producing companies who are growing all kind of greens, Leucadendron,
-Proteas, Leucospermum, Bamboos. ';
+Proteas, Leucospermum and Bamboos. ';
 
 $lang['companyDescription2'] = '
-Rogil is well located for exporting; many transport
-companies  are  going  to  Holland  and  Great  Britain  twice  a  week  assuring  constant
-delivery to the main markets.
-We have 1,80 hectares of shadehouses planted mostly with leatherleaf and in a smaller amount with Ruscus. We are also introducing new kind of greens which are not yet in production.
-Aside of the shadehouse we have also greenhouses planted with aspidistras, Aralias, Phil. Xanadu, Falcatum.';
+Rogil is well located for exports. There are many transport companies going to Holland and Great Britain
+twice a week assuring constant delivery to the main markets. We have 1,80 hectares of shadehouses
+planted mostly with leatherleaf and in a smaller amounts with Ruscus. We are also introducing new kind of greens which are not yet in production.
+Apart from the shadehouse, we also have greenhouses planted with aspidistras, Aralias, Phil. Xanadu, Falcatum.';
 
-$lang['companyDescription3'] = 'For any inquiery please feel free to send us a email';
+$lang['companyDescription3'] = 'For any inquiry, please feel free to send us a email.';
 
 
 

@@ -7,17 +7,17 @@ $lang['login'] = 'Log In';
 $lang['register'] = 'Registo';
 
 $lang['companyDescription1'] = '
-Rogil faz parte do concelho de lajezur situado perto do mar atlantico e permite nos produzir todo o ano em boas condiçoes.
-Temos poucos dias de frio no inverno e poucos dias de grande calor no verão. Nossa empresa esta situado entre otros
-grandes produtores de verdes decorativos nomeamente Luecodendron, leucospermum, proteas, bambous.';
+Rogil faz parte do concelho de Aljezur, situado perto do oceano Atlântico e permite uma produçao continua em boas condições.
+No Inverno, temos poucos dias de frio e no Verão, poucos dias de grande calor. A nossa empresa está situada entre outros
+grandes produtores de verduras decorativas, nomeadamente Luecodendron, leucospermum, proteas e bamboos.';
 
 $lang['companyDescription2'] = '
-Rogil est bem localizado para exportação, Há empreses de transportes que vão para Hollanda e Inglaterra
-dois vezes por semana para entrega nos mercados principais. Temos 1,80 hectares de estufas de sombreamento com
-principalmente plantado com fetos ornamentais e de Ruscus. Somos também a introduzir novos tipos de verdes que ainda não são em produção.
-A o Lado da estufa de sombreamento temos também estufas de plásticos plantado com aspidistras, Aralias, Phil Xanadu e Falcatum';
+Rogil est bem localizado para exportações. Há empresas de transportes que vão para Hollanda e Inglaterra
+duas vezes por semana para entrega nos principais mercados. Temos 1,80 hectares de estufas de sombreamento,
+principalmente plantadas com fetos ornamentais e Ruscus. Estamos também a introduzir novos tipos de verduras que ainda não são em produção.
+Além da estufa de sombreamento, temos também estufas de plásticos, plantadas com aspidistras, Aralias, Phil Xanadu e Falcatum.';
 
-$lang['companyDescription3'] = 'Para qualquer infromção se faz favor de mandar um email';
+$lang['companyDescription3'] = 'Para qualquer informação adicional, envie-nos um email.';
 
 
 $lang['findUsTitle'] = 'Onde estamos';
