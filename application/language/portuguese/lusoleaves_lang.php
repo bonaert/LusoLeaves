@@ -1,18 +1,18 @@
 <?php
 
-$lang['homepage'] = 'Inicio';
+$lang['homepage'] = 'Início';
 $lang['products'] = 'Produtos';
 $lang['logout'] = 'Log Out';
 $lang['login'] = 'Log In';
 $lang['register'] = 'Registo';
 
 $lang['companyDescription1'] = '
-Rogil faz parte do concelho de Aljezur, situado perto do oceano Atlântico e permite uma produção conténua em boas condições.
-Temos poucos dias de frio no Inverno e de Verão temos temperaturas amenas. A nossa empresa está situada entre outros
-grandes produtores de verduras decorativas, nomeadamente Luecodendron, leucospermum, proteas e bamboos.';
+Rogil faz parte do concelho de Aljezur, situado perto do oceano Atlântico e permite uma produção contínua em boas condições.
+A região beneficia de poucos dias de frio no Inverno e temperaturas amenas durante o Verão . A empresa está situada entre outros
+grandes produtores de verduras decorativas, nomeadamente Luecodendron, leucospermum, proteas e bambus.';
 
 $lang['companyDescription2'] = '
-Rogil está bem localizado para exportações. Há empresas de transportes que vão para Hollanda e Inglaterra
+A localidade do Rogil está bem localizada para exportações. Há transportadoras que vão para a Holanda e Inglaterra
 duas vezes por semana para entrega nos principais mercados. Temos 1,80 hectares de estufas de sombreamento,
 principalmente plantadas com fetos ornamentais e Ruscus. Estamos também a introduzir novos tipos de verduras, que ainda não são em produção.
 Além das estufas de sombreamento, temos também estufas de plásticos, plantadas com aspidistras, Aralias, Phil Xanadu e Falcatum.';
