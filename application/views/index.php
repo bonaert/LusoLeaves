@@ -18,8 +18,8 @@ Released   : 20130910
     <meta name="keywords" content=""/>
     <meta name="description" content=""/>
     <!--<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet"/>-->
-    <link href="<?php echo asset_url() ?>/css/default.css" rel="stylesheet" type="text/css" media="all"/>
-    <link href="<?php echo asset_url() ?>/css/main.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="<?php echo asset_url() ?>css/default.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="<?php echo asset_url() ?>css/main.css" rel="stylesheet" type="text/css" media="all"/>
 
     <script type="text/javascript"
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCr8NrowWwR9foQuKE4s2jJlopGP0UbHgY&sensor=false">
