@@ -7,6 +7,7 @@ class Main extends CI_CONTROLLER
         parent::__construct();
         $this->load->model('users_model');
         $this->lang->load('lusoleaves');
+        use_ssl(false);
     }
 
     public function index()

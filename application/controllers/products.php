@@ -8,6 +8,7 @@ class Products extends CI_CONTROLLER
         $this->load->model('products_model');
         $this->load->model('users_model');
         $this->lang->load('lusoleaves');
+        use_ssl(false);
     }
 
     public function index()
