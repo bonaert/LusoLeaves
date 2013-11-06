@@ -39,8 +39,11 @@ $lang['productsImage'] = 'Image';
 $lang['productsTPB'] = 'Stem per Bunch';
 $lang['productsBPC'] = 'Bunch per Box';
 $lang['productsPrice'] = 'Price - Unit';
+$lang['productIsAvailable'] = 'Available';
 $lang['priceFOB'] = 'Price Forward On Board';
 $lang['boxSize'] = 'Dimensions of box';
+$lang['availableFrom'] = 'Avaiblable From:';
+
 
 
 /* Register */

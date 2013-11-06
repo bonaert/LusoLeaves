@@ -130,7 +130,7 @@ Released   : 20130910
                         </th>
 
                         <th>
-                            <?= lang('isAvailable'); ?>
+                            <?= lang('productIsAvailable'); ?>
                         </th>
                     <?php endif; ?>
 
@@ -160,10 +160,14 @@ Released   : 20130910
                             <td><?php echo $product['prixGrossiste']; ?></td>
                             <td>
                                 <?php if ($product['isAvailable']): ?>
-                                    Bolinha verde
+                                    <img
+                                        src="http://icons.iconarchive.com/icons/deleket/scrap/48/Aqua-Ball-Green-icon.png"
+                                        alt="Product available"/>
                                 <?php else: ?>
-                                    Bolinha Vermelha
-                                    Avaiblable from (use lang): <?= $product['availabilityDate'] ?>
+                                    <img
+                                        src="http://icons.iconarchive.com/icons/deleket/scrap/48/Aqua-Ball-Red-icon.png"
+                                        alt="Product Not available"/><br>
+                                    <?php echo $this->lang->line("availableFrom"); ?> <?= $product['availabilityDate'] ?>
                                 <?php endif; ?>
                             </td>
                         <?php endif; ?>

@@ -35,9 +35,10 @@ $lang['productsImage'] = 'Imagem';
 $lang['productsTPB'] = 'Pés por Molho';
 $lang['productsBPC'] = 'Molho por Caixa';
 $lang['productsPrice'] = 'Preço - Unidade';
+$lang['productIsAvailable'] = 'Disponivél';
 $lang['priceFOB'] = 'Preço sem Transporte';
 $lang['boxSize'] = 'Tamanho da Caixa';
-
+$lang['availableFrom'] = 'Disponivel a partir de:';
 
 /* Register */
 $lang['registerCompanyName'] = 'Nome da Empresa';
