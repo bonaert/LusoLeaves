@@ -17,7 +17,6 @@ Released   : 20130910
     <title>Luso Leaves</title>
     <meta name="keywords" content=""/>
     <meta name="description" content=""/>
-    <!--<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet"/>-->
     <link href="<?php echo asset_url() ?>css/default.css" rel="stylesheet" type="text/css" media="all"/>
     <link href="<?php echo asset_url() ?>css/main.css" rel="stylesheet" type="text/css" media="all"/>
 

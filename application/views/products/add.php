@@ -17,7 +17,6 @@ Released   : 20130910
     <title>Luso Leaves - Add</title>
     <meta name="keywords" content=""/>
     <meta name="description" content=""/>
-    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet"/>
     <link type="text/css" rel="stylesheet"
           href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.3.4/css/semantic.min.css">
     <link href="<?php echo asset_url() ?>/css/default.css" rel="stylesheet" type="text/css"/>
