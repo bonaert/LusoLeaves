@@ -24,7 +24,6 @@ class Products_model extends CI_MODEL
 
         if (!move_uploaded_file($_FILES['image']['tmp_name'], $image_path)) {
             exit("There was an error uploading the file, please try again!");
-            return;
         }
 
         $data = array(
@@ -72,7 +71,7 @@ class Products_model extends CI_MODEL
 
     public function get_image_directory()
     {
-        return __DIR__ . "/../../products/";
+        return "products/";
     }
 
     public function get_image_site_directory()
