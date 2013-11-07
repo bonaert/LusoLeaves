@@ -123,15 +123,25 @@ Released   : 20130910
                         <?= lang("productsBPC"); ?>
                     </th>
 
-                    <?php if ($is_logged_in && $companyType !== 'unknown'): ?>
+                    <?php if ($is_admin): ?>
                         <th>
-                            <?= lang("productsPrice"); ?>
+                            <?= lang("productsPrice"); ?> Floriste
                         </th>
 
                         <th>
-                            <?= lang('productIsAvailable'); ?>
+                            <?= lang("productsPrice"); ?> Grossiste
+                        </th>
+                    <?php elseif ($is_logged_in && $companyType !== 'unknown'): ?>
+                        <th>
+                            <?= lang("productsPrice"); ?>
                         </th>
                     <?php endif; ?>
+
+                    <?php if ($is_logged_in && $companyType !== 'unknown'): ?>
+                        <th>
+                            <?= lang('productIsAvailable'); ?>
+                        </th>
+                    <?php endif ?>
 
                     <?php if ($is_admin): ?>
                         <th>Edit</th>
@@ -153,9 +163,9 @@ Released   : 20130910
                         </td>
                         <td><?php echo $product['tpb']; ?></td>
                         <td><?php echo $product['bpc']; ?></td>
-                        <?php if ($is_logged_in && $companyType == 'Floriste'): ?>
+                        <?php if ($is_logged_in && ($is_admin || $companyType == 'Floriste')): ?>
                             <td><?php echo $product['prixFloriste']; ?> €</td>
-                        <?php elseif ($is_logged_in && $companyType == 'Grossiste'): ?>
+                        <?php elseif ($is_logged_in && ($is_admin || $companyType == 'Grossiste')): ?>
                             <td><?php echo $product['prixGrossiste']; ?></td>
                         <?php endif; ?>
                         <td>
