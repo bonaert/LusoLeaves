@@ -165,7 +165,9 @@ Released   : 20130910
                         <td><?php echo $product['bpc']; ?></td>
                         <?php if ($is_logged_in && ($is_admin || $companyType == 'Floriste')): ?>
                             <td><?php echo $product['prixFloriste']; ?> €</td>
-                        <?php elseif ($is_logged_in && ($is_admin || $companyType == 'Grossiste')): ?>
+                        <?php endif; ?>
+
+                        <?php if ($is_logged_in && ($is_admin || $companyType == 'Grossiste')): ?>
                             <td><?php echo $product['prixGrossiste']; ?></td>
                         <?php endif; ?>
                         <td>
