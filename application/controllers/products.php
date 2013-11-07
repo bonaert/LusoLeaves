@@ -40,8 +40,6 @@ class Products extends CI_CONTROLLER
         $this->form_validation->set_rules('prixGrossiste', 'Prix Grossiste', 'required|is_numeric');
         $this->form_validation->set_rules('tpb', 'Tiges par bouquet', 'required|integer');
         $this->form_validation->set_rules('bpc', 'Bouquets par caisse', 'required|integer');
-        $this->form_validation->set_rules('phoneNumber', 'Phone Number', 'required');
-        $this->form_validation->set_rules('contribuinteNumber', 'VAT Number', 'required');
 
         if ($this->form_validation->run() === FALSE || !isset($_FILES) || !isset($_FILES['image'])) {
             $this->load->view('products/add', $data);
@@ -71,8 +69,6 @@ class Products extends CI_CONTROLLER
         $this->form_validation->set_rules('prixGrossiste', 'Prix Grossiste', 'required|is_numeric');
         $this->form_validation->set_rules('tpb', 'Tiges par bouquet', 'required|integer');
         $this->form_validation->set_rules('bpc', 'Bouquets par caisse', 'required|integer');
-        $this->form_validation->set_rules('isAvailable', 'Is Available', 'required|integer');
-        $this->form_validation->set_rules('availabilityDate', 'Availability date', 'required');
 
         if ($this->form_validation->run() === FALSE) {
             $this->load->view('products/edit', $data);
