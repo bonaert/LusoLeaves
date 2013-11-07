@@ -157,19 +157,19 @@ Released   : 20130910
                             <td><?php echo $product['prixFloriste']; ?> €</td>
                         <?php elseif ($is_logged_in && $companyType == 'Grossiste'): ?>
                             <td><?php echo $product['prixGrossiste']; ?></td>
-                            <td>
-                                <?php if ($product['isAvailable']): ?>
-                                    <img
-                                        src="http://icons.iconarchive.com/icons/deleket/scrap/48/Aqua-Ball-Green-icon.png"
-                                        alt="Product available"/>
-                                <?php else: ?>
-                                    <img
-                                        src="http://icons.iconarchive.com/icons/deleket/scrap/48/Aqua-Ball-Red-icon.png"
-                                        alt="Product Not available"/><br>
-                                    <?php echo $this->lang->line("availableFrom"); ?> <?= $product['availabilityDate'] ?>
-                                <?php endif; ?>
-                            </td>
                         <?php endif; ?>
+                        <td>
+                            <?php if ($product['isAvailable']): ?>
+                                <img
+                                    src="http://icons.iconarchive.com/icons/deleket/scrap/48/Aqua-Ball-Green-icon.png"
+                                    alt="Product available"/>
+                            <?php else: ?>
+                                <img
+                                    src="http://icons.iconarchive.com/icons/deleket/scrap/48/Aqua-Ball-Red-icon.png"
+                                    alt="Product Not available"/><br>
+                                <?php echo $this->lang->line("availableFrom"); ?> <?= $product['availabilityDate'] ?>
+                            <?php endif; ?>
+                        </td>
 
                         <?php if ($is_admin): ?>
                             <td>
