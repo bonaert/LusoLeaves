@@ -4,48 +4,50 @@ $lang['homepage'] = 'Início';
 $lang['products'] = 'Produtos';
 $lang['logout'] = 'Log Out';
 $lang['login'] = 'Log In';
-$lang['register'] = 'Registo';
+$lang['register'] = 'Registro';
 
 $lang['companyDescription1'] = '
-Rogil faz parte do concelho de Aljezur, situado perto do oceano Atlântico e permite uma produção contínua em boas condições.
-A região beneficia de poucos dias de frio no Inverno e temperaturas amenas durante o Verão. A empresa está situada entre
-outros grandes produtores de verduras decorativas, nomeadamente Luecodendron, leucospermum, proteas e bambus. ';
+Estamos en Rogil, en el municipio de Aljezur, muy cerca de la costa del Atlántico. Tenemos buenas temperaturas casi todo el año
+excepto algunos días de helada en invierno y algunos de calor (por encima de los 30º) durante el verano.
+Nuestras instalaciones se encuentran en una zona en la que también desarrollan su actividad otras grandes compañías productoras
+de todo tipo de flores y hojas como Leucadendron, Proteas, Leucospermum y Bambús.' ;
 
 $lang['companyDescription2'] = '
-A localidade do Rogil está bem localizada para exportações. Há transportadoras que vão para a Holanda e Inglaterra duas
-vezes por semana para entrega nos principais mercados. Temos 1,80 hectares de estufas de sombreamento, principalmente
-plantadas com fetos ornamentais e Ruscus. Estamos também a introduzir novos tipos de verduras, que ainda não são em produção.
-Além das estufas de sombreamento, temos também estufas de plásticos, plantadas com aspidistras, Aralias, Phil Xanadu e Falcatum.';
+Rogil está muy bien situado para la exportación. Hay varias empresas de transporte internacional que recogen nuestros
+productos dos veces por semana y los reparten a los principales mercados de Holanda y Gran Bretaña asegurando un servicio constante.
+Disponemos de 1.8 hectáreas de invernaderos de sombra plantados en su mayoría con helechos y en menos cantidad con Ruscus.
+También estamos introduciendo nuevos tipos de hojas que todavía no están en producción. Además de los invernaderos de sombra
+tenemos Aspidistras, Aralias, Phil, Xanadú Y Falcatum';
 
-$lang['companyDescription3'] = 'Para qualquer informação adicional, envie-nos um email. ';
+$lang['companyDescription3'] = 'Para cualquier consulta no duden en contactar con nosotros por e-mail. ';
 
 
-$lang['findUsTitle'] = 'Onde estamos';
-$lang['findUsName'] = 'Nome';
-$lang['findUsAddress'] = 'Morada';
-$lang['findUsPostalCode'] = 'Codigo Postal';
-$lang['findUsPhoneNumber'] = 'Numero de telefone';
+$lang['findUsTitle'] = 'Dónde estamos:';
+$lang['findUsName'] = 'Nombre';
+$lang['findUsAddress'] = 'Dirección';
+$lang['findUsPostalCode'] = 'Código Postal';
+$lang['findUsPhoneNumber'] = 'Teléfono';
 $lang['findUsCoordinates'] = 'Coordenadas';
 
 /* Products */
-$lang['productsTitle'] = 'Os nossos produtos';
-$lang['productsNone'] = 'Nenhum produto disponivel.';
-$lang['productsProduct'] = 'Produto';
-$lang['productsImage'] = 'Imagem';
-$lang['productsTPB'] = 'Pés por Molho';
-$lang['productsBPC'] = 'Molho por Caixa';
-$lang['productsPrice'] = 'Preço - Unidade';
-$lang['productIsAvailable'] = 'Disponibilidade';
-$lang['priceFOB'] = 'Preço sem Transporte';
-$lang['boxSize'] = 'Tamanho da Caixa';
-$lang['availableFrom'] = 'Disponivel a partir de:';
+$lang['productsTitle'] = 'Nuestros productos';
+$lang['productsNone'] = 'Producto agotado';
+$lang['productsProduct'] = 'Producto';
+$lang['productsImage'] = 'Imagen';
+$lang['productsTPB'] = 'Hojas por pomo';
+$lang['productsBPC'] = 'Pomos por Caja';
+$lang['productsPrice'] = 'Precio - Unidad';
+$lang['productIsAvailable'] = 'Disponibilidad';
+$lang['priceFOB'] = 'Precio sin Transporte';
+$lang['boxSize'] = 'Tamaño da Caja';
+$lang['availableFrom'] = 'Disponible a partir de:';
 
 /* Register */
-$lang['registerCompanyName'] = 'Nome da Empresa';
-$lang['registerName'] = 'Nome';
-$lang['registerPhoneNumber'] = 'Numero de telefone';
+$lang['registerCompanyName'] = 'Nombre da Empresa';
+$lang['registerName'] = 'Nombre';
+$lang['registerPhoneNumber'] = 'Numero de teléfono';
 $lang['registerContribuinteNumber'] = 'Numero de Contribuinte';
-$lang['registerAddress'] = 'Morada';
+$lang['registerAddress'] = 'Dirección';
 $lang['registerSelectDefault'] = 'Escolha o tipo de empresa';
 $lang['registerSelect1'] = 'Florista';
 $lang['registerSelect2'] = 'Grossista: Flores';

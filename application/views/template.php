@@ -29,11 +29,16 @@ $_external_js[] = '';
 <!-- Flags -->
 <div class="icons">
     <a href="<?= base_url() . $this->lang->switch_uri('pt'); ?>">
-        <img src="https://cdn1.iconfinder.com/data/icons/flags_gosquared/48/Portugal_flat.png" alt="Portuguese"/>
+        <img src="//cdn1.iconfinder.com/data/icons/flags_gosquared/48/Portugal_flat.png" alt="Portuguese"/>
     </a>
 
     <a href="<?= base_url() . $this->lang->switch_uri('en'); ?>">
-        <img src="https://cdn1.iconfinder.com/data/icons/flags/flags/48/United%20Kingdom%28Great%20Britain%29.png"
+        <img src="//cdn1.iconfinder.com/data/icons/flags/flags/48/United%20Kingdom%28Great%20Britain%29.png"
+             alt="English"/>
+    </a>
+
+    <a href="<?= base_url() . $this->lang->switch_uri('es'); ?>">
+        <img src="//cdn1.iconfinder.com/data/icons/flags_gosquared/32/Spain.png"
              alt="English"/>
     </a>
 </div>
