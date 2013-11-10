@@ -21,7 +21,7 @@ class Users extends CI_CONTROLLER
             redirect(site_url('products'));
         }
 
-        $data['_internal_css'] = ['form.css', 'table.css', 'product.css'];
+        $data['_internal_css'] = ['main.css', 'table.css', 'product.css'];
         $data['_external_css'] = ['//cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.3.4/css/semantic.min.css'];
         $data['content_view'] = 'user/index';
 
@@ -32,7 +32,7 @@ class Users extends CI_CONTROLLER
     {
         $data['is_logged_in'] = $this->session->userdata('is_logged_in');
         $data['is_admin'] = $this->session->userdata('is_admin');
-        $data['_internal_css'] = ['form.css'];
+        $data['_internal_css'] = ['main.css', 'form.css'];
         $data['_internal_js'] = ['sha512.js', 'forms.js'];
         $data['content_view'] = 'user/register';
 
@@ -65,7 +65,7 @@ class Users extends CI_CONTROLLER
     {
         $data['is_logged_in'] = $this->session->userdata('is_logged_in');
         $data['is_admin'] = $this->session->userdata('is_admin');
-        $data['_internal_css'] = ['form.css'];
+        $data['_internal_css'] = ['main.css','form.css'];
         $data['_internal_js'] = ['sha512.js', 'forms.js'];
         $data['content_view'] = 'user/login';
 
