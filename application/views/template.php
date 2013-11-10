@@ -16,7 +16,7 @@ $_css[] = '';
 
     <link rel="icon" type="image/png" href="<?php echo base_url(); ?>favicon.png"/>
 
-    <link href="<?php echo base_url(); ?>css/default.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="<?php echo asset_url(); ?>css/default.css" rel="stylesheet" type="text/css" media="screen"/>
     <?php echo format_css($_css); ?>
 
     <?php echo format_external_js($_external_js) ?>
