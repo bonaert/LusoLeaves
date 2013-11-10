@@ -8,14 +8,14 @@ class Products extends CI_CONTROLLER
         $this->load->model('products_model');
         $this->load->model('users_model');
         $this->lang->load('lusoleaves');
-        $data['is_admin'] = $this->session->userdata('is_admin');
-        $data['is_logged_in'] = $this->session->userdata('is_logged_in');
     }
 
     public function index()
     {
         $data['products'] = $this->products_model->get_products();
 
+        $data['is_admin'] = $this->session->userdata('is_admin');
+        $data['is_logged_in'] = $this->session->userdata('is_logged_in');
         $data['companyType'] = $this->session->userdata('companyType');
 
 
