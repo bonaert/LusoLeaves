@@ -37,8 +37,6 @@ class Products extends CI_CONTROLLER
         $data['_external_css'] = ['//cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.3.4/css/semantic.min.css'];
         $data['content_view'] = 'products/add';
 
-        $this->load->view('template', $data);
-
         $this->load->helper('form');
         $this->load->library('form_validation');
 
