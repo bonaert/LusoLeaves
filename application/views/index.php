@@ -34,7 +34,7 @@
 
             <strong><?php echo $this->lang->line("findUsPostalCode"); ?></strong>: Caixa Postal 363-L, 8670-440, Rogil, Aljezur, PORTUGAL
 
-            <strong>Email</strong>: <a href="mailto:lusoleaves@sapo.pt">info@lusoleaves.com</a>
+            <strong>Email</strong>: <a href="mailto:info@lusoleavs.com">info@lusoleaves.com</a>
 
             <strong><?php echo $this->lang->line("findUsPhoneNumber"); ?></strong>: (00351) 925 303 403
 
