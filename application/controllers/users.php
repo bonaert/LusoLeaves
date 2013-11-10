@@ -80,14 +80,14 @@ class Users extends CI_CONTROLLER
         $this->form_validation->set_rules('email', 'Email', 'required|valid_email|max_length[128]|callback_is_email_used');
 
         if ($this->form_validation->run() === FALSE) {
-            $this->load->view('template');
+            $this->load->view('template', $data);
             return;
         }
 
         $email = $this->input->post('email');
         $hashedPassword = $this->input->post('hashedPassword');
         if (!$this->users_model->is_correct_credentials($email, $hashedPassword)) {
-            $this->load->view('template');
+            $this->load->view('template', $data);
             return;
         }
 
