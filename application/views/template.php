@@ -38,7 +38,7 @@
     </a>
 
     <a href="<?= base_url() . $this->lang->switch_uri('es'); ?>">
-        <img src="//cdn1.iconfinder.com/data/icons/flags_gosquared/32/Spain.png"
+        <img src="//cdn1.iconfinder.com/data/icons/flags_gosquared/64/Spain.png"
              alt="English"/>
     </a>
 </div>
