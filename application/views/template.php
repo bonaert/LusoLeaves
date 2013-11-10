@@ -20,6 +20,7 @@ $_external_js[] = '';
     <?php echo format_external_css($_external_css); ?>
     <?php echo format_internal_css($_internal_css); ?>
     <link href="<?php echo asset_url(); ?>css/default.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="<?php echo asset_url(); ?>css/main.css" rel="stylesheet" type="text/css" media="screen"/>
 
     <?php echo format_external_js($_external_js) ?>
     <?php echo format_internal_js($_internal_js) ?>
