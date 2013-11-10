@@ -77,7 +77,7 @@
                         <?php endif; ?>
 
                         <?php if ($is_logged_in && ($is_admin || $companyType == 'Grossiste')): ?>
-                            <td><?php echo $product['prixGrossiste']; ?></td>
+                            <td><?php echo $product['prixGrossiste']; ?> €</td>
                         <?php endif; ?>
                         <td>
                             <?php if ($product['isAvailable']): ?>
