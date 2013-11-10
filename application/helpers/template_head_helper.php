@@ -20,7 +20,7 @@ if (!function_exists('format_css')) {
 if (!function_exists('format_js')) {
     function format_js($js_file)
     {
-        $decl = '<script type="text/javascript" src="" ></script>';
+        $decl = '<script type="text/javascript" src="%s%S"></script>';
         $base = asset_url() . "js/";
         $js = '';
         foreach ($js_file as $item) {
