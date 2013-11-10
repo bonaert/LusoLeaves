@@ -196,8 +196,10 @@ Released   : 20130910
             </table>
         <?php endif; ?>
 
-        * <?= lang('priceFOB') ?>
-        <br>
+        <?php if ($is_logged_in && $companyType !== "unknown"): ?>
+            * <?= lang('priceFOB') ?>
+            <br>
+        <?php endif; ?>
         * <?= lang('boxSize') ?> : 100 x 40 x 20 cm
         <br><br>
 
