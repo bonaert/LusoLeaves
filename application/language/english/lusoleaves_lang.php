@@ -38,10 +38,10 @@ $lang['productsImage'] = 'Image';
 $lang['productsTPB'] = 'Stem per Bunch';
 $lang['productsBPC'] = 'Bunch per Box';
 $lang['productsPrice'] = 'Price - Unit';
-$lang['productIsAvailable'] = 'Availabibily';
+$lang['productIsAvailable'] = 'Availability';
 $lang['priceFOB'] = 'Price Forward On Board';
 $lang['boxSize'] = 'Dimensions of box';
-$lang['availableFrom'] = 'Avaiblable From:';
+$lang['availableFrom'] = 'Available From:';
 
 
 
