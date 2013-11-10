@@ -38,19 +38,19 @@ $lang['productsTPB'] = 'Hojas por pomo';
 $lang['productsBPC'] = 'Pomos por Caja';
 $lang['productsPrice'] = 'Precio - Unidad';
 $lang['productIsAvailable'] = 'Disponibilidad';
-$lang['priceFOB'] = 'Precio sin Transporte';
-$lang['boxSize'] = 'Tamaño da Caja';
+$lang['priceFOB'] = 'Precio sin transporte';
+$lang['boxSize'] = 'Medidas da caja';
 $lang['availableFrom'] = 'Disponible a partir de:';
 
 /* Register */
 $lang['registerCompanyName'] = 'Nombre da Empresa';
 $lang['registerName'] = 'Nombre';
-$lang['registerPhoneNumber'] = 'Numero de teléfono';
-$lang['registerContribuinteNumber'] = 'Numero de Contribuinte';
-$lang['registerAddress'] = 'Dirección';
-$lang['registerSelectDefault'] = 'Escolha o tipo de empresa';
+$lang['registerPhoneNumber'] = 'Teléfono';
+$lang['registerContribuinteNumber'] = 'CIF';
+$lang['registerAddress'] = 'Dirección Postal';
+$lang['registerSelectDefault'] = 'Escoja el tipo de empresa';
 $lang['registerSelect1'] = 'Florista';
-$lang['registerSelect2'] = 'Grossista: Flores';
-$lang['registerSelect3'] = 'Grossista: Verduras';
-$lang['registerSelect4'] = 'Grossista: Acessorios de Flores';
+$lang['registerSelect2'] = 'Mayorista de flores';
+$lang['registerSelect3'] = 'Mayorista de hojas';
+$lang['registerSelect4'] = 'Mayorista de accesorios de flores';
 
