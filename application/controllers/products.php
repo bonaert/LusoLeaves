@@ -8,15 +8,14 @@ class Products extends CI_CONTROLLER
         $this->load->model('products_model');
         $this->load->model('users_model');
         $this->lang->load('lusoleaves');
+        $data['is_admin'] = $this->session->userdata('is_admin');
+        $data['is_logged_in'] = $this->session->userdata('is_logged_in');
     }
 
     public function index()
     {
         $data['products'] = $this->products_model->get_products();
 
-        $data['title'] = "LusoLeaves";
-        $data['is_admin'] = $this->session->userdata('is_admin');
-        $data['is_logged_in'] = $this->session->userdata('is_logged_in');
         $data['companyType'] = $this->session->userdata('companyType');
 
 
@@ -25,7 +24,6 @@ class Products extends CI_CONTROLLER
 
     public function create()
     {
-        $data['title'] = "LusoLeaves";
         $data['is_admin'] = $this->session->userdata('is_admin');
         $data['is_logged_in'] = $this->session->userdata('is_logged_in');
         if (!$data['is_logged_in'] || !$data['is_admin']) {
@@ -53,7 +51,6 @@ class Products extends CI_CONTROLLER
     public function edit($id)
     {
         $data['product'] = $this->products_model->get_products($id);
-        $data['title'] = "LusoLeaves";
         $data['is_admin'] = $this->session->userdata('is_admin');
         $data['is_logged_in'] = $this->session->userdata('is_logged_in');
 
@@ -83,7 +80,6 @@ class Products extends CI_CONTROLLER
 
     public function delete($id)
     {
-        $data['title'] = "LusoLeaves";
         $data['is_admin'] = $this->session->userdata('is_admin');
         $data['is_logged_in'] = $this->session->userdata('is_logged_in');
 
