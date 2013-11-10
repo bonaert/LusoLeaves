@@ -21,13 +21,20 @@ class Users extends CI_CONTROLLER
             redirect(site_url('products'));
         }
 
-        $this->load->view('user/index', $data);
+        $data['_internal_css'] = ['form.css', 'table.css', 'product.css'];
+        $data['_external_css'] = ['//cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.3.4/css/semantic.min.css'];
+        $data['content_view'] = 'user/index';
+
+        $this->load->view('template', $data);
     }
 
     public function register()
     {
         $data['is_logged_in'] = $this->session->userdata('is_logged_in');
         $data['is_admin'] = $this->session->userdata('is_admin');
+        $data['_internal_css'] = ['form.css'];
+        $data['_internal_js'] = ['sha512.js', 'forms.js'];
+        $data['content_view'] = 'user/register';
 
         $this->load->helper('form');
         $this->load->library('form_validation');
@@ -41,7 +48,7 @@ class Users extends CI_CONTROLLER
         $this->form_validation->set_rules('address', 'Address', 'required|min_length[4]|max_length[512]');
 
         if ($this->form_validation->run() === FALSE) {
-            $this->load->view('user/register', $data);
+            $this->load->view('template', $data);
         } else {
             $this->users_model->add_user();
             $data = array(
@@ -56,7 +63,13 @@ class Users extends CI_CONTROLLER
 
     public function login()
     {
-        if ($this->session->userdata('is_logged_in')) {
+        $data['is_logged_in'] = $this->session->userdata('is_logged_in');
+        $data['is_admin'] = $this->session->userdata('is_admin');
+        $data['_internal_css'] = ['form.css'];
+        $data['_internal_js'] = ['sha512.js', 'forms.js'];
+        $data['content_view'] = 'user/login';
+
+        if ($data['is_logged_in']) {
             redirect('products');
         }
 
@@ -67,14 +80,14 @@ class Users extends CI_CONTROLLER
         $this->form_validation->set_rules('email', 'Email', 'required|valid_email|max_length[128]|callback_is_email_used');
 
         if ($this->form_validation->run() === FALSE) {
-            $this->load->view('user/login');
+            $this->load->view('template');
             return;
         }
 
         $email = $this->input->post('email');
         $hashedPassword = $this->input->post('hashedPassword');
         if (!$this->users_model->is_correct_credentials($email, $hashedPassword)) {
-            $this->load->view('user/login');
+            $this->load->view('template');
             return;
         }
 
@@ -100,8 +113,11 @@ class Users extends CI_CONTROLLER
     public function edit($id)
     {
         $data['user'] = $this->users_model->get_users($id);
-        $data['is_admin'] = $this->session->userdata('is_admin');
         $data['is_logged_in'] = $this->session->userdata('is_logged_in');
+        $data['is_admin'] = $this->session->userdata('is_admin');
+        $data['_internal_css'] = ['main.css'];
+        $data['_external_css'] = ['//cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.3.4/css/semantic.min.css'];
+        $data['content_view'] = 'user/edit';
 
         if (!$data['is_logged_in'] || !$data['is_admin']) {
             redirect(site_url('products'));
@@ -112,7 +128,7 @@ class Users extends CI_CONTROLLER
         $this->form_validation->set_rules('companyType', 'Company Type', 'required');
 
         if ($this->form_validation->run() === FALSE) {
-            $this->load->view('user/edit', $data);
+            $this->load->view('template', $data);
         } else {
             $this->users_model->update_company_type($id);
             redirect(site_url('users/index'));
