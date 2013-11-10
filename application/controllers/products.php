@@ -17,9 +17,11 @@ class Products extends CI_CONTROLLER
         $data['is_admin'] = $this->session->userdata('is_admin');
         $data['is_logged_in'] = $this->session->userdata('is_logged_in');
         $data['companyType'] = $this->session->userdata('companyType');
+        $data['_internal_css'] = ['main.css', 'table.css', 'product.css'];
+        $data['_external_css'] = ['//cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.3.4/css/semantic.min.css'];
+        $data['content_view'] = 'products/index';
 
-
-        $this->load->view('products/index', $data);
+        $this->load->view('template', $data);
     }
 
     public function create()
