@@ -11,12 +11,6 @@
  * Original PSD by Orman Clark: http://goo.gl/D8zmk
  */
 
-body {
-    font: 13px/20px "Lucida Grande", Tahoma, Verdana, sans-serif;
-    color: #404040;
-    background: #242424;
-}
-
 .login {
     position: relative;
     margin: 50px auto;
