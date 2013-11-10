@@ -1,7 +1,3 @@
-<div id="wrapper1">
-    <div class="container" id="welcome"></div>
-</div>
-
 <div class="login">
     <h1>Login</h1>
 
