@@ -18,8 +18,10 @@ class Products extends CI_CONTROLLER
         $data['is_logged_in'] = $this->session->userdata('is_logged_in');
         $data['companyType'] = $this->session->userdata('companyType');
 
-        $data['_internal_css'] = ['main.css', 'table.css', 'product.css'];
-        $data['_external_css'] = ['//cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.3.4/css/semantic.min.css'];
+        $data['_internal_css'][] = 'main.css';
+        $data['_internal_css'][] = 'table.css';
+        $data['_internal_css'][] = 'product.css';
+        $data['_external_css'][] = '//cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.3.4/css/semantic.min.css';
         $data['content_view'] = 'products/index';
 
         $this->load->view('template', $data);
@@ -33,8 +35,8 @@ class Products extends CI_CONTROLLER
             redirect(site_url('products'));
         }
 
-        $data['_internal_css'] = ['main.css'];
-        $data['_external_css'] = ['//cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.3.4/css/semantic.min.css'];
+        $data['_internal_css'][] = 'main.css';
+        $data['_external_css'][] = '//cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.3.4/css/semantic.min.css';
         $data['content_view'] = 'products/add';
 
         $this->load->helper('form');
@@ -65,8 +67,8 @@ class Products extends CI_CONTROLLER
             redirect(site_url('products'));
         }
 
-        $data['_internal_css'] = ['main.css'];
-        $data['_external_css'] = ['//cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.3.4/css/semantic.min.css'];
+        $data['_internal_css'][] = 'main.css';
+        $data['_external_css'][] = '//cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.3.4/css/semantic.min.css';
         $data['content_view'] = 'products/edit';
 
 

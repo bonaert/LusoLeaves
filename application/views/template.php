@@ -1,8 +1,8 @@
 <?php
-$_external_css[] = '';
-$_internal_css[] = '';
-$_internal_js[] = '';
-$_external_js[] = '';
+	$_external_css[] = '';
+	$_internal_css[] = '';
+	$_internal_js[] = '';
+	$_external_js[] = '';
 ?>
 <!doctype html>
 <html>
