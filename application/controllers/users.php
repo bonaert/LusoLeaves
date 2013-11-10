@@ -65,7 +65,7 @@ class Users extends CI_CONTROLLER
     {
         $data['is_logged_in'] = $this->session->userdata('is_logged_in');
         $data['is_admin'] = $this->session->userdata('is_admin');
-        $data['_internal_css'] = ['main.css','form.css'];
+        $data['_internal_css'] = ['form.css', 'main.css'];
         $data['_internal_js'] = ['sha512.js', 'forms.js'];
         $data['content_view'] = 'user/login';
 
