@@ -23,25 +23,8 @@ Released   : 20130910
     <script type="text/javascript"
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCr8NrowWwR9foQuKE4s2jJlopGP0UbHgY&sensor=false">
     </script>
-    <script type="text/javascript">
-        function initialize() {
-            var myLatlng = new google.maps.LatLng(37.3666, -8.78535);
-            var mapOptions = {
-                zoom: 17,
-                center: new google.maps.LatLng(37.3666, -8.78535),
-                mapTypeId: google.maps.MapTypeId.SATELLITE
-            };
+    <script type="text/javascript" src="<?php echo asset_url()?>js/maps.js">
 
-            var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-
-            var marker = new google.maps.Marker({
-                position: myLatlng,
-                map: map,
-                title: 'Luso Leaves'
-            });
-        }
-
-        google.maps.event.addDomListener(window, 'load', initialize);
     </script>
 
 </head>
