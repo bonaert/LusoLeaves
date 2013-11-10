@@ -1,8 +1,21 @@
 <?php
 
+if (!function_exists('format_external_css')) {
+    function format_external_css($css_file)
+    {
+        $decl = '<link rel="stylesheet" type="text/css" href="%s" />';
+        $css = '';
+        foreach ($css_file as $item) {
+            if (!empty($item)) {
+                $css .= sprintf($decl, $item);
+            }
+        }
+        return $css;
+    }
+}
 
-if (!function_exists('format_css')) {
-    function format_css($css_file)
+if (!function_exists('format_internal_css')) {
+    function format_internal_css($css_file)
     {
         $decl = '<link rel="stylesheet" type="text/css" href="%s%s" />';
         $base = base_url() . 'assets/css/';
