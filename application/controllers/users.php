@@ -6,12 +6,12 @@ class Users extends CI_CONTROLLER
     {
         parent::__construct();
         $this->load->model('users_model');
+        $this->lang->load('lusoleaves');
         use_ssl();
     }
 
     public function index()
     {
-        $this->lang->load('lusoleaves');
         $data['users'] = $this->users_model->get_users();
         $data['is_admin'] = $this->session->userdata('is_admin');
         $data['is_logged_in'] = $this->session->userdata('is_logged_in');
@@ -26,7 +26,6 @@ class Users extends CI_CONTROLLER
 
     public function register()
     {
-        $this->lang->load('lusoleaves');
         $data['is_logged_in'] = $this->session->userdata('is_logged_in');
         $data['is_admin'] = $this->session->userdata('is_admin');
 
@@ -57,7 +56,6 @@ class Users extends CI_CONTROLLER
 
     public function login()
     {
-        $this->lang->load('lusoleaves');
         if ($this->session->userdata('is_logged_in')) {
             redirect('products');
         }
@@ -109,7 +107,6 @@ class Users extends CI_CONTROLLER
             redirect(site_url('products'));
         }
 
-        $this->lang->load('lusoleaves');
         $this->load->helper('form');
         $this->load->library('form_validation');
         $this->form_validation->set_rules('companyType', 'Company Type', 'required');
