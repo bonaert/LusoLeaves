@@ -1,5 +1,6 @@
 <?php
-$_scripts[] = '';
+$_internal_js[] = '';
+$_external_js[] = '';
 $_css[] = '';
 ?>
 <!doctype html>
@@ -18,7 +19,8 @@ $_css[] = '';
     <link href="<?php echo base_url(); ?>css/default.css" rel="stylesheet" type="text/css" media="screen"/>
     <?php echo format_css($_css); ?>
 
-    <?php echo format_js($_scripts) ?>
+    <?php echo format_external_js($_external_js) ?>
+    <?php echo format_internal_js($_internal_js) ?>
 </head>
 <body>
 

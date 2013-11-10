@@ -16,14 +16,28 @@ if (!function_exists('format_css')) {
     }
 }
 
-
-if (!function_exists('format_js')) {
-    function format_js($js_file)
+if (!function_exists('format_external_js')) {
+    function format_external_js($js_file)
     {
-        $decl = '<script type="text/javascript" src="%s%S"></script>';
-        $base = base_url() . 'assets/js/';
+        $decl = '<script type="text/javascript" src="%s"></script>';
         $js = '';
         foreach ($js_file as $item) {
+            if (!empty($item)) {
+                $js .= sprintf($decl, $item);
+            }
+        }
+
+        return $js;
+    }
+}
+
+if (!function_exists('format_internal_js')) {
+    function format_internal_js($internal_js)
+    {
+        $decl = '<script type="text/javascript" src="%s%s"></script>';
+        $base = base_url() . 'assets/js/';
+        $js = '';
+        foreach ($internal_js as $item) {
             if (!empty($item)) {
                 $js .= sprintf($decl, $base, $item);
             }
