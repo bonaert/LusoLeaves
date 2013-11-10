@@ -137,11 +137,9 @@ Released   : 20130910
                         </th>
                     <?php endif; ?>
 
-                    <?php if ($is_logged_in && $companyType !== 'unknown'): ?>
-                        <th>
-                            <?= lang('productIsAvailable'); ?>
-                        </th>
-                    <?php endif ?>
+                    <th>
+                        <?= lang('productIsAvailable'); ?>
+                    </th>
 
                     <?php if ($is_admin): ?>
                         <th>Edit</th>
