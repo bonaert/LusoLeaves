@@ -17,6 +17,7 @@ class Products extends CI_CONTROLLER
         $data['is_admin'] = $this->session->userdata('is_admin');
         $data['is_logged_in'] = $this->session->userdata('is_logged_in');
         $data['companyType'] = $this->session->userdata('companyType');
+
         $data['_internal_css'] = ['main.css', 'table.css', 'product.css'];
         $data['_external_css'] = ['//cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.3.4/css/semantic.min.css'];
         $data['content_view'] = 'products/index';
@@ -32,6 +33,12 @@ class Products extends CI_CONTROLLER
             redirect(site_url('products'));
         }
 
+        $data['_internal_css'] = ['main.css'];
+        $data['_external_css'] = ['//cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.3.4/css/semantic.min.css'];
+        $data['content_view'] = 'products/add';
+
+        $this->load->view('template', $data);
+
         $this->load->helper('form');
         $this->load->library('form_validation');
 
@@ -42,7 +49,7 @@ class Products extends CI_CONTROLLER
         $this->form_validation->set_rules('bpc', 'Bouquets par caisse', 'required|integer');
 
         if ($this->form_validation->run() === FALSE || !isset($_FILES) || !isset($_FILES['image'])) {
-            $this->load->view('products/add', $data);
+            $this->load->view('template', $data);
         } else {
             $this->products_model->add_product();
             redirect(site_url('products'));
@@ -60,6 +67,10 @@ class Products extends CI_CONTROLLER
             redirect(site_url('products'));
         }
 
+        $data['_internal_css'] = ['main.css'];
+        $data['_external_css'] = ['//cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.3.4/css/semantic.min.css'];
+        $data['content_view'] = 'products/edit';
+
 
         $this->load->helper('form');
         $this->load->library('form_validation');
@@ -72,7 +83,7 @@ class Products extends CI_CONTROLLER
         $this->form_validation->set_rules('availabilityDate', 'Availability date', 'required');
 
         if ($this->form_validation->run() === FALSE) {
-            $this->load->view('products/edit', $data);
+            $this->load->view('template', $data);
         } else {
             $this->products_model->update_product($id);
             redirect(site_url('products'));
