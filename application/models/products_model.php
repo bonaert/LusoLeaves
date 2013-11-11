@@ -37,6 +37,8 @@ class Products_model extends CI_MODEL
             'isAvailable' => 1,
             'availabilityDate' => ""
         );
+        
+        $data = $this->security->xss_clean($data);
 
         $this->db->insert('Product', $data);
     }
@@ -53,6 +55,8 @@ class Products_model extends CI_MODEL
             'isAvailable' => $this->input->post('isAvailable'),
             'availabilityDate' => $this->input->post('availabilityDate')
         );
+        
+        $data = $this->security->xss_clean($data);
 
         if (isset($_FILES) && isset($_FILES['image'])) {
             $image_path = $this->get_image_directory() . basename($_FILES['image']['name']);

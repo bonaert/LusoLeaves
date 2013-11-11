@@ -35,6 +35,8 @@ class Users_model extends CI_MODEL
             'companyType' => 'unknown',
             'user_level' => 0
         );
+        
+        $data = $this->security->xss_clean($data);
 
         $this->db->insert('User', $data);
     }
@@ -90,6 +92,8 @@ class Users_model extends CI_MODEL
 
     function update_company_type($id)
     {
-        $this->db->where('id', $id)->update('User', array('companyType' => $this->input->post('companyType')));
+    	$data = array('companyType' => $this->input->post('companyType'));
+    	$data = $this->security->xss_clean($data);
+        $this->db->where('id', $id)->update('User', $data);
     }
 }
