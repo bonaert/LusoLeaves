@@ -9,15 +9,19 @@
 			    </div>
 			    <?php endif; ?>
 			    		    
-				<h2>Edit Product</h2>
-			
+				<h2>Edit Product</h2>			
 					
 	            <?php echo form_open_multipart('products/edit/'.$product['id'], array("class" => "form-horizontal", "role" => "form")); ?>
 	
 		            <div class="form-group">
 		            	<label for="name" class="col-sm-2 control-label">Name:</label>
 		            	<div class="col-sm-10">
-			               <input type="text" name="name" id="name" class="form-control" value="<?php echo $product['name']; ?>">
+							<?php echo form_input(array(
+									"name" => "name",
+									"id" => "name", 
+									"class" => "form-control", 
+									"value" => $product['name']
+							)); ?>
 		                </div>
 		            </div>
 		
@@ -31,7 +35,12 @@
 		             <div class="form-group">
 		            	<label for="tpb" class="col-sm-2 control-label">Tiges par Bouquet:</label>
 		            	<div class="col-sm-10">
-			               <input type="text" name="tpb" id="tpb" class="form-control" value="<?php echo $product['tpb']; ?>">
+			               <?php echo form_input(array(
+			               		"name" => "tpb", 
+			               		"id" => "tpb", 
+			               		"class" => "form-control", 
+			               		"value" => $product['tpb']
+			               )); ?>
 		                </div>
 		            </div>
 		            
@@ -39,21 +48,36 @@
 					<div class="form-group">
 		            	<label for="bpc" class="col-sm-2 control-label">Bouquets par caisse:</label>
 		            	<div class="col-sm-10">
-			               <input type="text" name="bpc" id="bpc" class="form-control" value="<?php echo $product['bpc']; ?>">
+			               <?php echo form_input(array(
+			               		"name" => "bpc", 
+			               		"id" => "bpc", 
+			               		"class" => "form-control", 
+			               		"value" => $product['bpc']
+			               )); ?>
 		                </div>
 		            </div>
 		            
 					<div class="form-group">
 		            	<label for="prixFloriste" class="col-sm-2 control-label">Prix Fleuriste:</label>
 		            	<div class="col-sm-10">
-			               <input type="text" name="prixFloriste" id="prixFloriste" class="form-control" value="<?php echo $product['prixFloriste'] ?>">
+			               <?php echo form_input(array(
+			               		"name" => "prixFloriste", 
+			               		"id" => "prixFloriste", 
+			               		"class" => "form-control", 
+			               		"value" => $product['prixFloriste']
+			               )); ?>
 		                </div>
 		            </div>
 		            
 		            <div class="form-group">
 		            	<label for="prixGrossiste" class="col-sm-2 control-label">Prix Grossiste:</label>
 		            	<div class="col-sm-10">
-			               <input type="text" name="prixGrossiste" id="prixGrossiste" class="form-control" value="<?php echo $product['prixGrossiste'] ?>">
+			               <?php echo form_input(array(
+			               		"name" => "prixGrossiste",
+			               		"id" => "prixGrossiste", 
+			               		"class" => "form-control", 
+			               		"value" => $product['prixGrossiste']
+			               )); ?>
 		                </div>
 		            </div>
 		
@@ -61,17 +85,27 @@
 		            <div class="form-group">
 		            	<label for="isAvailable" class="col-sm-2 control-label">Is Available:</label>
 		            	<div class="col-sm-10">
-		            		<select name="isAvailable" id="isAvailable" class="form-control">
-		            			<option value="1" <?php if($product['isAvailable']==="1"): ?>selected<?php endif;?>>Yes</option>
-		            			<option value="0" <?php if($product['isAvailable']==="0"): ?>selected<?php endif;?>>No</option>
-		            		</select>
+		            		<?php echo form_dropdown(
+										'isAvailable',
+										array(
+											'1' => 'Yes',
+											'0' => 'No',		            			
+			            				),
+										$product['isAvailable'],
+										'id="isAvailable" class="form-control"'
+							); ?>
 		                </div>
 		            </div>
 		            
 		            <div class="form-group">
 		            	<label for="availabilityDate" class="col-sm-2 control-label">Availability date:</label>
 		            	<div class="col-sm-10">
-			               <input type="text" name="availabilityDate" id="availabilityDate" class="form-control" value="<?php echo $product['availabilityDate'] ?>">
+							<?php echo form_input(array(
+									"name" => "availabilityDate", 
+									"id" => "availabilityDate",
+									"class" => "form-control", 
+									"value" => $product['availabilityDate']
+							)); ?>
 		                </div>
 		            </div>
 	

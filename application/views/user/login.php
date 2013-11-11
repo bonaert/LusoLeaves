@@ -14,14 +14,26 @@
 			        <div class="form-group">
 			        	<label for="email" class="col-sm-2 control-label">Email</label>
 			            <div class="col-sm-4">
-			            	<input class="form-control" type="text" id="email" name="email" required="true" placeholder="Email">
+							<?php echo form_input(array(
+									"name" => "email", 
+									"id" => "email", 
+									"class" => "form-control", 
+									"required" => "true", 
+									"placeholder" => "Email"
+							)); ?>
 			            </div>
 			        </div>
 	
 			        <div class="form-group">
 			        	<label for="password" class="col-sm-2 control-label">Password</label>
 			        	<div class="col-sm-4">
-			            	<input class="form-control" type="password" id="password" name="password" required="true" placeholder="Password">
+							<?php echo form_password(array(
+									"name" => "password", 
+									"id" => "password", 
+									"class" => "form-control", 
+									"required" => "true", 
+									"placeholder" => "Password"
+							)); ?>
 			            </div>
 			        </div>
 

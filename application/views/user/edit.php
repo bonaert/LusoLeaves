@@ -15,61 +15,110 @@
 					<div class="form-group">
 		            	<label for="name" class="col-sm-2 control-label">Name:</label>
 		            	<div class="col-sm-10">
-			               <input type="text" disabled name="name" id="name" class="form-control" value="<?php echo $user['name'] ?>">
+							<?php echo form_input(array(
+									"name" => "name", 
+									"id" => "name", 
+									"disabled" => "disabled", 
+									"class" => "form-control", 
+									"value" => $user['name']
+							)); ?>
 		                </div>
 		            </div>
 				
 					<div class="form-group">
 		            	<label for="id" class="col-sm-2 control-label">ID:</label>
 		            	<div class="col-sm-10">
-			               <input type="text" disabled name="id" id="id" class="form-control" value="<?php echo $user['id'] ?>">
+			            	<?php echo form_input(array(
+			            			"name" => "id", 
+			            			"id" => "id", 
+			            			"disabled" => 
+			            			"disabled", 
+			            			"class" => "form-control", 
+			            			"value" => $user['id']
+			            	)); ?>
 		                </div>
 		            </div>
 				
 					<div class="form-group">
 		            	<label for="companyName" class="col-sm-2 control-label">Company Name:</label>
 		            	<div class="col-sm-10">
-			               <input type="text" disabled name="companyName" id="companyName" class="form-control" value="<?php echo $user['companyName'] ?>">
+							<?php echo form_input(array(
+									"name" => "companyName", 
+									"id" => "companyName", 
+									"disabled" => "disabled", 
+									"class" => "form-control", 
+									"value" => $user['companyName']
+							)); ?>
 		                </div>
 		            </div>
 				
 					<div class="form-group">
 		            	<label for="contribuinteNumber" class="col-sm-2 control-label">VAT Number:</label>
 		            	<div class="col-sm-10">
-			               <input type="text" disabled id="contribuinteNumber" class="form-control" value="<?php echo $user['contribuinteNumber'] ?>">
+							<?php echo form_input(array(
+									"name" => "contribuinteNumber", 
+									"id" => "contribuinteNumber", 
+									"disabled" => "disabled", 
+									"class" => "form-control", 
+									"value" => $user['contribuinteNumber']
+							)); ?>
 		                </div>
 		            </div>
 				
 					<div class="form-group">
 		            	<label for="phoneNumber" class="col-sm-2 control-label">Phone Number:</label>
 		            	<div class="col-sm-10">
-			               <input type="text" disabled id="phoneNumber" class="form-control" value="<?php echo $user['phoneNumber'] ?>">
+			               <?php echo form_input(array(
+			               		"name" => "phoneNumber", 
+			               		"id" => "phoneNumber", 
+			               		"disabled" => "disabled", 
+			               		"class" => "form-control", 
+			               		"value" => $user['phoneNumber']
+			               )); ?>
 		                </div>
 		            </div>
 				
 					<div class="form-group">
 		            	<label for="address" class="col-sm-2 control-label">Address:</label>
 		            	<div class="col-sm-10">
-			               <input type="text" disabled id="address" class="form-control" value="<?php echo $user['address'] ?>">
+			          		<?php echo form_input(array(
+			          				"name" => "address", 
+			          				"id" => "address", 
+			          				"disabled" => "disabled", 
+			          				"class" => "form-control", 
+			          				"value" => $user['address']
+			          		)); ?>
 		                </div>
 		            </div>
 				
 		            <div class="form-group">
 		            	<label for="email" class="col-sm-2 control-label">Email:</label>
 		            	<div class="col-sm-10">
-			               <input type="text" disabled id="email" class="form-control" value="<?php echo $user['email'] ?>">
+			            	<?php echo form_input(array(
+			            			"name" => "email", 
+			            			"id" => "email", 
+			            			"disabled" => "disabled", 
+			            			"class" => "form-control", 
+			            			"value" => $user['email']
+			            	)); ?>
 		                </div>
 		            </div>
 		            
 		            <div class="form-group">
 		            	<label for="companyType" class="col-sm-2 control-label">Company type:</label>
 		            	<div class="col-sm-10">
-			                <select id="companyType" name="companyType" class="form-control">
-			                    <option value="Select company type" disabled selected>Select company type</option>
-			                    <option value="Floriste">Fleuriste</option>
-			                    <option value="Grossiste">Grossiste</option>
-			                    <option value="unknown">Unknown</option>
-			                </select>
+			                <?php
+		            			echo form_dropdown(
+										'companyType',
+										array(
+											'unknown' => 'Unknown',
+											'Grossiste' => 'Grossiste',
+											'Floriste' => 'Fleuriste',            			
+			            				),
+										$user['companyType'],
+										'id="companyType" class="form-control"'
+								); 
+		            		?>
 		                </div>
 		            </div>
 		            
