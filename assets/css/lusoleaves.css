@@ -1,0 +1,65 @@
+/* Footer bottom */
+html,body {
+	height: 100%;
+}
+
+#view {
+	min-height: 100%;
+	height: auto;
+	margin: 0 auto -100px;
+	padding: 0 0 100px;
+}
+
+footer {
+	height: 100px;
+	background-color: #333333;
+	color: #f9f9f9; 
+}
+
+/* Jumbotron */
+.header-banner {
+	height: 295px;
+	margin: 0 auto;
+	display: block;
+	border: 3px solid #cccccc;
+}
+
+/* Page Sections */
+.section,.section-colored {
+	padding: 50px 0;
+}
+
+.section-colored {
+	background-color: #333333;
+	/* change this to change the background color of a colored section */
+	color: #f9f9f9;
+}
+
+/* Table */
+td {
+	text-align: center !important;
+}
+
+th {
+	text-align: center !important;
+}
+
+.productImg {
+	max-width: 200px;
+	max-height: 200px;
+}
+
+.productRow {
+	height: 200px;
+}
+
+/* Map */
+#map-canvas {
+	height: 100%
+}
+
+.map {
+	width: calc(100%) !important;
+	height: 700px !important;
+	margin: 0 auto;
+}

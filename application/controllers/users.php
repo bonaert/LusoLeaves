@@ -23,9 +23,6 @@ class Users extends CI_CONTROLLER
             redirect(site_url('products'));
         }
 
-        $data['_internal_css'][] = 'main.css';
-        $data['_internal_css'][] = 'table.css';
-        $data['_internal_css'][] = 'product.css';
         $data['_external_css'][] = '//cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.3.4/css/semantic.min.css';
         $data['content_view'] = 'user/index';
 
@@ -36,8 +33,6 @@ class Users extends CI_CONTROLLER
     {
         $data['is_logged_in'] = $this->session->userdata('is_logged_in');
         $data['is_admin'] = $this->session->userdata('is_admin');
-        $data['_internal_css'][] = 'form.css';
-        $data['_internal_css'][] = 'main.css';
         $data['_internal_js'][] = 'sha512.js';
         $data['_internal_js'][] = 'forms.js';
         $data['content_view'] = 'user/register';
@@ -49,8 +44,8 @@ class Users extends CI_CONTROLLER
         $this->form_validation->set_rules('hashedPassword', 'Password', 'required|exact_length[128]');
         $this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[User.email]');
         $this->form_validation->set_rules('companyName', 'Company Name', 'required|max_length[155]');
-        $this->form_validation->set_rules('phoneNumber', 'Phone Number', 'required|integer');
-        $this->form_validation->set_rules('contribuinteNumber', 'Contribuinte Number', 'required|integer|max_length[13]');
+        $this->form_validation->set_rules('phoneNumber', 'Phone Number', 'required');
+        $this->form_validation->set_rules('contribuinteNumber', 'Contribuinte Number', 'required|max_length[13]');
         $this->form_validation->set_rules('address', 'Address', 'required|min_length[4]|max_length[512]');
 
         if ($this->form_validation->run() === FALSE) {
@@ -71,8 +66,6 @@ class Users extends CI_CONTROLLER
     {
         $data['is_logged_in'] = $this->session->userdata('is_logged_in');
         $data['is_admin'] = $this->session->userdata('is_admin');
-        $data['_internal_css'][] = 'form.css';
-        $data['_internal_css'][] = 'main.css';
         $data['_internal_js'][] = 'sha512.js';
         $data['_internal_js'][] = 'forms.js';
         $data['content_view'] = 'user/login';
@@ -123,7 +116,6 @@ class Users extends CI_CONTROLLER
         $data['user'] = $this->users_model->get_users($id);
         $data['is_logged_in'] = $this->session->userdata('is_logged_in');
         $data['is_admin'] = $this->session->userdata('is_admin');
-        $data['_internal_css'][] = 'main.css';
         $data['_external_css'][] = '//cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.3.4/css/semantic.min.css';
         $data['content_view'] = 'user/edit';
 
@@ -166,6 +158,6 @@ class Users extends CI_CONTROLLER
         if ($data['is_logged_in'] && $data['is_admin']) {
             $this->users_model->delete_user($id);
         }
-        redirect(site_url('products'));
+        redirect(site_url('users'));
     }
 }

@@ -1,54 +1,68 @@
-<div id="wrapper1">
-    <div id="welcome" class="container">
+<div class="section">
+	<div class="container">
+		<div class="row">
+	   		<div class="col-lg-12">
+  
+				<?php if(validation_errors()): ?>
+				<div class="alert alert-danger">
+					<?php echo validation_errors(); ?>
+			    </div>
+			    <?php endif; ?>
+			    		    
+				<h2>Add product</h2>
 
-    </div>
-</div>
-<div id="wrapper3">
-    <div id="description" class="container">
-
-
-        <div class="title">
-            <h2>Add Product</h2>
+	            <?php echo form_open('products/create', array("class" => "form-horizontal", "method" => "post", "role" => "form", "enctype" => "multipart/form-data")); ?>
+		           
+		           	<div class="form-group">
+		            	<label for="name" class="col-sm-2 control-label">Name:</label>
+		            	<div class="col-sm-10">
+			               <input type="text" name="name" id="name" class="form-control">
+		                </div>
+		            </div>
+		            
+		            <div class="form-group">
+		            	<label for="image" class="col-sm-2 control-label">Image:</label>
+		            	<div class="col-sm-10">
+			               <input type="file" name="image" id="image" class="form-control">
+		                </div>
+		            </div>
+		            
+		           	<div class="form-group">
+		            	<label for="tpb" class="col-sm-2 control-label">Tiges par Bouquet:</label>
+		            	<div class="col-sm-10">
+			               <input type="text" name="tpb" id="tpb" class="form-control">
+		                </div>
+		            </div>
+		           
+					<div class="form-group">
+		            	<label for="bpc" class="col-sm-2 control-label">Bouquets par caisse:</label>
+		            	<div class="col-sm-10">
+			               <input type="text" name="bpc" id="bpc" class="form-control">
+		                </div>
+		            </div>
+		            
+		            <div class="form-group">
+		            	<label for="prixFloriste" class="col-sm-2 control-label">Prix Fleuriste:</label>
+		            	<div class="col-sm-10">
+			               <input type="text" name="prixFloriste" id="prixFloriste" class="form-control">
+		                </div>
+		            </div>
+		            
+		            <div class="form-group">
+		            	<label for="prixGrossiste" class="col-sm-2 control-label">Prix Grossiste:</label>
+		            	<div class="col-sm-10">
+			               <input type="text" name="prixGrossiste" id="prixGrossiste" class="form-control">
+		                </div>
+		            </div>
+		            
+		            <div class="form-group">
+			    		<div class="col-sm-offset-2 col-sm-10">
+			      			<input class="btn btn-success" type="submit" name="commit" value="Save">
+			      		</div>
+			      	</div>	
+	        	</form>
+	        	
+        	</div>
         </div>
-
-
-        <form class="ui tertiary form segment" method="POST" enctype="multipart/form-data">
-            <div style="color:red;">
-                <?php echo validation_errors(); ?>
-                <br>
-            </div>
-
-            <?php echo form_open('products/create'); ?>
-            <div class="field">
-                <label>Name</label>
-                <input type="text" name="name">
-            </div>
-
-            <div class="field">
-                <label>Image</label>
-                <input type="file" name="image">
-            </div>
-
-            <div class="field">
-                <label>Tiges par Bouquet</label>
-                <input type="text" name="tpb">
-            </div>
-
-            <div class="field">
-                <label>Bouquets par caisse</label>
-                <input type="text" name="bpc">
-            </div>
-
-            <div class="field">
-                <label>Prix Floriste</label>
-                <input type="text" name="prixFloriste">
-            </div>
-
-            <div class="field">
-                <label>Prix Grossiste</label>
-                <input type="text" name="prixGrossiste">
-            </div>
-            <input class="ui green submit button" type="submit" name="submit" value="Save"/>
-        </form>
     </div>
 </div>

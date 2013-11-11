@@ -16,7 +16,7 @@ class Main extends CI_CONTROLLER
 
         $data['_external_js'][] = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCr8NrowWwR9foQuKE4s2jJlopGP0UbHgY&sensor=false';
         $data['_internal_js'][] = 'maps.js';
-        $data['_internal_css'][] = 'main.css';
+        //$data['_internal_css'][] = 'main.css';
         $data['content_view'] = 'index';
         $this->load->view('template', $data);
     }
