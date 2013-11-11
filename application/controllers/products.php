@@ -75,7 +75,7 @@ class Products extends CI_CONTROLLER
         $this->form_validation->set_rules('tpb', 'Tiges par bouquet', 'required|integer');
         $this->form_validation->set_rules('bpc', 'Bouquets par caisse', 'required|integer');
         $this->form_validation->set_rules('isAvailable', 'Is Available', 'required|integer');
-        $this->form_validation->set_rules('availabilityDate', 'Availability date', 'required');
+        $this->form_validation->set_rules('availabilityDate', 'Availability date', '');
 
         if ($this->form_validation->run() === FALSE) {
             $this->load->view('template', $data);
