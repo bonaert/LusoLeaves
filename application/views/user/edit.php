@@ -11,7 +11,7 @@
 			    		    
 				<h2>Edit User</h2>
 				
-				<?php echo form_open('users/edit/'.$user['id'], array("class" => "form-horizontal", "method" => "post", "role" => "form")); ?>
+				<?php echo form_open('users/edit/'.$user['id'], array("class" => "form-horizontal", "role" => "form")); ?>
 					<div class="form-group">
 		            	<label for="name" class="col-sm-2 control-label">Name:</label>
 		            	<div class="col-sm-10">

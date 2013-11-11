@@ -11,7 +11,7 @@
 			    
 	   			<h2><?= lang('register') ?></h2>
 	   			
-	    		<?php echo form_open('users/register', array("class" => "form-horizontal", "method" => "post", "role" => "form")); ?>
+	    		<?php echo form_open('users/register', array("class" => "form-horizontal", "role" => "form")); ?>
 			        <div class="form-group">
 			        	<label for="companyName" class="col-sm-2 control-label"><?= lang("registerCompanyName"); ?></label>
 			            <div class="col-sm-10">

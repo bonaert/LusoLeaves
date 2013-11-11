@@ -10,7 +10,7 @@
 			    <?php endif; ?>
 	   			<h2>Login</h2>
 
-    			<?php echo form_open('users/login', array("class" => "form-horizontal", "method" => "post", "role" => "form")); ?>
+    			<?php echo form_open('users/login', array("class" => "form-horizontal", "role" => "form")); ?>
 			        <div class="form-group">
 			        	<label for="email" class="col-sm-2 control-label">Email</label>
 			            <div class="col-sm-4">

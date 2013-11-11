@@ -12,7 +12,7 @@
 				<h2>Edit Product</h2>
 			
 					
-	            <?php echo form_open('products/edit/'.$product['id'], array("class" => "form-horizontal", "method" => "post", "role" => "form", "enctype" => "multipart/form-data")); ?>
+	            <?php echo form_open_multipart('products/edit/'.$product['id'], array("class" => "form-horizontal", "role" => "form")); ?>
 	
 		            <div class="form-group">
 		            	<label for="name" class="col-sm-2 control-label">Name:</label>
