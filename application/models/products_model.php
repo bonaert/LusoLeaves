@@ -35,7 +35,8 @@ class Products_model extends CI_MODEL
             'prixGrossiste' => $this->input->post('prixGrossiste'),
             'prixFloriste' => $this->input->post('prixFloriste'),
             'isAvailable' => 1,
-            'availabilityDate' => ""
+            'availabilityDate' => "",
+            'modificationDate' => time()
         );
         
         $data = $this->security->xss_clean($data);
@@ -53,7 +54,8 @@ class Products_model extends CI_MODEL
             'prixGrossiste' => $this->input->post('prixGrossiste'),
             'prixFloriste' => $this->input->post('prixFloriste'),
             'isAvailable' => $this->input->post('isAvailable'),
-            'availabilityDate' => $this->input->post('availabilityDate')
+            'availabilityDate' => $this->input->post('availabilityDate'),
+            'modificationDate' => time()
         );
         
         $data = $this->security->xss_clean($data);
