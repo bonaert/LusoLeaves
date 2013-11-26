@@ -102,7 +102,7 @@ class Products extends CI_CONTROLLER
     public function format_timestamp($timestamp)
     {
         $date = date_create($timestamp);
-        return $date->format('l j F Y');
+        return $date->format('j F Y');
     }
 
 
