@@ -39,7 +39,7 @@
 
 			        <div class="form-group">
 			    		<div class="col-sm-offset-2 col-sm-4">
-			      			<input class="btn btn-success" type="submit" name="commit" value="Register" onclick="formhash(this.form, this.form.password);">
+			      			<input class="btn btn-success" type="submit" name="commit" value="Login" onclick="formhash(this.form, this.form.password);">
 			      		</div>
 			      	</div>
 			    </form>
