@@ -16,6 +16,8 @@ class Products extends CI_CONTROLLER
         $timestamp = $this->products_model->get_timestamp();
         $data['timestamp'] = $timestamp;
 
+        echo $timestamp . " Bacalhau ";
+
         $data['is_admin'] = $this->session->userdata('is_admin');
         $data['is_logged_in'] = $this->session->userdata('is_logged_in');
         $data['companyType'] = $this->session->userdata('companyType');
