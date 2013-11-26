@@ -21,10 +21,7 @@ class Products_model extends CI_MODEL
     public function get_timestamp()
     {
         $this->db->select_max('modificationDate');
-        $array =  $this->db->get('Product')->result();
-        foreach ($array as $row) {
-            return $row;
-        }
+        return $this->db->get('Product')->row_array();
     }
 
     public function add_product()
