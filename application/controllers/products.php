@@ -14,7 +14,7 @@ class Products extends CI_CONTROLLER
     {
         $data['products'] = $this->products_model->get_products();
         $timestamp = $this->products_model->get_timestamp();
-        $data['timestamp'] = $timestamp;
+        $data['timestamp'] = $this->format_timestamp($timestamp);
 
         $data['is_admin'] = $this->session->userdata('is_admin');
         $data['is_logged_in'] = $this->session->userdata('is_logged_in');
@@ -101,7 +101,8 @@ class Products extends CI_CONTROLLER
 
     public function format_timestamp($timestamp)
     {
-        return date('l j F Y', $timestamp);
+        $date = date_create($timestamp);
+        return $date->format('l j F Y');
     }
 
 
