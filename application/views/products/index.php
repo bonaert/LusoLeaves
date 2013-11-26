@@ -5,7 +5,7 @@
 				<h2>
 					<?= lang("productsTitle"); ?>
 				</h2>
-			
+
 				<?php if (sizeof($products) == 0): ?>
 					<p>
 						<?= lang("productsNone"); ?>
@@ -56,7 +56,7 @@
 									<?php echo $this->lang->line("availableFrom"); ?> <?= $product['availabilityDate'] ?>
 								<?php endif; ?>
 							</td>
-			
+
 							<?php if ($is_admin): ?>
 							<td>
 								<a href="<?= site_url('products/edit/') . '/' . $product['id'] ?>">
@@ -76,8 +76,7 @@
 						<?php endif; ?>
 
                         <li><?= lang('boxSize') ?>: 100 x 40 x 20 cm</li>
-                        <li><?= lang('lastModified') . $timestamp?>
-
+                        <li><?= lang('lastModified') ?> <?php echo $timestamp ?>
                         </li>
 
 					</ul>
@@ -85,7 +84,7 @@
 				<?php if ($is_admin): ?>
 				<a href="<?= site_url('products/create') ?>" class="btn btn-success">Add a new product</a>
 				<?php endif; ?>
-				
+
 			</div>
 		</div>
 	</div>
