@@ -18,6 +18,11 @@ class Products_model extends CI_MODEL
         return $query->row_array();
     }
 
+    public function get_timestamp()
+    {
+        return $this->db->select_max('modificationDate')->get('Product');
+    }
+
     public function add_product()
     {
         $image_path = $this->get_image_directory() . basename($_FILES['image']['name']);
@@ -38,7 +43,7 @@ class Products_model extends CI_MODEL
             'availabilityDate' => "",
             'modificationDate' => time()
         );
-        
+
         $data = $this->security->xss_clean($data);
 
         $this->db->insert('Product', $data);
@@ -57,7 +62,7 @@ class Products_model extends CI_MODEL
             'availabilityDate' => $this->input->post('availabilityDate'),
             'modificationDate' => time()
         );
-        
+
         $data = $this->security->xss_clean($data);
 
         if (isset($_FILES) && isset($_FILES['image'])) {
