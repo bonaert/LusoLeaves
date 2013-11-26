@@ -25,6 +25,7 @@ class Products_model extends CI_MODEL
         foreach ($array as $row) {
             echo $row;
         }
+        var_dump($array);
         return $array;
     }
 
