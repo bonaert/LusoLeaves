@@ -39,6 +39,7 @@ $lang['productIsAvailable'] = 'Disponibilidade';
 $lang['priceFOB'] = 'Preço sem Transporte';
 $lang['boxSize'] = 'Tamanho da Caixa';
 $lang['availableFrom'] = 'Disponivel a partir de:';
+$lang['lastModified'] = 'Ultima modificação: ';
 
 /* Register */
 $lang['registerCompanyName'] = 'Nome da Empresa';

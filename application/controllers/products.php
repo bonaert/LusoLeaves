@@ -13,6 +13,8 @@ class Products extends CI_CONTROLLER
     public function index()
     {
         $data['products'] = $this->products_model->get_products();
+        $timespamp = $this->products_model->get_timestamp();
+        $data['timestamp'] = $this->format_timestamp($timespamp);
 
         $data['is_admin'] = $this->session->userdata('is_admin');
         $data['is_logged_in'] = $this->session->userdata('is_logged_in');
@@ -95,6 +97,11 @@ class Products extends CI_CONTROLLER
             $this->products_model->delete_product($id);
         }
         redirect(site_url('products'));
+    }
+
+    public function format_timestamp($timestamp)
+    {
+        return date('l j F Y', $timestamp);
     }
 
 

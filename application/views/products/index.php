@@ -74,7 +74,12 @@
 						<?php if ($is_logged_in && $companyType !== "unknown"): ?>
 						<li><?= lang('priceFOB') ?></li>
 						<?php endif; ?>
-						<li><?= lang('boxSize') ?>: 100 x 40 x 20 cm</li>
+
+                        <li><?= lang('boxSize') ?>: 100 x 40 x 20 cm</li>
+                        <li><?= lang('lastModified') . $timestamp?>
+
+                        </li>
+
 					</ul>
 				</div>
 				<?php if ($is_admin): ?>

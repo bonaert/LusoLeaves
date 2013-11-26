@@ -42,6 +42,7 @@ $lang['productIsAvailable'] = 'Availability';
 $lang['priceFOB'] = 'Price Forward On Board';
 $lang['boxSize'] = 'Dimensions of box';
 $lang['availableFrom'] = 'Available From:';
+$lang['lastModified'] = 'Last modified on ';
 
 
 
