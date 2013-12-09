@@ -39,6 +39,38 @@ class Users_model extends CI_MODEL
         $data = $this->security->xss_clean($data);
 
         $this->db->insert('User', $data);
+        
+        
+        $email = $this->config->item('new_user_notification_email');
+        $message = "
+Utilisateur: %s
+Entreprise: %s
+Email: %s
+Telephone: %s
+Numero de contribuinte: %s
+Adresse: %s
+Date: %s
+        		
+https://lusoleaves.com
+";
+        
+        $message = sprintf(
+        		$message,
+        		$data['name'],
+        		$data['companyName'],
+        		$data['email'],
+        		$data['phoneNumber'],
+        		$data['contribuinteNumber'],
+        		$data['address'],
+        		date("Y-m-d H:i:s")
+         );
+        
+        $this->load->library('email');
+        $this->email->from($email, 'Lusoleaves');
+        $this->email->to($email);
+        $this->email->subject('Nouvel utilisateur sur lusoleaves.com');
+        $this->email->message($message);
+        $this->email->send();
     }
 
     public function delete_user($id)
