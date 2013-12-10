@@ -40,8 +40,8 @@ class Users_model extends CI_MODEL
 
         $this->db->insert('User', $data);
         
-        
-        $email = $this->config->item('new_user_notification_email');
+        $from = $this->config->item('noreply_email');
+        $to = $this->config->item('new_user_notification_email');
         $message = "
 Utilisateur: %s
 Entreprise: %s
@@ -66,7 +66,7 @@ https://lusoleaves.com
          );
         
         $this->load->library('email');
-        $this->email->from($email, 'Lusoleaves');
+        $this->email->from($from, 'Lusoleaves');
         $this->email->to($email);
         $this->email->subject('Nouvel utilisateur sur lusoleaves.com');
         $this->email->message($message);
