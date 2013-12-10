@@ -15,47 +15,83 @@
 			        <div class="form-group">
 			        	<label for="companyName" class="col-sm-2 control-label"><?= lang("registerCompanyName"); ?></label>
 			            <div class="col-sm-10">
-			            	<input class="form-control" type="text" id="companyName" name="companyName" required="true"
-			                   placeholder="<?= lang("registerCompanyName"); ?>">
+			                <?php echo form_input(array(
+									"name" => "companyName",
+									"id" => "companyName",
+									"class" => "form-control",
+			                		"required" => "true",
+			                		"placeholder" => lang("registerCompanyName"),
+									"value" => $user['companyName']
+							)); ?>
 			            </div>
 			        </div>
 			
 			        <div class="form-group">
 			        	<label for="name" class="col-sm-2 control-label"><?= lang("registerName"); ?></label>
 			        	<div class="col-sm-10">
-			            	<input class="form-control" type="text" id="name" name="name" required="true"
-			                   placeholder="<?= lang("registerName"); ?>">
+			                <?php echo form_input(array(
+									"name" => "name",
+									"id" => "name",
+									"class" => "form-control",
+			                		"required" => "true",
+			                		"placeholder" => lang("registerName"),
+									"value" => $user['name']
+							)); ?>
 			            </div>
 			        </div>
 					
 			        <div class="form-group">
 			        	<label for="phoneNumber" class="col-sm-2 control-label"><?= lang("registerPhoneNumber"); ?></label>
 			        	<div class="col-sm-10">
-			            	<input class="form-control" type="text" id="phoneNumber" name="phoneNumber" required="true"
-			                   placeholder="<?= lang("registerPhoneNumber"); ?>">
+			             	<?php echo form_input(array(
+									"name" => "phoneNumber",
+									"id" => "phoneNumber",
+									"class" => "form-control",
+			                		"required" => "true",
+			                		"placeholder" => lang("registerPhoneNumber"),
+									"value" => $user['phoneNumber']
+							)); ?>
 			            </div>
 			        </div>
 			
 			        <div class="form-group">
 			        	<label for="contribuinteNumber" class="col-sm-2 control-label"><?= lang("registerContribuinteNumber"); ?></label>
 			        	<div class="col-sm-10">
-			            	<input class="form-control" type="text" id="contribuinteNumber" name="contribuinteNumber" required="true"
-			                   placeholder="<?= lang("registerContribuinteNumber"); ?>">
+							<?php echo form_input(array(
+								"name" => "contribuinteNumber",
+								"id" => "contribuinteNumber",
+								"class" => "form-control",
+		                		"placeholder" => lang("registerContribuinteNumber"),
+								"value" => $user['contribuinteNumber']
+							)); ?>
 			            </div>
 			        </div>
 			
 			        <div class="form-group">
 			        	<label for="address" class="col-sm-2 control-label"><?= lang("registerAddress"); ?></label>
 			        	<div class="col-sm-10">
-			            	<input class="form-control" type="text" id="address" name="address" required="true"
-			                   placeholder="<?= lang("registerAddress"); ?>">
+							<?php echo form_input(array(
+								"name" => "address",
+								"id" => "address",
+								"class" => "form-control",
+								"required" => "true",
+		                		"placeholder" => lang("registerAddress"),
+								"value" => $user['address']
+							)); ?>
 			            </div>
 			        </div>
 			
 			        <div class="form-group">
 			        	<label for="email" class="col-sm-2 control-label">Email</label>
 			            <div class="col-sm-10">
-			            	<input class="form-control" type="text" id="email" name="email" required="true" placeholder="Email">
+							<?php echo form_input(array(
+								"name" => "email",
+								"id" => "email",
+								"class" => "form-control",
+								"required" => "true",
+		                		"placeholder" => "Email",
+								"value" => $user['email']
+							)); ?>
 			            </div>
 			        </div>
 			

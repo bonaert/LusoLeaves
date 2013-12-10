@@ -40,14 +40,23 @@ class Users extends CI_CONTROLLER
         $this->load->helper('form');
         $this->load->library('form_validation');
 
-        $this->form_validation->set_rules('name', 'Name', 'required|min_length[4]|max_length[80]');
+        $this->form_validation->set_rules('name', $this->lang->line("registerName"), 'required|min_length[4]|max_length[80]');
         $this->form_validation->set_rules('hashedPassword', 'Password', 'required|exact_length[128]');
         $this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[User.email]');
-        $this->form_validation->set_rules('companyName', 'Company Name', 'required|max_length[155]');
-        $this->form_validation->set_rules('phoneNumber', 'Phone Number', 'required');
-        $this->form_validation->set_rules('contribuinteNumber', 'Contribuinte Number', 'required|max_length[13]');
-        $this->form_validation->set_rules('address', 'Address', 'required|min_length[4]|max_length[512]');
+        $this->form_validation->set_rules('companyName', $this->lang->line("registerCompanyName"), 'required|max_length[155]');
+        $this->form_validation->set_rules('phoneNumber', $this->lang->line("registerPhoneNumber"), 'required');
+        $this->form_validation->set_rules('contribuinteNumber', $this->lang->line("registerContribuinteNumber"), 'max_length[13]');
+        $this->form_validation->set_rules('address', $this->lang->line("registerAddress"), 'required|min_length[4]|max_length[512]');
 
+        $data['user'] = array(
+            'name' => $this->input->post('name'),
+            'email' => $this->input->post('email'),
+            'companyName' => $this->input->post('companyName'),
+            'phoneNumber' => $this->input->post('phoneNumber'),
+            'contribuinteNumber' => $this->input->post('contribuinteNumber'),
+            'address' => $this->input->post('address')
+        );
+        
         if ($this->form_validation->run() === FALSE) {
             $this->load->view('template', $data);
         } else {
