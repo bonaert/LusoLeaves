@@ -67,7 +67,7 @@ https://lusoleaves.com
         
         $this->load->library('email');
         $this->email->from($from, 'Lusoleaves');
-        $this->email->to($email);
+        $this->email->to($to);
         $this->email->subject('Nouvel utilisateur sur lusoleaves.com');
         $this->email->message($message);
         $this->email->send();
