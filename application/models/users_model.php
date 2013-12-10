@@ -43,6 +43,11 @@ class Users_model extends CI_MODEL
         $from = $this->config->item('noreply_email');
         $to = $this->config->item('new_user_notification_email');
         $message = "
+Dear,
+        		
+A new user registered at lusoleaves.com. Do not forget to change the
+company type.
+        		
 Utilisateur: %s
 Entreprise: %s
 Email: %s
@@ -50,8 +55,13 @@ Telephone: %s
 Numero de contribuinte: %s
 Adresse: %s
 Date: %s
+
+The company type can be changed on https://lusoleaves.com using the
+administrator account.
         		
-https://lusoleaves.com
+Regards,
+        		
+Lusoleaves.com
 ";
         
         $message = sprintf(
