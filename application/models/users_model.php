@@ -40,9 +40,11 @@ class Users_model extends CI_MODEL
 
         $this->db->insert('User', $data);
         
-        $from = $this->config->item('noreply_email');
-        $to = $this->config->item('new_user_notification_email');
-        $message = "
+        if (defined('ENVIRONMENT') && ENVIRONMENT === 'production')  {
+       
+	        $from = $this->config->item('noreply_email');
+	        $to = $this->config->item('new_user_notification_email');
+	        $message = "
 Dear,
         		
 A new user registered at lusoleaves.com. Do not forget to change the
@@ -64,23 +66,25 @@ Regards,
 Lusoleaves.com
 ";
         
-        $message = sprintf(
-        		$message,
-        		$data['name'],
-        		$data['companyName'],
-        		$data['email'],
-        		$data['phoneNumber'],
-        		$data['contribuinteNumber'],
-        		$data['address'],
-        		date("Y-m-d H:i:s")
-         );
+	        $message = sprintf(
+	        		$message,
+	        		$data['name'],
+	        		$data['companyName'],
+	        		$data['email'],
+	        		$data['phoneNumber'],
+	        		$data['contribuinteNumber'],
+	        		$data['address'],
+	        		date("Y-m-d H:i:s")
+	         );
+	        
+	        $this->load->library('email');
+	        $this->email->from($from, 'Lusoleaves');
+	        $this->email->to($to);
+	        $this->email->subject('Nouvel utilisateur sur lusoleaves.com');
+	        $this->email->message($message);
+	        $this->email->send();
         
-        $this->load->library('email');
-        $this->email->from($from, 'Lusoleaves');
-        $this->email->to($to);
-        $this->email->subject('Nouvel utilisateur sur lusoleaves.com');
-        $this->email->message($message);
-        $this->email->send();
+		}
     }
 
     public function delete_user($id)
