@@ -7,24 +7,24 @@
 <!doctype html>
 <html>
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Luso Leaves</title>
+	<title>Luso Leaves</title>
 
-    <meta name="keywords" content=""/>
-    <meta name="description" content=""/>
+	<meta name="keywords" content=""/>
+	<meta name="description" content=""/>
 
-    <link rel="icon" type="image/png" href="<?php echo base_url(); ?>favicon.png"/>
+	<link rel="icon" type="image/png" href="<?php echo base_url(); ?>favicon.png"/>
 
 	<link href="<?php echo asset_url(); ?>css/bootstrap.css" rel="stylesheet">
 	<link href="<?php echo asset_url(); ?>css/lusoleaves.css" rel="stylesheet">
-    
-    <?php echo format_external_css($_external_css); ?>
-    <?php echo format_internal_css($_internal_css); ?>
 
-    <?php echo format_external_js($_external_js) ?>
-    <?php echo format_internal_js($_internal_js) ?>
+	<?php echo format_external_css($_external_css); ?>
+	<?php echo format_internal_css($_internal_css); ?>
+
+	<?php echo format_external_js($_external_js) ?>
+	<?php echo format_internal_js($_internal_js) ?>
 </head>
 <body>
 <div id="view">
@@ -83,17 +83,17 @@
 			    <ul class="nav navbar-nav navbar-right">
 			    	<li>
 			    		<a href="<?= base_url() . $this->lang->switch_uri('pt'); ?>" style="padding-top: 12px;">
-		        			<img src="https://cdn1.iconfinder.com/data/icons/flags_gosquared/32/Portugal_flat.png" alt="PT"/>
+						<img src="<?php echo base_url() ?>/assets/images/Portugal.png" alt="PT"/>
 		    			</a>
 					</li>
 					<li>
 						<a href="<?= base_url() . $this->lang->switch_uri('en'); ?>" style="padding-top: 12px;">
-		        			<img src="https://cdn1.iconfinder.com/data/icons/flags/flags/32/United%20Kingdom%28Great%20Britain%29.png" alt="EN"/>
+						<img src="<?php echo base_url() ?>/assets/images/United-Kingdom.png" alt="EN"/>
 		    			</a>
 		    		</li>
 		    		<li>
 						<a href="<?= base_url() . $this->lang->switch_uri('es'); ?>" style="padding-top: 12px;">
-		        			<img src="https://cdn1.iconfinder.com/data/icons/flags/flags/32/Spain.png" alt="EN"/>
+						<img src="<?php echo base_url() ?>/assets/images/Spain.png" alt="ES"/>
 		    			</a>
 		    		</li>
 			    </ul>
