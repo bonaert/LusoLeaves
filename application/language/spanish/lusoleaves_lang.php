@@ -2,6 +2,7 @@
 
 $lang['homepage'] = 'Início';
 $lang['products'] = 'Produtos';
+$lang['weather'] = 'Meteo';
 $lang['logout'] = 'Log Out';
 $lang['login'] = 'Log In';
 $lang['register'] = 'Registro';
@@ -54,4 +55,6 @@ $lang['registerSelect1'] = 'Florista';
 $lang['registerSelect2'] = 'Mayorista de flores';
 $lang['registerSelect3'] = 'Mayorista de hojas';
 $lang['registerSelect4'] = 'Mayorista de accesorios de flores';
+
+/* Weather */
 

@@ -54,6 +54,11 @@
 			                <?php echo $this->lang->line("products"); ?>
 			            </a>
 			        </li>
+			        <li>
+			            <a href="<?= site_url('weather') ?>" accesskey="2" title="">
+			                <?php echo $this->lang->line("weather"); ?>
+			            </a>
+			        </li>
 			        <?php if ($is_admin): ?>
 		            <li>
 		                <a href="<?= site_url('users') ?>" accesskey="2" title="">
