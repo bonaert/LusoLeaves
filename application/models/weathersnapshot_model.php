@@ -26,8 +26,8 @@ class Weathersnapshot_model extends CI_MODEL {
 		$queryStartHours = $startDay - 1;
 		$query = $this->db->select ()->from ( 'WeatherSnapshots' )->where (
                 sprintf ( 'Date BETWEEN (CURDATE() - INTERVAL %d DAY) AND (CURDATE() - INTERVAL %d DAY) ',
-                $startDay,
-                $endDay ),
+                $startDay - 1 ,
+                $endDay - 1 ),
         NULL, false )->get ();
 
 		$today = getdate ();
