@@ -59,6 +59,7 @@
 				        scaleDateFormat: "dd/mm",
 				        scaleTimeFormat: "HH:MM",
 				        scaleDateTimeFormat: "HH:MM dd/mm",
+				        useUtc: false,
 					});
 				</script>
 
@@ -90,6 +91,7 @@
 				        scaleDateFormat: "dd/mm",
 				        scaleTimeFormat: "HH:MM",
 				        scaleDateTimeFormat: "HH:MM dd/mm",
+				        useUtc: false,
 					});
 				</script>
 
@@ -121,6 +123,7 @@
 				        scaleDateFormat: "dd/mm",
 				        scaleTimeFormat: "HH:MM",
 				        scaleDateTimeFormat: "HH:MM dd/mm",
+				        useUtc: false,
 					});
 				</script>
 
@@ -152,6 +155,7 @@
 				        scaleDateFormat: "dd/mm",
 				        scaleTimeFormat: "HH:MM",
 				        scaleDateTimeFormat: "HH:MM dd/mm",
+				        useUtc: false,
 					});
 				</script>
 
@@ -183,6 +187,7 @@
 				        scaleDateFormat: "dd/mm",
 				        scaleTimeFormat: "HH:MM",
 				        scaleDateTimeFormat: "HH:MM dd/mm",
+				        useUtc: false,
 					});
 				</script>
 			</div>
