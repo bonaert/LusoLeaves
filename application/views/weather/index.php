@@ -48,6 +48,7 @@
 					        pointHighlightFill: "#fff",
 					        pointHighlightStroke: "rgba(220,220,220,1)",
 				            data: temperatureData,
+				            animation: !(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))
 				        },
 					];
 
@@ -81,6 +82,7 @@
 					        pointHighlightFill: "#fff",
 					        pointHighlightStroke: "rgba(220,220,220,1)",
 				            data: rainData,
+				            animation: !(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))
 				        },
 					];
 
@@ -113,6 +115,7 @@
 					        pointHighlightFill: "#fff",
 					        pointHighlightStroke: "rgba(220,220,220,1)",
 				            data: humidityData,
+				            animation: !(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))
 				        },
 					];
 
@@ -145,6 +148,7 @@
 					        pointHighlightFill: "#fff",
 					        pointHighlightStroke: "rgba(220,220,220,1)",
 				            data: dewData,
+				            animation: !(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))
 				        },
 					];
 
@@ -177,6 +181,7 @@
 					        pointHighlightFill: "#fff",
 					        pointHighlightStroke: "rgba(220,220,220,1)",
 				            data: atmosphericPressureData,
+				            animation: !(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))
 				        },
 					];
 
