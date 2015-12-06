@@ -17,7 +17,7 @@ class Weather extends CI_CONTROLLER {
 		$data ['_internal_js'] [] = 'Chart.Scatter.js';
 
 		$data ['latest'] = $this->weathersnapshot_model->get_latest_weathersnapshot ();
-		$snapshots = $this->weathersnapshot_model->get_weather_snapthosts ( 1 );
+		$snapshots = $this->weathersnapshot_model->get_weather_snapshots ( 1 );
 		$data ['snapshots'] = $snapshots;
 		$this->load->view ( 'template', $data );
 	}
