@@ -14,7 +14,7 @@ class Weathersnapshot_model extends CI_MODEL {
 		return null;
 	}
 
-	public function get_weather_snapthosts($startDay, $endDay = 0)
+	public function get_weather_snapshots($startDay, $endDay = 0)
 	{
 		$rainSum = 0;
 		$snapshots = array ();
