@@ -5,6 +5,9 @@
 				<h2><?php echo $this->lang->line("weather"); ?></h2>
 
 				<script>
+					setTimeout(function () {
+						location.reload(true);
+					}, 5 * 60 * 1000);
 					var snapshots = <?php echo json_encode($snapshots); ?>;
 				</script>
 
