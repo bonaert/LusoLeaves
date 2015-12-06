@@ -23,7 +23,7 @@ class Weathersnapshot_model extends CI_MODEL {
 			throw new Exception ( 'Unsafe arguments passed' );
 		}
 
-		$queryStartHours = $startDay - 1;
+		$queryStartHours = $startDay + 1;
 		$query = $this->db->select ()->from ( 'WeatherSnapshots' )->where (
                 sprintf ( 'Date BETWEEN (CURDATE() - INTERVAL %d DAY) AND (CURDATE() - INTERVAL %d DAY) ',
                 $startDay - 1 ,
