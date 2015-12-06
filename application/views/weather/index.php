@@ -9,6 +9,7 @@
 						location.reload(true);
 					}, 5 * 60 * 1000);
 					var snapshots = <?php echo json_encode($snapshots); ?>;
+					Chart.defaults.global.animation = !(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
 				</script>
 
 				<h3>Latest</h3>
@@ -48,7 +49,6 @@
 					        pointHighlightFill: "#fff",
 					        pointHighlightStroke: "rgba(220,220,220,1)",
 				            data: temperatureData,
-				            animation: !(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))
 				        },
 					];
 
@@ -82,7 +82,6 @@
 					        pointHighlightFill: "#fff",
 					        pointHighlightStroke: "rgba(220,220,220,1)",
 				            data: rainData,
-				            animation: !(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))
 				        },
 					];
 
@@ -115,7 +114,6 @@
 					        pointHighlightFill: "#fff",
 					        pointHighlightStroke: "rgba(220,220,220,1)",
 				            data: humidityData,
-				            animation: !(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))
 				        },
 					];
 
@@ -148,7 +146,6 @@
 					        pointHighlightFill: "#fff",
 					        pointHighlightStroke: "rgba(220,220,220,1)",
 				            data: dewData,
-				            animation: !(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))
 				        },
 					];
 
@@ -181,7 +178,6 @@
 					        pointHighlightFill: "#fff",
 					        pointHighlightStroke: "rgba(220,220,220,1)",
 				            data: atmosphericPressureData,
-				            animation: !(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))
 				        },
 					];
 
