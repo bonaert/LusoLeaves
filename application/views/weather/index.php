@@ -28,7 +28,7 @@
 							<td><?php echo $latest->Temperature; ?>ºC</td>
 							<td><?php echo $latest->Humidity; ?>%</td>
 							<td><?php echo $latest->Dew; ?></td>
-							<td><?php echo $latest->AtmosphericPressure; ?></td>
+							<td><?php echo sprintf("%.2f", $latest->AtmosphericPressure); ?></td>
 						</tr>
 					</tbody>
 				</table>
