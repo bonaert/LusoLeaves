@@ -28,7 +28,7 @@ class Weathersnapshot_model extends CI_MODEL {
                 sprintf ( 'Date BETWEEN (CURDATE() - INTERVAL %d DAY) AND (CURDATE() - INTERVAL %d DAY) ',
                 $startDay - 1 ,
                 $endDay - 1 ),
-        NULL, false )->get ();
+        NULL, false )->order_by( 'Date', 'ASC' )->get ();
 
 		$today = getdate ();
 		$startDate = strtotime ( sprintf ( '%s-%s-%s', $today ['year'], $today ['mon'], $today ['mday'] ) ) - $startDay * 24 * 3600;
