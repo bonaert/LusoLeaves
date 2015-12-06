@@ -31,7 +31,7 @@ class Weathersnapshot_model extends CI_MODEL {
         NULL, false )->order_by( 'Date', 'ASC' )->get ();
 
 		$today = getdate ();
-		$startDate = strtotime ( sprintf ( '%s-%s-%s', $today ['year'], $today ['mon'], $today ['mday'] ) ) - $startDay * 24 * 3600;
+		$startDate = strtotime ( sprintf ( '%s-%s-%s', $today ['year'], $today ['mon'], $today ['mday'] ) );// - $startDay * 24 * 3600;
 		foreach ( $query->result_array () as $snapshot ) {
 			$snapshotDate = strtotime ( $snapshot ['Date'] );
 			if ($snapshotDate > $startDate) {
