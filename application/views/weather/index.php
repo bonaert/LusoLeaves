@@ -48,7 +48,6 @@
 					        pointStrokeColor: "#fff",
 					        pointHighlightFill: "#fff",
 					        pointHighlightStroke: "rgba(220,220,220,1)",
-						scaleLineColor: "#000",
 						data: temperatureData,
 				        },
 					];
@@ -64,6 +63,7 @@
 				        scaleDateFormat: "dd/mm",
 				        scaleTimeFormat: "HH:MM",
 				        scaleDateTimeFormat: "HH:MM dd/mm",
+					scaleLineColor: "#000",
 				        useUtc: false,
 					});
 				</script>
