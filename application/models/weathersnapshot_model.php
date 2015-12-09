@@ -16,6 +16,7 @@ class Weathersnapshot_model extends CI_MODEL {
 
 	public function get_weather_snapshots($startDay, $endDay = 0)
 	{
+		$atmosphericPressure = 0;
 		$rainSum = 0;
 		$snapshots = array ();
 
@@ -25,15 +26,21 @@ class Weathersnapshot_model extends CI_MODEL {
 
 		$queryStartDays = $startDay + 1;
 		$query = $this->db->select ()->from ( 'WeatherSnapshots' )->where (
-                sprintf ( 'Date BETWEEN (CURDATE() - INTERVAL %d DAY) AND (CURDATE() - INTERVAL %d DAY) ',
-                $queryStartDays - 1 ,
-                $endDay - 1 ),
-        NULL, false )->order_by( 'Date', 'ASC' )->get ();
+			sprintf ( 'Date BETWEEN (CURDATE() - INTERVAL %d DAY) AND (CURDATE() - INTERVAL %d DAY) ',
+			$queryStartDays - 1 ,
+			$endDay - 1 ),
+			NULL, false )->order_by( 'Date', 'ASC' )->get ();
 
 		$today = getdate ();
 		$startDate = strtotime ( sprintf ( '%s-%s-%s', $today ['year'], $today ['mon'], $today ['mday'] ) );
 		foreach ( $query->result_array () as $snapshot ) {
 			$snapshotDate = strtotime ( $snapshot ['Date'] );
+			if ($snapshot['AtmosphericPressure']) {
+				$atmosphericPressure = $snapshot['AtmosphericPressure'];
+			}
+			if (!$snapshot['AtmosphericPressure']) {
+				$snapshot['AtmosphericPressure'] = $atmosphericPressure;
+			}
 			if ($snapshotDate > $startDate) {
 				$snapshot ['Rain'] = $snapshot ['RainSum'] - $rainSum;
 				$snapshots [] = $snapshot;
@@ -74,4 +81,4 @@ PRIMARY KEY (`Id`),
 UNIQUE KEY `date_station` (`Date`,`Station`)
 )
 
-*/
+ */
