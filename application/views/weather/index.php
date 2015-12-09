@@ -63,7 +63,7 @@
 				        scaleDateFormat: "dd/mm",
 				        scaleTimeFormat: "HH:MM",
 				        scaleDateTimeFormat: "HH:MM dd/mm",
-					scaleGridColor: "#ccc",
+					scaleGridLineColor: "#ccc",
 				        useUtc: false,
 					});
 				</script>
