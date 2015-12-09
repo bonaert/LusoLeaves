@@ -48,7 +48,7 @@
 					        pointStrokeColor: "#fff",
 					        pointHighlightFill: "#fff",
 					        pointHighlightStroke: "rgba(220,220,220,1)",
-						scaleLineColor: "rgba(200,200,200,0.2)",
+						scaleLineColor: "rgba(200,200,200,0.9)",
 						data: temperatureData,
 				        },
 					];
