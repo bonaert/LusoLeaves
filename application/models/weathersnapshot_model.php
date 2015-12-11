@@ -16,9 +16,15 @@ class Weathersnapshot_model extends CI_MODEL {
 
 	public function get_weather_snapshots($startDay, $endDay = 0)
 	{
-		$atmosphericPressure = 0;
+		$previousSnapshot = array (
+			'Temperature' => 0,
+			'Humidity' => 0,
+			'Dew' => 0,
+			'AtmosphericPressure' => 0,
+		);
 		$rainSum = 0;
 		$snapshots = array ();
+		$fields = array('Temperature', 'Humidity', 'Dew', 'AtmosphericPressure');
 
 		if (! preg_match ( '/^\d+$/', $startDay ) || ! preg_match ( '/^\d+$/', $endDay )) {
 			throw new Exception ( 'Unsafe arguments passed' );
@@ -33,17 +39,24 @@ class Weathersnapshot_model extends CI_MODEL {
 
 		$today = getdate ();
 		$startDate = strtotime ( sprintf ( '%s-%s-%s', $today ['year'], $today ['mon'], $today ['mday'] ) );
+
 		foreach ( $query->result_array () as $snapshot ) {
 			$snapshotDate = strtotime ( $snapshot ['Date'] );
-			if ($snapshot['AtmosphericPressure']) {
-				$atmosphericPressure = $snapshot['AtmosphericPressure'];
-			}
-			if (!$snapshot['AtmosphericPressure']) {
-				$snapshot['AtmosphericPressure'] = $atmosphericPressure;
-			}
-			if ($snapshotDate > $startDate) {
-				$snapshot ['Rain'] = $snapshot ['RainSum'] - $rainSum;
-				$snapshots [] = $snapshot;
+			$snapshot ['Rain'] = $snapshot ['RainSum'] - $rainSum;
+			for ($field in $fields) {
+				$entry = array('Date' => $snapshotDate);
+				$type = 'Real';
+				if ($snapshot[$field]) {
+					$previousSnapshot[$field] = $snapshot[$field];
+					$type = 'Real';
+				} else {
+					$snapshot[$field] = $previousSnapshot[$field];
+					$type = 'Generated';
+				}
+				$entry[$field] = $snapshot[$field];
+				if ($snapshotDate > $startDate) { 
+					$snapshots[$field]['Generated'][] = $entry;				
+				}
 			}
 			$rainSum = $snapshot ['RainSum'];
 		}
