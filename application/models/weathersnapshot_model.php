@@ -43,7 +43,7 @@ class Weathersnapshot_model extends CI_MODEL {
 		foreach ( $query->result_array () as $snapshot ) {
 			$snapshotDate = strtotime ( $snapshot ['Date'] );
 			$snapshot ['Rain'] = $snapshot ['RainSum'] - $rainSum;
-			for ($field in $fields) {
+			foreach ($fields as $field) {
 				$entry = array('Date' => $snapshotDate);
 				$type = 'Real';
 				if ($snapshot[$field]) {
