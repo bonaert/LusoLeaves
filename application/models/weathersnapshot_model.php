@@ -58,6 +58,13 @@ class Weathersnapshot_model extends CI_MODEL {
 					$snapshots[$field][$type][] = $entry;
 				}
 			}
+
+			$entry = array('Date' => $snapshotDate);
+			$entry['Rain'] = $snapshot['Rain'];
+			if ($snapshotDate > $startDate) {
+				$snapshots[$field][$type][] = $entry;
+			}
+			
 			$rainSum = $snapshot ['RainSum'];
 		}
 
