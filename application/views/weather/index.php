@@ -91,7 +91,7 @@
 				<h3>Rain</h3>
 				<canvas id="rainChart" width="800" height="200"></canvas>
 				<script>
-					rainData = snapshots.map(function (snapshot) {
+					rainData = snapshots['Rain'].map(function (snapshot) {
 						return {x: new Date(snapshot.Date), y: snapshot.Rain };
 					});
 					var data = [
