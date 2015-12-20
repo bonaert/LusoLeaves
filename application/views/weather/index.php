@@ -37,32 +37,40 @@
 				<h3>Temperature</h3>
 				<canvas id="temperatureChart" width="800" height="200"></canvas>
 				<script>
-				    realTemperatureData = snapshots['Temperature']['Real'].map(function (snapshot) {
-						return {x: new Date(snapshot.Date), y: snapshot.Temperature };
-					});
-					generatedTemperatureData = snapshots['Temperature']['Generated'].map(function (snapshot) {
-						return {x: new Date(snapshot.Date), y: snapshot.Temperature };
-					});
-					var data = [
-				        {
-					        fillColor: "rgba(220,220,220,0.2)",
-					        strokeColor: "rgba(220,220,220,1)",
-					        pointColor: "#00693F",
-					        pointStrokeColor: "#fff",
-					        pointHighlightFill: "#fff",
-					        pointHighlightStroke: "rgba(220,220,220,1)",
-							data: realTemperatureData,
-				        },
-						{
+				    var realTemperatureDataPoints = snapshots['Temperature']['Real'];
+					var generatedTemperatureDataPoints = snapshots['Temperature']['Generated'];
+					var data = [];
+					if (realTemperatureDataPoints){
+						var realTemperatureData = realTemperatureDataPoints.map(function (snapshot) {
+							return {x: new Date(snapshot.Date), y: snapshot.Temperature };
+						});
+
+						data.push({
+							fillColor: "rgba(220,220,220,0.2)",
+							strokeColor: "rgba(220,220,220,1)",
+							pointColor: "#00693F",
+							pointStrokeColor: "#fff",
+							pointHighlightFill: "#fff",
+							pointHighlightStroke: "rgba(220,220,220,1)",
+							data: realTemperatureData
+						})
+					}
+
+					if (generatedTemperatureDataPoints){
+						var generatedTemperatureData = generatedTemperatureDataPoints.map(function (snapshot) {
+							return {x: new Date(snapshot.Date), y: snapshot.Temperature };
+						});
+
+						data.push({
 							fillColor: "rgba(220,220,220,0.2)",
 							strokeColor: "rgba(220,220,220,1)",
 							pointColor: "#45ddba",
 							pointStrokeColor: "#fff",
 							pointHighlightFill: "#fff",
 							pointHighlightStroke: "rgba(220,220,220,1)",
-							data: generatedTemperatureData,
-						}
-					];
+							data: generatedTemperatureData
+						})
+					}
 
 
 					var ctx = document.getElementById("temperatureChart").getContext("2d");
