@@ -37,7 +37,10 @@
 				<h3>Temperature</h3>
 				<canvas id="temperatureChart" width="800" height="200"></canvas>
 				<script>
-				    temperatureData = snapshots.map(function (snapshot) {
+				    realTemperatureData = snapshots['Temperature']['Real'].map(function (snapshot) {
+						return {x: new Date(snapshot.Date), y: snapshot.Temperature };
+					});
+					generatedTemperatureData = snapshots['Temperature']['Generated'].map(function (snapshot) {
 						return {x: new Date(snapshot.Date), y: snapshot.Temperature };
 					});
 					var data = [
@@ -48,8 +51,17 @@
 					        pointStrokeColor: "#fff",
 					        pointHighlightFill: "#fff",
 					        pointHighlightStroke: "rgba(220,220,220,1)",
-						data: temperatureData,
+							data: realTemperatureData,
 				        },
+						{
+							fillColor: "rgba(220,220,220,0.2)",
+							strokeColor: "rgba(220,220,220,1)",
+							pointColor: "#45ddba",
+							pointStrokeColor: "#fff",
+							pointHighlightFill: "#fff",
+							pointHighlightStroke: "rgba(220,220,220,1)",
+							data: generatedTemperatureData,
+						}
 					];
 
 
