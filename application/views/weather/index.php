@@ -91,23 +91,43 @@
 				<h3>Rain</h3>
 				<canvas id="rainChart" width="800" height="200"></canvas>
 				<script>
-				    rainData = snapshots.map(function (snapshot) {
-						return {x: new Date(snapshot.Date), y: snapshot.Rain };
-					});
-					var data = [
-				        {
-					        fillColor: "rgba(220,220,220,0.2)",
-					        strokeColor: "rgba(220,220,220,1)",
-					        pointColor: "#00693F",
-					        pointStrokeColor: "#fff",
-					        pointHighlightFill: "#fff",
-					        pointHighlightStroke: "rgba(220,220,220,1)",
-				            data: rainData,
-				        },
-					];
+					var realRainDataPoints = snapshots['Rain']['Real'];
+					var generatedRainDataPoints = snapshots['Rain']['Generated'];
+					var data = [];
+					if (realRainDataPoints){
+						var realRainData = realRainDataPoints.map(function (snapshot) {
+							return {x: new Date(snapshot.Date), y: snapshot.Rain };
+						});
+
+						data.push({
+							fillColor: "rgba(220,220,220,0.2)",
+							strokeColor: "rgba(220,220,220,1)",
+							pointColor: "#00693F",
+							pointStrokeColor: "#fff",
+							pointHighlightFill: "#fff",
+							pointHighlightStroke: "rgba(220,220,220,1)",
+							data: realRainData
+						})
+					}
+
+					if (generatedRainDataPoints){
+						var generatedRainData = generatedRainDataPoints.map(function (snapshot) {
+							return {x: new Date(snapshot.Date), y: snapshot.Rain };
+						});
+
+						data.push({
+							fillColor: "rgba(220,220,220,0.2)",
+							strokeColor: "rgba(220,220,220,1)",
+							pointColor: "#45ddba",
+							pointStrokeColor: "#fff",
+							pointHighlightFill: "#fff",
+							pointHighlightStroke: "rgba(220,220,220,1)",
+							data: generatedRainData
+						})
+					}
 
 					var ctx = document.getElementById("rainChart").getContext("2d");
-					var temperatureChart = new Chart(ctx).Scatter(data, {
+					var RainChart = new Chart(ctx).Scatter(data, {
 				        bezierCurve: true,
 				        showTooltips: true,
 				        scaleShowLabels: true,
@@ -124,99 +144,159 @@
 				<h3>Humidity</h3>
 				<canvas id="humidityChart" width="800" height="200"></canvas>
 				<script>
-				    humidityData = snapshots.map(function (snapshot) {
-						return {x: new Date(snapshot.Date), y: snapshot.Humidity };
-					});
-					var data = [
-				        {
-					        fillColor: "rgba(220,220,220,0.2)",
-					        strokeColor: "rgba(220,220,220,1)",
-					        pointColor: "#00693F",
-					        pointStrokeColor: "#fff",
-					        pointHighlightFill: "#fff",
-					        pointHighlightStroke: "rgba(220,220,220,1)",
-				            data: humidityData,
-				        },
-					];
+					var realHumidityDataPoints = snapshots['Humidity']['Real'];
+					var generatedHumidityDataPoints = snapshots['Humidity']['Generated'];
+					var data = [];
+					if (realHumidityDataPoints){
+						var realHumidityData = realHumidityDataPoints.map(function (snapshot) {
+							return {x: new Date(snapshot.Date), y: snapshot.Humidity };
+						});
+
+						data.push({
+							fillColor: "rgba(220,220,220,0.2)",
+							strokeColor: "rgba(220,220,220,1)",
+							pointColor: "#00693F",
+							pointStrokeColor: "#fff",
+							pointHighlightFill: "#fff",
+							pointHighlightStroke: "rgba(220,220,220,1)",
+							data: realHumidityData
+						})
+					}
+
+					if (generatedHumidityDataPoints){
+						var generatedHumidityData = generatedHumidityDataPoints.map(function (snapshot) {
+							return {x: new Date(snapshot.Date), y: snapshot.Humidity };
+						});
+
+						data.push({
+							fillColor: "rgba(220,220,220,0.2)",
+							strokeColor: "rgba(220,220,220,1)",
+							pointColor: "#45ddba",
+							pointStrokeColor: "#fff",
+							pointHighlightFill: "#fff",
+							pointHighlightStroke: "rgba(220,220,220,1)",
+							data: generatedHumidityData
+						})
+					}
 
 					var ctx = document.getElementById("humidityChart").getContext("2d");
-					var temperatureChart = new Chart(ctx).Scatter(data, {
-				        bezierCurve: true,
-				        showTooltips: true,
-				        scaleShowLabels: true,
-				        scaleType: "date",
-				        scaleLabel: "<%=value%> %",
-				        scaleDateFormat: "dd/mm",
-				        scaleTimeFormat: "HH:MM",
-				        scaleDateTimeFormat: "HH:MM dd/mm",
-					scaleGridLineColor: "#ccc",
-				        useUtc: false,
+					var HumidityChart = new Chart(ctx).Scatter(data, {
+						bezierCurve: true,
+						showTooltips: true,
+						scaleShowLabels: true,
+						scaleType: "date",
+						scaleLabel: "<%=value%>mm",
+						scaleDateFormat: "dd/mm",
+						scaleTimeFormat: "HH:MM",
+						scaleDateTimeFormat: "HH:MM dd/mm",
+						scaleGridLineColor: "#ccc",
+						useUtc: false,
 					});
 				</script>
 
 				<h3>Dew</h3>
 				<canvas id="dewChart" width="800" height="200"></canvas>
 				<script>
-				    dewData = snapshots.map(function (snapshot) {
-						return {x: new Date(snapshot.Date), y: snapshot.Dew };
-					});
-					var data = [
-				        {
-					        fillColor: "rgba(220,220,220,0.2)",
-					        strokeColor: "rgba(220,220,220,1)",
-					        pointColor: "#00693F",
-					        pointStrokeColor: "#fff",
-					        pointHighlightFill: "#fff",
-					        pointHighlightStroke: "rgba(220,220,220,1)",
-				            data: dewData,
-				        },
-					];
+					var realDewDataPoints = snapshots['Dew']['Real'];
+					var generatedDewDataPoints = snapshots['Dew']['Generated'];
+					var data = [];
+					if (realDewDataPoints){
+						var realDewData = realDewDataPoints.map(function (snapshot) {
+							return {x: new Date(snapshot.Date), y: snapshot.Dew };
+						});
+
+						data.push({
+							fillColor: "rgba(220,220,220,0.2)",
+							strokeColor: "rgba(220,220,220,1)",
+							pointColor: "#00693F",
+							pointStrokeColor: "#fff",
+							pointHighlightFill: "#fff",
+							pointHighlightStroke: "rgba(220,220,220,1)",
+							data: realDewData
+						})
+					}
+
+					if (generatedDewDataPoints){
+						var generatedDewData = generatedDewDataPoints.map(function (snapshot) {
+							return {x: new Date(snapshot.Date), y: snapshot.Dew };
+						});
+
+						data.push({
+							fillColor: "rgba(220,220,220,0.2)",
+							strokeColor: "rgba(220,220,220,1)",
+							pointColor: "#45ddba",
+							pointStrokeColor: "#fff",
+							pointHighlightFill: "#fff",
+							pointHighlightStroke: "rgba(220,220,220,1)",
+							data: generatedDewData
+						})
+					}
 
 					var ctx = document.getElementById("dewChart").getContext("2d");
-					var temperatureChart = new Chart(ctx).Scatter(data, {
-				        bezierCurve: true,
-				        showTooltips: true,
-				        scaleShowLabels: true,
-				        scaleType: "date",
-				        scaleLabel: "<%=value%>",
-				        scaleDateFormat: "dd/mm",
-				        scaleTimeFormat: "HH:MM",
-				        scaleDateTimeFormat: "HH:MM dd/mm",
-					scaleGridLineColor: "#ccc",
-				        useUtc: false,
+					var DewChart = new Chart(ctx).Scatter(data, {
+						bezierCurve: true,
+						showTooltips: true,
+						scaleShowLabels: true,
+						scaleType: "date",
+						scaleLabel: "<%=value%>mm",
+						scaleDateFormat: "dd/mm",
+						scaleTimeFormat: "HH:MM",
+						scaleDateTimeFormat: "HH:MM dd/mm",
+						scaleGridLineColor: "#ccc",
+						useUtc: false,
 					});
 				</script>
 
 				<h3>Atmospheric Pressure</h3>
 				<canvas id="atmosphericPressureChart" width="800" height="400"></canvas>
 				<script>
-				    atmosphericPressureData = snapshots.map(function (snapshot) {
-						return {x: new Date(snapshot.Date), y: snapshot.AtmosphericPressure };
-					});
-					var data = [
-				        {
-					        fillColor: "rgba(220,220,220,0.2)",
-					        strokeColor: "rgba(220,220,220,1)",
-					        pointColor: "#00693F",
-					        pointStrokeColor: "#fff",
-					        pointHighlightFill: "#fff",
-					        pointHighlightStroke: "rgba(220,220,220,1)",
-				            data: atmosphericPressureData,
-				        },
-					];
+					var realAtmosphericPressureDataPoints = snapshots['AtmosphericPressure']['Real'];
+					var generatedAtmosphericPressureDataPoints = snapshots['AtmosphericPressure']['Generated'];
+					var data = [];
+					if (realAtmosphericPressureDataPoints){
+						var realAtmosphericPressureData = realAtmosphericPressureDataPoints.map(function (snapshot) {
+							return {x: new Date(snapshot.Date), y: snapshot.AtmosphericPressure };
+						});
+
+						data.push({
+							fillColor: "rgba(220,220,220,0.2)",
+							strokeColor: "rgba(220,220,220,1)",
+							pointColor: "#00693F",
+							pointStrokeColor: "#fff",
+							pointHighlightFill: "#fff",
+							pointHighlightStroke: "rgba(220,220,220,1)",
+							data: realAtmosphericPressureData
+						})
+					}
+
+					if (generatedAtmosphericPressureDataPoints){
+						var generatedAtmosphericPressureData = generatedAtmosphericPressureDataPoints.map(function (snapshot) {
+							return {x: new Date(snapshot.Date), y: snapshot.AtmosphericPressure };
+						});
+
+						data.push({
+							fillColor: "rgba(220,220,220,0.2)",
+							strokeColor: "rgba(220,220,220,1)",
+							pointColor: "#45ddba",
+							pointStrokeColor: "#fff",
+							pointHighlightFill: "#fff",
+							pointHighlightStroke: "rgba(220,220,220,1)",
+							data: generatedAtmosphericPressureData
+						})
+					}
 
 					var ctx = document.getElementById("atmosphericPressureChart").getContext("2d");
-					var temperatureChart = new Chart(ctx).Scatter(data, {
-				        bezierCurve: true,
-				        showTooltips: true,
-				        scaleShowLabels: true,
-				        scaleType: "date",
-				        scaleLabel: "<%=value%>",
-				        scaleDateFormat: "dd/mm",
-				        scaleTimeFormat: "HH:MM",
-				        scaleDateTimeFormat: "HH:MM dd/mm",
-					scaleGridLineColor: "#ccc",
-				        useUtc: false,
+					var AtmosphericPressureChart = new Chart(ctx).Scatter(data, {
+						bezierCurve: true,
+						showTooltips: true,
+						scaleShowLabels: true,
+						scaleType: "date",
+						scaleLabel: "<%=value%>mm",
+						scaleDateFormat: "dd/mm",
+						scaleTimeFormat: "HH:MM",
+						scaleDateTimeFormat: "HH:MM dd/mm",
+						scaleGridLineColor: "#ccc",
+						useUtc: false,
 					});
 				</script>
 			</div>
