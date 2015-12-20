@@ -42,7 +42,7 @@
 					var data = [];
 					if (realTemperatureDataPoints){
 						var realTemperatureData = realTemperatureDataPoints.map(function (snapshot) {
-							return {x: new Date(snapshot.Date), y: snapshot.Temperature };
+							return {x: new Date(snapshot.date * 1000), y: snapshot.Temperature };
 						});
 
 						data.push({
@@ -58,7 +58,7 @@
 
 					if (generatedTemperatureDataPoints){
 						var generatedTemperatureData = generatedTemperatureDataPoints.map(function (snapshot) {
-							return {x: new Date(snapshot.Date), y: snapshot.Temperature };
+							return {x: new Date(snapshot.Date* 1000), y: snapshot.Temperature };
 						});
 
 						data.push({
@@ -92,7 +92,7 @@
 				<canvas id="rainChart" width="800" height="200"></canvas>
 				<script>
 					rainData = snapshots['Rain'].map(function (snapshot) {
-						return {x: new Date(snapshot.Date), y: snapshot.Rain };
+						return {x: new Date(snapshot.Date * 1000), y: snapshot.Rain };
 					});
 					var data = [
 						{
@@ -129,7 +129,7 @@
 					var data = [];
 					if (realHumidityDataPoints){
 						var realHumidityData = realHumidityDataPoints.map(function (snapshot) {
-							return {x: new Date(snapshot.Date), y: snapshot.Humidity };
+							return {x: new Date(snapshot.Date* 1000), y: snapshot.Humidity };
 						});
 
 						data.push({
@@ -145,7 +145,7 @@
 
 					if (generatedHumidityDataPoints){
 						var generatedHumidityData = generatedHumidityDataPoints.map(function (snapshot) {
-							return {x: new Date(snapshot.Date), y: snapshot.Humidity };
+							return {x: new Date(snapshot.date * 1000), y: snapshot.Humidity };
 						});
 
 						data.push({
@@ -182,7 +182,7 @@
 					var data = [];
 					if (realDewDataPoints){
 						var realDewData = realDewDataPoints.map(function (snapshot) {
-							return {x: new Date(snapshot.Date), y: snapshot.Dew };
+							return {x: new Date(snapshot.date * 1000), y: snapshot.Dew };
 						});
 
 						data.push({
@@ -198,7 +198,7 @@
 
 					if (generatedDewDataPoints){
 						var generatedDewData = generatedDewDataPoints.map(function (snapshot) {
-							return {x: new Date(snapshot.Date), y: snapshot.Dew };
+							return {x: new Date(snapshot.date * 1000), y: snapshot.Dew };
 						});
 
 						data.push({
@@ -235,7 +235,7 @@
 					var data = [];
 					if (realAtmosphericPressureDataPoints){
 						var realAtmosphericPressureData = realAtmosphericPressureDataPoints.map(function (snapshot) {
-							return {x: new Date(snapshot.Date), y: snapshot.AtmosphericPressure };
+							return {x: new Date(snapshot.date * 1000), y: snapshot.AtmosphericPressure };
 						});
 
 						data.push({
@@ -251,7 +251,7 @@
 
 					if (generatedAtmosphericPressureDataPoints){
 						var generatedAtmosphericPressureData = generatedAtmosphericPressureDataPoints.map(function (snapshot) {
-							return {x: new Date(snapshot.Date), y: snapshot.AtmosphericPressure };
+							return {x: new Date(snapshot.date * 1000), y: snapshot.AtmosphericPressure };
 						});
 
 						data.push({
