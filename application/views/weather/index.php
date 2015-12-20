@@ -91,53 +91,33 @@
 				<h3>Rain</h3>
 				<canvas id="rainChart" width="800" height="200"></canvas>
 				<script>
-					var realRainDataPoints = snapshots['Rain']['Real'];
-					var generatedRainDataPoints = snapshots['Rain']['Generated'];
-					var data = [];
-					if (realRainDataPoints){
-						var realRainData = realRainDataPoints.map(function (snapshot) {
-							return {x: new Date(snapshot.Date), y: snapshot.Rain };
-						});
-
-						data.push({
+					rainData = snapshots.map(function (snapshot) {
+						return {x: new Date(snapshot.Date), y: snapshot.Rain };
+					});
+					var data = [
+						{
 							fillColor: "rgba(220,220,220,0.2)",
 							strokeColor: "rgba(220,220,220,1)",
 							pointColor: "#00693F",
 							pointStrokeColor: "#fff",
 							pointHighlightFill: "#fff",
 							pointHighlightStroke: "rgba(220,220,220,1)",
-							data: realRainData
-						})
-					}
-
-					if (generatedRainDataPoints){
-						var generatedRainData = generatedRainDataPoints.map(function (snapshot) {
-							return {x: new Date(snapshot.Date), y: snapshot.Rain };
-						});
-
-						data.push({
-							fillColor: "rgba(220,220,220,0.2)",
-							strokeColor: "rgba(220,220,220,1)",
-							pointColor: "#45ddba",
-							pointStrokeColor: "#fff",
-							pointHighlightFill: "#fff",
-							pointHighlightStroke: "rgba(220,220,220,1)",
-							data: generatedRainData
-						})
-					}
+							data: rainData,
+						},
+					];
 
 					var ctx = document.getElementById("rainChart").getContext("2d");
-					var RainChart = new Chart(ctx).Scatter(data, {
-				        bezierCurve: true,
-				        showTooltips: true,
-				        scaleShowLabels: true,
-				        scaleType: "date",
-				        scaleLabel: "<%=value%>mm",
-				        scaleDateFormat: "dd/mm",
-				        scaleTimeFormat: "HH:MM",
-				        scaleDateTimeFormat: "HH:MM dd/mm",
-					scaleGridLineColor: "#ccc",
-				        useUtc: false,
+					var temperatureChart = new Chart(ctx).Scatter(data, {
+						bezierCurve: true,
+						showTooltips: true,
+						scaleShowLabels: true,
+						scaleType: "date",
+						scaleLabel: "<%=value%>mm",
+						scaleDateFormat: "dd/mm",
+						scaleTimeFormat: "HH:MM",
+						scaleDateTimeFormat: "HH:MM dd/mm",
+						scaleGridLineColor: "#ccc",
+						useUtc: false,
 					});
 				</script>
 
