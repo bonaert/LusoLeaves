@@ -37,11 +37,9 @@
 				<h3>Temperature</h3>
 				<canvas id="temperatureChart" width="800" height="200"></canvas>
 				<script>
-				    var realTemperatureDataPoints = snapshots['Temperature']['Real'];
-					var generatedTemperatureDataPoints = snapshots['Temperature']['Generated'];
 					var data = [];
-					if (realTemperatureDataPoints){
-						var realTemperatureData = realTemperatureDataPoints.map(function (snapshot) {
+					if (snapshots && snapshots['Temperature']['Real']){
+						var realTemperatureData = snapshots['Temperature']['Real'].map(function (snapshot) {
 							return {x: new Date(snapshot.Date * 1000), y: snapshot.Temperature };
 						});
 
@@ -56,9 +54,9 @@
 						})
 					}
 
-					if (generatedTemperatureDataPoints){
-						var generatedTemperatureData = generatedTemperatureDataPoints.map(function (snapshot) {
-							return {x: new Date(snapshot.Date* 1000), y: snapshot.Temperature };
+					if (snpashots && snapshots['Temperature']['Generated']){
+						var generatedTemperatureData = snapshots['Temperature']['Generated'].map(function (snapshot) {
+							return {x: new Date(snapshot.Date * 1000), y: snapshot.Temperature };
 						});
 
 						data.push({
@@ -91,20 +89,24 @@
 				<h3>Rain</h3>
 				<canvas id="rainChart" width="800" height="200"></canvas>
 				<script>
-					rainData = snapshots['Rain'].map(function (snapshot) {
-						return {x: new Date(snapshot.Date * 1000), y: snapshot.Rain };
-					});
-					var data = [
-						{
-							fillColor: "rgba(220,220,220,0.2)",
-							strokeColor: "rgba(220,220,220,1)",
-							pointColor: "#00693F",
-							pointStrokeColor: "#fff",
-							pointHighlightFill: "#fff",
-							pointHighlightStroke: "rgba(220,220,220,1)",
-							data: rainData,
-						},
-					];
+					var data = [];
+					if (snapshots && snapshots['Rain']) {
+						rainData = snapshots['Rain'].map(function (snapshot) {
+							return {x: new Date(snapshot.Date * 1000), y: snapshot.Rain };
+						});
+						data.push(
+							{
+								fillColor: "rgba(220,220,220,0.2)",
+								strokeColor: "rgba(220,220,220,1)",
+								pointColor: "#00693F",
+								pointStrokeColor: "#fff",
+								pointHighlightFill: "#fff",
+								pointHighlightStroke: "rgba(220,220,220,1)",
+								data: rainData,
+							},
+						);
+					}
+
 
 					var ctx = document.getElementById("rainChart").getContext("2d");
 					var temperatureChart = new Chart(ctx).Scatter(data, {
@@ -124,12 +126,10 @@
 				<h3>Humidity</h3>
 				<canvas id="humidityChart" width="800" height="200"></canvas>
 				<script>
-					var realHumidityDataPoints = snapshots['Humidity']['Real'];
-					var generatedHumidityDataPoints = snapshots['Humidity']['Generated'];
 					var data = [];
-					if (realHumidityDataPoints){
-						var realHumidityData = realHumidityDataPoints.map(function (snapshot) {
-							return {x: new Date(snapshot.Date* 1000), y: snapshot.Humidity };
+					if (snapshots && snapshots['Humidity']['Real']){
+						var realHumidityData = snapshots['Humidity']['Real'].map(function (snapshot) {
+							return {x: new Date(snapshot.Date * 1000), y: snapshot.Humidity };
 						});
 
 						data.push({
@@ -143,8 +143,8 @@
 						})
 					}
 
-					if (generatedHumidityDataPoints){
-						var generatedHumidityData = generatedHumidityDataPoints.map(function (snapshot) {
+					if (snapshots && snapshots['Humidity']['Generated']){
+						var generatedHumidityData = snapshots['Humidity']['Generated'].map(function (snapshot) {
 							return {x: new Date(snapshot.Date * 1000), y: snapshot.Humidity };
 						});
 
@@ -177,11 +177,9 @@
 				<h3>Dew</h3>
 				<canvas id="dewChart" width="800" height="200"></canvas>
 				<script>
-					var realDewDataPoints = snapshots['Dew']['Real'];
-					var generatedDewDataPoints = snapshots['Dew']['Generated'];
 					var data = [];
-					if (realDewDataPoints){
-						var realDewData = realDewDataPoints.map(function (snapshot) {
+					if (snapshots && snapshots['Dew']['Real']){
+						var realDewData = snapshots['Dew']['Real'].map(function (snapshot) {
 							return {x: new Date(snapshot.Date * 1000), y: snapshot.Dew };
 						});
 
@@ -196,8 +194,8 @@
 						})
 					}
 
-					if (generatedDewDataPoints){
-						var generatedDewData = generatedDewDataPoints.map(function (snapshot) {
+					if (snapshots && snapshots['Dew']['Generated']){
+						var generatedDewData = snapshots['Dew']['Generated'].map(function (snapshot) {
 							return {x: new Date(snapshot.Date * 1000), y: snapshot.Dew };
 						});
 
@@ -230,11 +228,9 @@
 				<h3>Atmospheric Pressure</h3>
 				<canvas id="atmosphericPressureChart" width="800" height="400"></canvas>
 				<script>
-					var realAtmosphericPressureDataPoints = snapshots['AtmosphericPressure']['Real'];
-					var generatedAtmosphericPressureDataPoints = snapshots['AtmosphericPressure']['Generated'];
 					var data = [];
-					if (realAtmosphericPressureDataPoints){
-						var realAtmosphericPressureData = realAtmosphericPressureDataPoints.map(function (snapshot) {
+					if (snapshots && snapshots['AtmosphericPressure']['Real']){
+						var realAtmosphericPressureData = snapshots['AtmosphericPressure']['Real'].map(function (snapshot) {
 							return {x: new Date(snapshot.Date * 1000), y: snapshot.AtmosphericPressure };
 						});
 
@@ -249,8 +245,8 @@
 						})
 					}
 
-					if (generatedAtmosphericPressureDataPoints){
-						var generatedAtmosphericPressureData = generatedAtmosphericPressureDataPoints.map(function (snapshot) {
+					if (snapshots && snapshots['AtmosphericPressure']['Generated']){
+						var generatedAtmosphericPressureData = snapshots['AtmosphericPressure']['Generated'].map(function (snapshot) {
 							return {x: new Date(snapshot.Date * 1000), y: snapshot.AtmosphericPressure };
 						});
 
