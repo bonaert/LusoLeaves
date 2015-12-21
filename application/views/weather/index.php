@@ -54,7 +54,7 @@
 						})
 					}
 
-					if (snpashots && snapshots['Temperature']['Generated']){
+					if (snapshots && snapshots['Temperature']['Generated']){
 						var generatedTemperatureData = snapshots['Temperature']['Generated'].map(function (snapshot) {
 							return {x: new Date(snapshot.Date * 1000), y: snapshot.Temperature };
 						});
@@ -102,9 +102,8 @@
 								pointStrokeColor: "#fff",
 								pointHighlightFill: "#fff",
 								pointHighlightStroke: "rgba(220,220,220,1)",
-								data: rainData,
-							},
-						);
+								data: rainData
+							});
 					}
 
 
