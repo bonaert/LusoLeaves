@@ -65,7 +65,7 @@ class Weathersnapshot_model extends CI_MODEL {
 			);
 			if ($snapshotDate > $startDate) {
 				// Only register snapshots after the start date
-				$snapshots['Rain'][] = $entry;
+				$snapshots['Rain']['Real'][] = $entry;
 			} else {
 				// Memorize last sum before we start registering the snapshots
 				$rainSum = $snapshot ['RainSum']; 
