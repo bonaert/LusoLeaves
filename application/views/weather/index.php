@@ -58,12 +58,15 @@
 						var chart = new Chart(ctx).Scatter(points, extend(defaults, options));
 					}
 
-					function extend(defaults, options) {
-						var extended = {};
-						for (var key in options) {
-							extended[key] = options[key] || defaults[key];						
+					function extend(origin, add) {
+						 // Don't do anything if add isn't an object
+						if (!add || typeof add !== 'object') return origin;
+						var keys = Object.keys(add);
+						var i = keys.length;
+						while (i--) {
+						  origin[keys[i]] = add[keys[i]];
 						}
-						return extended;
+						return origin;
 					}
 				</script>
 
