@@ -53,17 +53,17 @@
 							return {x: new Date(snapshot.Date * 1000), y: snapshot[item] };
 						});
 						points.push(extend(dataDefaults, {pointColor: "#45DDBA", data: generated}));
-
+				
 						var ctx = document.getElementById(id).getContext("2d");
 						var chart = new Chart(ctx).Scatter(points, extend(defaults, options));
 					}
 
 					function extend(defaults, options) {
-						var extented = {};
+						var extended = {};
 						for (var key in options) {
-							extented = options[key] || defaults[key];						
+							extended[key] = options[key] || defaults[key];						
 						}
-						return extented;
+						return extended;
 					}
 				</script>
 
