@@ -36,7 +36,6 @@
 							pointStrokeColor: "#fff",
 							pointHighlightFill: "#fff",
 							pointHighlightStroke: "rgba(220,220,220,1)",
-							data: realTemperatureData
 						};
 
 						var points = [];
@@ -48,12 +47,12 @@
 						real = real.map(function (snapshot) {
 							return {x: new Date(snapshot.Date * 1000), y: snapshot[item] };
 						});
-						points.push(real, extend(dataDefaults, {pointColor: "#00693F"}));
+						points.push(extend(dataDefaults, {pointColor: "#00693F", data: real}));
 
 						generated = generated.map(function (snapshot) {
 							return {x: new Date(snapshot.Date * 1000), y: snapshot[item] };
 						});
-						points.push(generated, extend(dataDefaults, {pointColor: "#45DDBA"}));
+						points.push(extend(dataDefaults, {pointColor: "#45DDBA", data: generated}));
 
 						var ctx = document.getElementById(id).getContext("2d");
 						var chart = new Chart(ctx).Scatter(points, extend(defaults, options));
