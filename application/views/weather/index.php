@@ -47,12 +47,12 @@
 						real = real.map(function (snapshot) {
 							return {x: new Date(snapshot.Date * 1000), y: snapshot[item] };
 						});
-						points.push(extend(dataDefaults, {pointColor: "#00693F", data: real}));
+						points.push(extend(extend({}, dataDefaults), {pointColor: "#00693F", data: real}));
 
 						generated = generated.map(function (snapshot) {
 							return {x: new Date(snapshot.Date * 1000), y: snapshot[item] };
 						});
-						points.push(extend(dataDefaults, {pointColor: "#45DDBA", data: generated}));
+						points.push(extend(extend({}, dataDefaults), {pointColor: "#45DDBA", data: generated}));
 				
 						var ctx = document.getElementById(id).getContext("2d");
 						var chart = new Chart(ctx).Scatter(points, extend(defaults, options));
