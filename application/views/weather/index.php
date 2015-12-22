@@ -5,11 +5,67 @@
 				<h2><?php echo $this->lang->line("weather"); ?></h2>
 
 				<script>
+					// Reload the page every 5 minutes
 					setTimeout(function () {
 						location.reload(true);
 					}, 5 * 60 * 1000);
 					var snapshots = <?php echo json_encode($snapshots); ?>;
+
 					Chart.defaults.global.animation = !(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+
+					function generateGraph(id, data, item, options) {
+						options = options || {};
+						
+						var defaults = {
+					        bezierCurve: true,
+					        showTooltips: true,
+					        scaleShowLabels: true,
+					        scaleType: "date",
+					        scaleLabel: "<%=value%>",
+					        scaleDateFormat: "dd/mm",
+					        scaleTimeFormat: "HH:MM",
+					        scaleDateTimeFormat: "HH:MM dd/mm",
+						    scaleGridLineColor: "#ccc",
+					        useUtc: false,
+						};
+
+						var dataDefaults = {
+							fillColor: "rgba(220,220,220,0.2)",
+							strokeColor: "rgba(220,220,220,1)",
+							pointColor: "#00693F",
+							pointStrokeColor: "#fff",
+							pointHighlightFill: "#fff",
+							pointHighlightStroke: "rgba(220,220,220,1)",
+							data: realTemperatureData
+						};
+
+						var points = [];
+
+						// This should be factored
+ 						var real = data[item] && data[item]['Real'] || [];
+						var generated = data[item] && data[item]['Generated'] || [];
+
+						real = real.map(function (snapshot) {
+							return {x: new Date(snapshot.Date * 1000), y: snapshot[item] };
+						});
+						points.push(real, extend(dataDefaults, {pointColor: "#00693F"}));
+
+						generated = generated.map(function (snapshot) {
+							return {x: new Date(snapshot.Date * 1000), y: snapshot[item] };
+						});
+						points.push(generated, extend(dataDefaults, {pointColor: "#45DDBA"}));
+
+						var ctx = document.getElementById(id).getContext("2d");
+						var chart = new Chart(ctx).Scatter(points, extend(defaults, options));
+					}
+
+					function extend(defaults, options) {
+						var extented = {};
+						for (var key in options) {
+							extented = options[key] || defaults[key];						
+						}
+						return extented;
+					}
 				</script>
 
 				<h3>Latest</h3>
@@ -37,242 +93,31 @@
 				<h3>Temperature</h3>
 				<canvas id="temperatureChart" width="800" height="200"></canvas>
 				<script>
-					var data = [];
-					if (snapshots && snapshots['Temperature']['Real']){
-						var realTemperatureData = snapshots['Temperature']['Real'].map(function (snapshot) {
-							return {x: new Date(snapshot.Date * 1000), y: snapshot.Temperature };
-						});
-
-						data.push({
-							fillColor: "rgba(220,220,220,0.2)",
-							strokeColor: "rgba(220,220,220,1)",
-							pointColor: "#00693F",
-							pointStrokeColor: "#fff",
-							pointHighlightFill: "#fff",
-							pointHighlightStroke: "rgba(220,220,220,1)",
-							data: realTemperatureData
-						})
-					}
-
-					if (snapshots && snapshots['Temperature']['Generated']){
-						var generatedTemperatureData = snapshots['Temperature']['Generated'].map(function (snapshot) {
-							return {x: new Date(snapshot.Date * 1000), y: snapshot.Temperature };
-						});
-
-						data.push({
-							fillColor: "rgba(220,220,220,0.2)",
-							strokeColor: "rgba(220,220,220,1)",
-							pointColor: "#45ddba",
-							pointStrokeColor: "#fff",
-							pointHighlightFill: "#fff",
-							pointHighlightStroke: "rgba(220,220,220,1)",
-							data: generatedTemperatureData
-						})
-					}
-
-
-					var ctx = document.getElementById("temperatureChart").getContext("2d");
-					var temperatureChart = new Chart(ctx).Scatter(data, {
-				        bezierCurve: true,
-				        showTooltips: true,
-				        scaleShowLabels: true,
-				        scaleType: "date",
-				        scaleLabel: "<%=value%>ºC",
-				        scaleDateFormat: "dd/mm",
-				        scaleTimeFormat: "HH:MM",
-				        scaleDateTimeFormat: "HH:MM dd/mm",
-					scaleGridLineColor: "#ccc",
-				        useUtc: false,
-					});
+					generateGraph('temperatureChart', snapshots, 'Temperature', { scaleLabel: "<%=value%>ºC" }); 
 				</script>
 
 				<h3>Rain</h3>
 				<canvas id="rainChart" width="800" height="200"></canvas>
 				<script>
-					var data = [];
-					if (snapshots && snapshots['Rain']) {
-						rainData = snapshots['Rain'].map(function (snapshot) {
-							return {x: new Date(snapshot.Date * 1000), y: snapshot.Rain };
-						});
-						data.push(
-							{
-								fillColor: "rgba(220,220,220,0.2)",
-								strokeColor: "rgba(220,220,220,1)",
-								pointColor: "#00693F",
-								pointStrokeColor: "#fff",
-								pointHighlightFill: "#fff",
-								pointHighlightStroke: "rgba(220,220,220,1)",
-								data: rainData
-							});
-					}
-
-
-					var ctx = document.getElementById("rainChart").getContext("2d");
-					var temperatureChart = new Chart(ctx).Scatter(data, {
-						bezierCurve: true,
-						showTooltips: true,
-						scaleShowLabels: true,
-						scaleType: "date",
-						scaleLabel: "<%=value%>mm",
-						scaleDateFormat: "dd/mm",
-						scaleTimeFormat: "HH:MM",
-						scaleDateTimeFormat: "HH:MM dd/mm",
-						scaleGridLineColor: "#ccc",
-						useUtc: false,
-					});
+					generateGraph('rainChart', snapshots, 'Rain', { scaleLabel: "<%=value%>mm" }); 
 				</script>
 
 				<h3>Humidity</h3>
 				<canvas id="humidityChart" width="800" height="200"></canvas>
 				<script>
-					var data = [];
-					if (snapshots && snapshots['Humidity']['Real']){
-						var realHumidityData = snapshots['Humidity']['Real'].map(function (snapshot) {
-							return {x: new Date(snapshot.Date * 1000), y: snapshot.Humidity };
-						});
-
-						data.push({
-							fillColor: "rgba(220,220,220,0.2)",
-							strokeColor: "rgba(220,220,220,1)",
-							pointColor: "#00693F",
-							pointStrokeColor: "#fff",
-							pointHighlightFill: "#fff",
-							pointHighlightStroke: "rgba(220,220,220,1)",
-							data: realHumidityData
-						})
-					}
-
-					if (snapshots && snapshots['Humidity']['Generated']){
-						var generatedHumidityData = snapshots['Humidity']['Generated'].map(function (snapshot) {
-							return {x: new Date(snapshot.Date * 1000), y: snapshot.Humidity };
-						});
-
-						data.push({
-							fillColor: "rgba(220,220,220,0.2)",
-							strokeColor: "rgba(220,220,220,1)",
-							pointColor: "#45ddba",
-							pointStrokeColor: "#fff",
-							pointHighlightFill: "#fff",
-							pointHighlightStroke: "rgba(220,220,220,1)",
-							data: generatedHumidityData
-						})
-					}
-
-					var ctx = document.getElementById("humidityChart").getContext("2d");
-					var HumidityChart = new Chart(ctx).Scatter(data, {
-						bezierCurve: true,
-						showTooltips: true,
-						scaleShowLabels: true,
-						scaleType: "date",
-						scaleLabel: "<%=value%>mm",
-						scaleDateFormat: "dd/mm",
-						scaleTimeFormat: "HH:MM",
-						scaleDateTimeFormat: "HH:MM dd/mm",
-						scaleGridLineColor: "#ccc",
-						useUtc: false,
-					});
+					generateGraph('humidityChart', snapshots, 'Humidity', { scaleLabel: "<%=value%>%" }); 
 				</script>
 
 				<h3>Dew</h3>
 				<canvas id="dewChart" width="800" height="200"></canvas>
 				<script>
-					var data = [];
-					if (snapshots && snapshots['Dew']['Real']){
-						var realDewData = snapshots['Dew']['Real'].map(function (snapshot) {
-							return {x: new Date(snapshot.Date * 1000), y: snapshot.Dew };
-						});
-
-						data.push({
-							fillColor: "rgba(220,220,220,0.2)",
-							strokeColor: "rgba(220,220,220,1)",
-							pointColor: "#00693F",
-							pointStrokeColor: "#fff",
-							pointHighlightFill: "#fff",
-							pointHighlightStroke: "rgba(220,220,220,1)",
-							data: realDewData
-						})
-					}
-
-					if (snapshots && snapshots['Dew']['Generated']){
-						var generatedDewData = snapshots['Dew']['Generated'].map(function (snapshot) {
-							return {x: new Date(snapshot.Date * 1000), y: snapshot.Dew };
-						});
-
-						data.push({
-							fillColor: "rgba(220,220,220,0.2)",
-							strokeColor: "rgba(220,220,220,1)",
-							pointColor: "#45ddba",
-							pointStrokeColor: "#fff",
-							pointHighlightFill: "#fff",
-							pointHighlightStroke: "rgba(220,220,220,1)",
-							data: generatedDewData
-						})
-					}
-
-					var ctx = document.getElementById("dewChart").getContext("2d");
-					var DewChart = new Chart(ctx).Scatter(data, {
-						bezierCurve: true,
-						showTooltips: true,
-						scaleShowLabels: true,
-						scaleType: "date",
-						scaleLabel: "<%=value%>mm",
-						scaleDateFormat: "dd/mm",
-						scaleTimeFormat: "HH:MM",
-						scaleDateTimeFormat: "HH:MM dd/mm",
-						scaleGridLineColor: "#ccc",
-						useUtc: false,
-					});
+					generateGraph('dewChart', snapshots, 'Dew', { scaleLabel: "<%=value%>ºC" });
 				</script>
 
 				<h3>Atmospheric Pressure</h3>
 				<canvas id="atmosphericPressureChart" width="800" height="400"></canvas>
 				<script>
-					var data = [];
-					if (snapshots && snapshots['AtmosphericPressure']['Real']){
-						var realAtmosphericPressureData = snapshots['AtmosphericPressure']['Real'].map(function (snapshot) {
-							return {x: new Date(snapshot.Date * 1000), y: snapshot.AtmosphericPressure };
-						});
-
-						data.push({
-							fillColor: "rgba(220,220,220,0.2)",
-							strokeColor: "rgba(220,220,220,1)",
-							pointColor: "#00693F",
-							pointStrokeColor: "#fff",
-							pointHighlightFill: "#fff",
-							pointHighlightStroke: "rgba(220,220,220,1)",
-							data: realAtmosphericPressureData
-						})
-					}
-
-					if (snapshots && snapshots['AtmosphericPressure']['Generated']){
-						var generatedAtmosphericPressureData = snapshots['AtmosphericPressure']['Generated'].map(function (snapshot) {
-							return {x: new Date(snapshot.Date * 1000), y: snapshot.AtmosphericPressure };
-						});
-
-						data.push({
-							fillColor: "rgba(220,220,220,0.2)",
-							strokeColor: "rgba(220,220,220,1)",
-							pointColor: "#45ddba",
-							pointStrokeColor: "#fff",
-							pointHighlightFill: "#fff",
-							pointHighlightStroke: "rgba(220,220,220,1)",
-							data: generatedAtmosphericPressureData
-						})
-					}
-
-					var ctx = document.getElementById("atmosphericPressureChart").getContext("2d");
-					var AtmosphericPressureChart = new Chart(ctx).Scatter(data, {
-						bezierCurve: true,
-						showTooltips: true,
-						scaleShowLabels: true,
-						scaleType: "date",
-						scaleLabel: "<%=value%>mm",
-						scaleDateFormat: "dd/mm",
-						scaleTimeFormat: "HH:MM",
-						scaleDateTimeFormat: "HH:MM dd/mm",
-						scaleGridLineColor: "#ccc",
-						useUtc: false,
-					});
+					generateGraph('atmosphericPressureChart', snapshots, 'AtmosphericPressure', { scaleLabel: "<%=value%>" });
 				</script>
 			</div>
 		</div>

@@ -42,7 +42,7 @@ class Weathersnapshot_model extends CI_MODEL {
 
 		foreach ( $query->result_array () as $snapshot ) {
 			$snapshotDate = strtotime ( $snapshot ['Date'] );
-			$snapshot ['Rain'] = $snapshot ['RainSum'] - $rainSum;
+			
 			foreach ($fields as $field) {
 				$entry = array('Date' => $snapshotDate);
 				$type = 'Real';
@@ -59,13 +59,17 @@ class Weathersnapshot_model extends CI_MODEL {
 				}
 			}
 
-			$entry = array('Date' => $snapshotDate);
-			$entry['Rain'] = $snapshot['Rain'];
+			$entry = array(
+				'Date' => $snapshotDate,
+				'Rain' => $snapshot ['RainSum'] - $rainSum
+			);
 			if ($snapshotDate > $startDate) {
+				// Only register snapshots after the start date
 				$snapshots['Rain'][] = $entry;
+			} else {
+				// Memorize last sum before we start registering the snapshots
+				$rainSum = $snapshot ['RainSum']; 
 			}
-
-			$rainSum = $snapshot ['RainSum'];
 		}
 
 		return $snapshots;
