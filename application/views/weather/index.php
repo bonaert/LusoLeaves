@@ -26,7 +26,7 @@
 					        scaleTimeFormat: "HH:MM",
 					        scaleDateTimeFormat: "HH:MM dd/mm",
 						    scaleGridLineColor: "#ccc",
-					        useUtc: false,
+					        useUtc: true,
 						};
 
 						var dataDefaults = {
