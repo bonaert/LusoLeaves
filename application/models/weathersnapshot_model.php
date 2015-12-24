@@ -38,7 +38,7 @@ class Weathersnapshot_model extends CI_MODEL {
 			NULL, false )->order_by( 'Date', 'ASC' )->get ();
 
 		$today = getdate ();
-		$startDate = strtotime ( sprintf ( '%s-%s-%s', $today ['year'], $today ['mon'], $today ['mday'] ) . ' +1 hour');
+		$startDate = strtotime ( sprintf ( '%s-%s-%s', $today ['year'], $today ['mon'], $today ['mday'] ));
 
 		foreach ( $query->result_array () as $snapshot ) {
 			$snapshotDate = strtotime ( $snapshot ['Date'] );
