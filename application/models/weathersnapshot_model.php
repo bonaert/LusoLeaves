@@ -38,10 +38,11 @@ class Weathersnapshot_model extends CI_MODEL {
 			NULL, false )->order_by( 'Date', 'ASC' )->get ();
 
 		$today = getdate ();
-		$startDate = strtotime ( sprintf ( '%s-%s-%s', $today ['year'], $today ['mon'], $today ['mday'] ) );
+		$startDate = strtotime ( sprintf ( '%s-%s-%s', $today ['year'], $today ['mon'], $today ['mday'] ));
 
 		foreach ( $query->result_array () as $snapshot ) {
-			$snapshotDate = strtotime ( $snapshot ['Date'] );
+
+			$snapshotDate = strtotime ( $snapshot ['Date']) + 3600;
 			
 			foreach ($fields as $field) {
 				$entry = array('Date' => $snapshotDate);
@@ -54,7 +55,7 @@ class Weathersnapshot_model extends CI_MODEL {
 					$type = 'Generated';
 				}
 				$entry[$field] = $snapshot[$field];
-				if ($snapshotDate > $startDate) { 
+				if ($snapshotDate > $startDate + 3600) {
 					$snapshots[$field][$type][] = $entry;
 				}
 			}
@@ -63,7 +64,7 @@ class Weathersnapshot_model extends CI_MODEL {
 				'Date' => $snapshotDate,
 				'Rain' => $snapshot ['RainSum'] - $rainSum
 			);
-			if ($snapshotDate > $startDate) {
+			if ($snapshotDate > $startDate + 3600) {
 				// Only register snapshots after the start date
 				$snapshots['Rain']['Real'][] = $entry;
 			} else {
