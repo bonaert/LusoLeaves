@@ -17,7 +17,7 @@
 		<div class="col-lg-12">
 				<h2><?php echo $this->lang->line('findUsTitle'); ?></h2>  
 				<pre>
-<strong><?php echo $this->lang->line("findUsName"); ?></strong>: Gerik Bonaert - Folhagens Decorativas do Algarve Unip. Lda
+<strong><?php echo $this->lang->line("findUsName"); ?></strong>: Lusoleaves Unipessoal Lda Lda
 
 <strong><?php echo $this->lang->line("findUsAddress"); ?></strong>:  Estufa das Carapuças, Rogil, Aljezur, PORTUGAL
 
