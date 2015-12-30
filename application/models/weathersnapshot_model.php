@@ -24,7 +24,7 @@ class Weathersnapshot_model extends CI_MODEL {
 		}
 
 		if ($queryStartOfTheMonth->num_rows() > 0 && $result){
-			foreach ($query->result() as $snapshotFromStartOfTheMonth)
+			foreach ($queryStartOfTheMonth->result() as $snapshotFromStartOfTheMonth)
 			{
 				$result->RainSinceStartOfMonth = $result->RainSum - $snapshotFromStartOfTheMonth->RainSum;
 			}
