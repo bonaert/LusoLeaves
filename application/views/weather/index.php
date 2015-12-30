@@ -90,7 +90,7 @@
 							<td><?php echo $latest->Temperature; ?>ºC</td>
 							<td><?php echo $latest->Humidity; ?>%</td>
 							<td><?php echo $latest->Dew; ?></td>
-							<td><?php echo sprintf("%.2f", $latest->AtmosphericPressure); ?></td>
+							<td><?php echo sprintf("%.2f", $latest->AtmosphericPressure); ?> kPa/milibar</td>
 							<td><?php echo $latest->Rain ?> mm</td>
 							<td><?php echo $latest->RainSinceStartOfMonth ?> mm</td>
 							<td><?php echo $latest->RainSinceStartOfYear ?> mm</td>
