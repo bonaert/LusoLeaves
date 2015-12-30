@@ -80,6 +80,7 @@
 							<th>Dew</th>
 							<th>Atmospheric Pressure</th>
 							<th>Rain (Last 24h)</th>
+							<th>Rain (Last month)</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -90,6 +91,7 @@
 							<td><?php echo $latest->Dew; ?></td>
 							<td><?php echo sprintf("%.2f", $latest->AtmosphericPressure); ?></td>
 							<td><?php echo $latest->Rain ?> mm</td>
+							<td><?php echo $latest->RainSinceStartOfMonth ?> mm</td>
 						</tr>
 					</tbody>
 				</table>

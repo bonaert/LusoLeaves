@@ -8,18 +8,28 @@ class Weathersnapshot_model extends CI_MODEL {
 	public function get_latest_weathersnapshot()
 	{
 		$query = $this->db->select ()->from ( 'WeatherSnapshots' )->order_by ( 'Date', 'DESC' )->limit ( '1' )->get ();
-		$query2 = $this->db->select ()->from ( 'WeatherSnapshots' )->where ('Date < CURDATE()')->order_by( 'Date', 'DESC' )->limit('1')->get ();
+		$queryYesterday = $this->db->select ()->from ( 'WeatherSnapshots' )->where ('Date < CURDATE()')->order_by( 'Date', 'DESC' )->limit('1')->get ();
+		$queryStartOfTheMonth = $this->db->select()->from('WeatherSnapshots')
+			->where("Date between DATE_FORMAT(NOW(), '%Y-%m-01') and NOW()")->order_by('Date', 'ASC')->limit('1')->get();
 		$result = null;
 		foreach ( $query->result () as $snapshot ) {
 			$result = $snapshot;
 		}
 
-		if ($query2->num_rows() > 0 && $result){
+		if ($queryYesterday->num_rows() > 0 && $result){
 			foreach ($query->result() as $snapshotFromYesterday)
 			{
 				$result->Rain = $snapshot->RainSum - $snapshotFromYesterday->RainSum;
 			}
 		}
+
+		if ($queryStartOfTheMonth->num_rows() > 0 && $result){
+			foreach ($query->result() as $snapshotFromStartOfTheMonth)
+			{
+				$result->RainSinceStartOfMonth = $snapshot->RainSum - $snapshotFromStartOfTheMonth->RainSum;
+			}
+		}
+
 		return $result;
 	}
 
