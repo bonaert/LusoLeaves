@@ -89,7 +89,7 @@
 							<td><?php echo $latest->Humidity; ?>%</td>
 							<td><?php echo $latest->Dew; ?></td>
 							<td><?php echo sprintf("%.2f", $latest->AtmosphericPressure); ?></td>
-							<td><?php echo $latest->Rain ?></td>
+							<td><?php echo $latest->Rain ?> mm</td>
 						</tr>
 					</tbody>
 				</table>
