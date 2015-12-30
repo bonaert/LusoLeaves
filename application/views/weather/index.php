@@ -79,7 +79,7 @@
 							<th>Humidity</th>
 							<th>Dew</th>
 							<th>Atmospheric Pressure</th>
-							<th>Rain</th>
+							<th>Rain (Last 24h)</th>
 						</tr>
 					</thead>
 					<tbody>
