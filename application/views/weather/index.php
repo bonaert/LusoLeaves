@@ -79,6 +79,7 @@
 							<th>Humidity</th>
 							<th>Dew</th>
 							<th>Atmospheric Pressure</th>
+							<th>Rain</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -88,9 +89,8 @@
 							<td><?php echo $latest->Humidity; ?>%</td>
 							<td><?php echo $latest->Dew; ?></td>
 							<td><?php echo sprintf("%.2f", $latest->AtmosphericPressure); ?></td>
-							<?php echo sprintf("%.2f", $latest->AtmosphericPressure); ?>
-							<?php echo $latest->Rain ?>
-
+							<td><?php echo sprintf("%.2f", $latest->AtmosphericPressure); ?></td>
+							<td><?php echo $latest->Rain ?></td>
 						</tr>
 					</tbody>
 				</table>
