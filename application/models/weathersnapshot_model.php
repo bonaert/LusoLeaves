@@ -8,10 +8,19 @@ class Weathersnapshot_model extends CI_MODEL {
 	public function get_latest_weathersnapshot()
 	{
 		$query = $this->db->select ()->from ( 'WeatherSnapshots' )->order_by ( 'Date', 'DESC' )->limit ( '1' )->get ();
+		$query2 = $this->db->select ()->from ( 'WeatherSnapshots' )->where ('Date < CURDATE()')->order_by( 'Date', 'DESC' )->limit('1')->get ();
+		$result = null;
 		foreach ( $query->result () as $snapshot ) {
-			return $snapshot;
+			$result = $snapshot;
 		}
-		return null;
+
+		if ($query2->num_rows() > 0 && $result){
+			foreach ($query->result() as $snapshotFromYesterday)
+			{
+				$result['Rain'] = $snapshot['RainSum'] - $snapshotFromYesterday['RainSum'];
+			}
+		}
+		return $result;
 	}
 
 	public function get_weather_snapshots($startDay, $endDay = 0)
