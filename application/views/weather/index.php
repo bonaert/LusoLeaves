@@ -11,7 +11,7 @@
 					}, 5 * 60 * 1000);
 					var snapshots = <?php echo json_encode($snapshots); ?>;
 
-					Chart.defaults.global.animation = !(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+					Chart.defaults.global.animation = false;
 
 					function generateGraph(id, data, item, options) {
 						options = options || {};
