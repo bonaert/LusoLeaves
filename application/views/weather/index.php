@@ -80,8 +80,8 @@
 							<th>Dew</th>
 							<th>Atmospheric Pressure</th>
 							<th>Rain (Last 24h)</th>
-							<th>Rain (Last month)</th>
-							<th>Rain (Last year)</th>
+							<th>Rain (This month)</th>
+							<th>Rain (This year)</th>
 						</tr>
 					</thead>
 					<tbody>
