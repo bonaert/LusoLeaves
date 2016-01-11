@@ -9,6 +9,8 @@ class Weathersnapshot_model extends CI_MODEL {
 	{
 		$query = $this->db->select ()->from ( 'WeatherSnapshots' )->order_by ( 'Date', 'DESC' )->limit ( '1' )->get ();
 		$queryYesterday = $this->db->select ()->from ( 'WeatherSnapshots' )->where ('Date < CURDATE()')->order_by( 'Date', 'DESC' )->limit('1')->get ();
+		$queryTwoDaysAgo = $this->db->select()->from('WeatherSnapshots')
+			->where("Date < DATE_SUB(CURDATE(), INTERVAL 1 DAY)")->order_by('Date', 'DESC')->limit('1')->get();
 		$queryStartOfTheMonth = $this->db->select()->from('WeatherSnapshots')
 			->where("Date between DATE_FORMAT(NOW(), '%Y-%m-01') and NOW()")->order_by('Date', 'ASC')->limit('1')->get();
 		$queryStartOfTheTwoMonthAgo = $this->db->select()->from('WeatherSnapshots')
@@ -24,6 +26,10 @@ class Weathersnapshot_model extends CI_MODEL {
 			foreach ($queryYesterday->result() as $snapshotFromYesterday)
 			{
 				$result->Rain = $result->RainSum - $snapshotFromYesterday->RainSum;
+				foreach ($queryTwoDaysAgo->result() as $snapshotTwoDaysAgo)
+				{
+					$result->RainYesterday = $snapshotFromYesterday->RainSum - $snapshotTwoDaysAgo->RainSum;
+				}
 			}
 		}
 
