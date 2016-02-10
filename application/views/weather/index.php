@@ -93,11 +93,11 @@
 							<td><?php echo $latest->Humidity; ?>%</td>
 							<td><?php echo $latest->Dew; ?></td>
 							<td><?php echo sprintf("%.2f", $latest->AtmosphericPressure); ?> kPa</td>
-							<td><?php echo $latest->Rain ?> mm</td>
-							<td><?php echo $latest->RainYesterday ?> mm</td>
-							<td><?php echo $latest->RainSinceStartOfMonth ?> mm</td>
-							<td><?php echo $latest->RainLastMonth?> mm</td>
-							<td><?php echo $latest->RainSinceStartOfYear ?> mm</td>
+							<td><?php echo round($latest->Rain, 1) ?> mm</td>
+							<td><?php echo round($latest->RainYesterday, 1) ?> mm</td>
+							<td><?php echo round($latest->RainSinceStartOfMonth, 1) ?> mm</td>
+							<td><?php echo round($latest->RainLastMonth, 1) ?> mm</td>
+							<td><?php echo round($latest->RainSinceStartOfYear, 1) ?> mm</td>
 						</tr>
 					</tbody>
 				</table>
