@@ -98,7 +98,8 @@ class Weathersnapshot_model extends CI_MODEL {
 
 		$query = $this->get_weather_snapshots_between_days($startDay, $endDay + 1);
 		$today = getdate();
-		$startDate = strtotime($today);
+		$startDate = strtotime(sprintf('-%d days', $startDay), strtotime($today));
+		$endDate = strtotime(sprintf('-%d days', $endDay), strtotime($today));
 
 		foreach ( $query->result_array () as $snapshot ) {
 			$snapshotDate = strtotime($snapshot['Date']);
@@ -114,7 +115,7 @@ class Weathersnapshot_model extends CI_MODEL {
 					$type = 'Generated';
 				}
 				$entry[$field] = $snapshot[$field];
-				if ($snapshotDate > $startDate + 3600) {
+				if ($snapshotDate > $endDate && $snapshotDate < $startDate) {
 					$snapshots[$field][$type][] = $entry;
 				}
 			}
@@ -124,7 +125,7 @@ class Weathersnapshot_model extends CI_MODEL {
 				'Rain' => $snapshot ['RainSum'] - $rainSum
 			);
 
-			if ($snapshotDate > $startDate + 3600) {
+			if ($snapshotDate > $endDate && $snapshotDate < $startDate) {
 				// Only register snapshots after the start date
 				$snapshots['Rain']['Real'][] = $entry;
 			} else {
