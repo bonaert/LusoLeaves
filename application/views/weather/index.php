@@ -137,19 +137,19 @@
 				<h3>Wind Gust</h3>
 				<canvas id="windGustChart" width="800" height="400"></canvas>
 				<script>
-					generateGraph('windGustChart', snapshots, 'windGust', { scaleLabel: "<%=value%>" });
+					generateGraph('windGustChart', snapshots, 'WindGust', { scaleLabel: "<%=value%>" });
 				</script>
 
 				<h3>Wind Speed</h3>
 				<canvas id="windSpeedChart" width="800" height="400"></canvas>
 				<script>
-					generateGraph('windSpeedChart', snapshots, 'windSpeed', { scaleLabel: "<%=value%>" });
+					generateGraph('windSpeedChart', snapshots, 'WindSpeed', { scaleLabel: "<%=value%>" });
 				</script>
 
 				<h3>Wind Direction</h3>
 				<canvas id="windDirectionChart" width="800" height="400"></canvas>
 				<script>
-					generateGraph('windDirectionChart', snapshots, 'windDirection', { scaleLabel: "<%=value%>" });
+					generateGraph('windDirectionChart', snapshots, 'WindDirection', { scaleLabel: "<%=value%>" });
 				</script>
 			</div>
 		</div>
