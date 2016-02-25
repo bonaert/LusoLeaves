@@ -96,13 +96,12 @@ class Weathersnapshot_model extends CI_MODEL {
 			throw new Exception ( 'Unsafe arguments passed' );
 		}
 
-		$query = $this->get_weather_snapshots_between_days($startDay, $endDay);
-		$today = getdate ();
-		$startDate = strtotime ( sprintf ( '%s-%s-%s', $today ['year'], $today ['mon'], $today ['mday'] ));
+		$query = $this->get_weather_snapshots_between_days($startDay - 1, $endDay);
+		$today = getdate();
+		$startDate = strtotime($today);
 
 		foreach ( $query->result_array () as $snapshot ) {
-
-			$snapshotDate = strtotime ( $snapshot ['Date']) + 3600;
+			$snapshotDate = strtotime($snapshot['Date']);
 
 			foreach ($fields as $field) {
 				$entry = array('Date' => $snapshotDate);
@@ -124,6 +123,7 @@ class Weathersnapshot_model extends CI_MODEL {
 				'Date' => $snapshotDate,
 				'Rain' => $snapshot ['RainSum'] - $rainSum
 			);
+
 			if ($snapshotDate > $startDate + 3600) {
 				// Only register snapshots after the start date
 				$snapshots['Rain']['Real'][] = $entry;
