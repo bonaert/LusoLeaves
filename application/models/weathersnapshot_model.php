@@ -56,6 +56,14 @@ class Weathersnapshot_model extends CI_MODEL {
 		return $result;
 	}
 
+    public function get_weather_snapshots_between_days($startDay, $endDay){
+        return $this->db->select()
+            ->from('WeatherSnapshots')
+            ->where(sprintf('Date BETWEEN DATE_SUB(NOW(), INTERVAL %d DAY) AND DATE_SUB(NOW(), INTERVAL %d DAY)', $endDay, $startDay))
+            ->order_by('Date', 'DESC')
+            ->get();
+    }
+
     public function get_last_n_days_of_weather_snapshots($n){
         return $this->db->select()
             ->from('WeatherSnapshots')
@@ -72,7 +80,7 @@ class Weathersnapshot_model extends CI_MODEL {
             ->get();
     }
 
-	public function get_weather_snapshots($startDay, $endDay = 1)
+	public function get_weather_snapshots($startDay = 0, $endDay = 1)
 	{
 		$previousSnapshot = array (
 			'Temperature' => 0,
@@ -88,7 +96,7 @@ class Weathersnapshot_model extends CI_MODEL {
 			throw new Exception ( 'Unsafe arguments passed' );
 		}
 
-		$query = $this->get_last_n_days_of_weather_snapshots($endDay);
+		$query = $this->get_weather_snapshots_between_days($startDay, $endDay);
 		$today = getdate ();
 		$startDate = strtotime ( sprintf ( '%s-%s-%s', $today ['year'], $today ['mon'], $today ['mday'] ));
 
