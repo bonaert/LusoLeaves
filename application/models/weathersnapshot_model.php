@@ -60,7 +60,7 @@ class Weathersnapshot_model extends CI_MODEL {
         return $this->db->select()
             ->from('WeatherSnapshots')
             ->where(sprintf('Date BETWEEN DATE_SUB(NOW(), INTERVAL %d DAY) AND DATE_SUB(NOW(), INTERVAL %d DAY)', $endDay, $startDay))
-            ->order_by('Date', 'DESC')
+            ->order_by('Date', 'ASC')
             ->get();
     }
 
@@ -68,7 +68,7 @@ class Weathersnapshot_model extends CI_MODEL {
         return $this->db->select()
             ->from('WeatherSnapshots')
             ->where(sprintf('Date BETWEEN DATE_SUB(NOW(), INTERVAL %d DAY) AND NOW()', $n))
-            ->order_by('Date', 'DESC')
+            ->order_by('Date', 'ASC')
             ->get();
     }
 
@@ -76,7 +76,7 @@ class Weathersnapshot_model extends CI_MODEL {
         return $this->db->select()
             ->from('WeatherSnapshots')
             ->where(sprintf('Date BETWEEN DATE_SUB(CURDATE(), INTERVAL %d DAY) AND NOW()', $n))
-            ->order_by('Date', 'DESC')
+            ->order_by('Date', 'ASC')
             ->get();
     }
 
@@ -117,6 +117,7 @@ class Weathersnapshot_model extends CI_MODEL {
 					$snapshot[$field] = $previousSnapshot[$field];
 					$type = 'Generated';
 				}
+
 				$entry[$field] = $snapshot[$field];
 				if ($endDate < $snapshotDate && $snapshotDate < $startDate) {
 					$snapshots[$field][$type][] = $entry;
