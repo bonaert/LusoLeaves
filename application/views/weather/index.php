@@ -134,8 +134,6 @@
 					generateGraph('atmosphericPressureChart', snapshots, 'AtmosphericPressure', { scaleLabel: "<%=value%>" });
 				</script>
 
-				'WindGust', 'WindSpeed', 'WindDirection'
-
 				<h3>Wind Gust</h3>
 				<canvas id="windGustChart" width="800" height="400"></canvas>
 				<script>
