@@ -102,6 +102,7 @@ class Weathersnapshot_model extends CI_MODEL {
 		$query = $this->get_weather_snapshots_between_days($startDay, $endDay + 1);
 		$startDate = time() - 86400 * $startDay;
 		$endDate = time() - 86400 * $endDay;
+		$rainSum = 0;
 
 		foreach ( $query->result_array () as $snapshot ) {
 			$snapshotDate = strtotime($snapshot['Date']);
@@ -119,7 +120,7 @@ class Weathersnapshot_model extends CI_MODEL {
 				$entry[$field] = $snapshot[$field];
 				if ($endDate < $snapshotDate && $snapshotDate < $startDate) {
 					$snapshots[$field][$type][] = $entry;
-				} else {
+				} else if ($snapshot['RainSum'] > $rainSum) {
 					$rainSum = $snapshot['RainSum'];
 				}
 			}
