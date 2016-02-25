@@ -58,6 +58,8 @@
 						var chart = new Chart(ctx).Scatter(points, extend(defaults, options));
 					}
 
+
+
 					function extend(origin, add) {
 						 // Don't do anything if add isn't an object
 						if (!add || typeof add !== 'object') return origin;
@@ -149,7 +151,22 @@
 				<h3>Wind Direction</h3>
 				<canvas id="windDirectionChart" width="800" height="400"></canvas>
 				<script>
-					generateGraph('windDirectionChart', snapshots, 'WindDirection', { scaleLabel: "<%=value%>" });
+					options = {
+						// Boolean - If we want to override with a hard coded y scale
+						scaleOverride: true,
+
+						// ** Required if scaleOverride is true **
+						// Number - The number of steps in a hard coded y scale
+						scaleSteps: 30,
+
+						// Number - The value jump in the hard coded y scale
+						scaleStepWidth: 12,
+
+						// Number - The y scale starting value
+						scaleStartValue: 0,
+						scaleLabel: "<%=value%>"
+					};
+					generateGraph('windDirectionChart', snapshots, 'WindDirection', options);
 				</script>
 			</div>
 		</div>
