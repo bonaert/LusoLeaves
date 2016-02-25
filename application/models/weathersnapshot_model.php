@@ -87,10 +87,13 @@ class Weathersnapshot_model extends CI_MODEL {
 			'Humidity' => 0,
 			'Dew' => 0,
 			'AtmosphericPressure' => 0,
+			'WindGust' => 0,
+			'WindSpeed' => 0,
+			'WindDirection' => 0
 		);
 
 		$snapshots = array ();
-		$fields = array('Temperature', 'Humidity', 'Dew', 'AtmosphericPressure');
+		$fields = array('Temperature', 'Humidity', 'Dew', 'AtmosphericPressure', 'WindGust', 'WindSpeed', 'WindDirection');
 
 		if (! preg_match ( '/^\d+$/', $startDay ) || ! preg_match ( '/^\d+$/', $endDay )) {
 			throw new Exception ( 'Unsafe arguments passed' );
