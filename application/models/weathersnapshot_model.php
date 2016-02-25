@@ -59,7 +59,7 @@ class Weathersnapshot_model extends CI_MODEL {
     public function get_last_n_days_of_weather_snapshots($n){
         return $this->db->select()
             ->from('WeatherSnapshots')
-            ->where(sprintf('Date BETWEEN NOW() AND DATE_SUB(NOW(), INTERVAL %d DAY)', $n))
+            ->where(sprintf('Date BETWEEN DATE_SUB(NOW(), INTERVAL %d DAY) AND NOW()', $n))
             ->order_by('Date', 'DESC')
             ->get();
     }
@@ -67,7 +67,7 @@ class Weathersnapshot_model extends CI_MODEL {
     public function get_last_n_days_of_weather_snapshots_till_midnight($n){
         return $this->db->select()
             ->from('WeatherSnapshots')
-            ->where(sprintf('Date BETWEEN NOW() AND (CURDATE() - INTERVAL %d DAY)', $n))
+            ->where(sprintf('Date BETWEEN DATE_SUB(CURDATE(), INTERVAL %d DAY) AND NOW()', $n))
             ->order_by('Date', 'DESC')
             ->get();
     }
