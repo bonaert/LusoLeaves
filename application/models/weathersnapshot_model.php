@@ -96,7 +96,7 @@ class Weathersnapshot_model extends CI_MODEL {
 			throw new Exception ( 'Unsafe arguments passed' );
 		}
 
-		$query = $this->get_weather_snapshots_between_days($startDay - 1, $endDay);
+		$query = $this->get_weather_snapshots_between_days($startDay, $endDay + 1);
 		$today = getdate();
 		$startDate = strtotime($today);
 
