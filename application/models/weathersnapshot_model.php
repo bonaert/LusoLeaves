@@ -105,9 +105,12 @@ class Weathersnapshot_model extends CI_MODEL {
 		$endDate = time() - 86400 * $endDay;
 		$rainSum = 0;
 
+		$count = 0;
+		$ratioOfSelection = round($endDay / 2);
 		foreach ( $query->result_array () as $snapshot ) {
 			$snapshotDate = strtotime($snapshot['Date']);
 
+			$isInCorrectTimeInterval = $endDate < $snapshotDate && $snapshotDate < $startDate;
 			foreach ($fields as $field) {
 				$entry = array('Date' => $snapshotDate + 3600);
 				$type = 'Real';
@@ -120,7 +123,7 @@ class Weathersnapshot_model extends CI_MODEL {
 				}
 
 				$entry[$field] = $snapshot[$field];
-				if ($endDate < $snapshotDate && $snapshotDate < $startDate) {
+				if ($isInCorrectTimeInterval && ($count % $ratioOfSelection == 0)) {
 					$snapshots[$field][$type][] = $entry;
 				} else if ($snapshot['RainSum'] > $rainSum) {
 					$rainSum = $snapshot['RainSum'];
@@ -132,9 +135,10 @@ class Weathersnapshot_model extends CI_MODEL {
 				'Rain' => $snapshot ['RainSum'] - $rainSum
 			);
 
-			if ($endDate < $snapshotDate && $snapshotDate < $startDate) {
+			if ($isInCorrectTimeInterval && ($count % $ratioOfSelection == 0)) {
 				// Only register snapshots after the start date
 				$snapshots['Rain']['Real'][] = $entry;
+				$count++;
 			} else {
 				// Memorize last sum before we start registering the snapshots
 				$rainSum = $snapshot ['RainSum'];
