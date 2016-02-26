@@ -106,6 +106,35 @@
 					</tbody>
 				</table>
 
+				<script>
+					function updateTimeInterval(numDays){
+						var search = location.search;
+						var index = search.indexOf('timeInterval');
+						if (index == -1){
+							location.search += 'timeInverval=' + numDays.toString();
+						} else {
+							var ampersandIndex = search.indexOf('&', index);
+							if (ampersandIndex == -1){
+								var textBefore = location.search.slice(0, index);
+								var newText = 'timeInverval=' + numDays.toString();
+                                location.search = textBefore + newText;
+							} else {
+								var textBefore = location.search.slice(0, index);
+								var newText = 'timeInverval=' + numDays.toString();
+								var textAfter = location.search.slice(ampersandIndex);
+								location.search = textBefore + newText + textAfter;
+							}
+						}
+					}
+				</script>
+
+				<div>
+					<button onclick="updateTimeInterval(1)">One Day</button>
+					<button onclick="updateTimeInterval(2)">Two Days</button>
+					<button onclick="updateTimeInterval(7)">One Week</button>
+					<button onclick="updateTimeInterval(31)">One Month</button>
+				</div>
+
 				<h3>Temperature</h3>
 				<canvas id="temperatureChart" width="800" height="200"></canvas>
 				<script>
