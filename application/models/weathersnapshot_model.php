@@ -127,7 +127,7 @@ class Weathersnapshot_model extends CI_MODEL {
 			}
 
 			$entry = array(
-				'Date' => $snapshotDate,
+				'Date' => $snapshotDate + 3600,
 				'Rain' => $snapshot ['RainSum'] - $rainSum
 			);
 
