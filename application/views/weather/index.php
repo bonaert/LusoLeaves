@@ -192,10 +192,10 @@
 
 						// ** Required if scaleOverride is true **
 						// Number - The number of steps in a hard coded y scale
-						scaleSteps: 12,
+						scaleSteps: 8,
 
 						// Number - The value jump in the hard coded y scale
-						scaleStepWidth: 30,
+						scaleStepWidth: 45,
 
 						// Number - The y scale starting value
 						scaleStartValue: 0,
