@@ -141,6 +141,12 @@
 					generateGraph('temperatureChart', snapshots, 'Temperature', { scaleLabel: "<%=value%>ºC" }); 
 				</script>
 
+				<h3>Wind Temperature</h3>
+				<canvas id="windTemperatureChart" width="800" height="200"></canvas>
+				<script>
+					generateGraph('windTemperatureChart', snapshots, 'WindTemperature', { scaleLabel: "<%=value%>ºC" });
+				</script>
+
 				<h3>Rain</h3>
 				<canvas id="rainChart" width="800" height="200"></canvas>
 				<script>
