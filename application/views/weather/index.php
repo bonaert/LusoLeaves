@@ -111,16 +111,16 @@
 						var search = location.search;
 						var index = search.indexOf('timeInterval');
 						if (index == -1){
-							location.search += 'timeInverval=' + numDays.toString();
+							location.search += 'timeInterval=' + numDays.toString();
 						} else {
 							var ampersandIndex = search.indexOf('&', index);
 							if (ampersandIndex == -1){
 								var textBefore = location.search.slice(0, index);
-								var newText = 'timeInverval=' + numDays.toString();
+								var newText = 'timeInterval=' + numDays.toString();
                                 location.search = textBefore + newText;
 							} else {
 								var textBefore = location.search.slice(0, index);
-								var newText = 'timeInverval=' + numDays.toString();
+								var newText = 'timeInterval=' + numDays.toString();
 								var textAfter = location.search.slice(ampersandIndex);
 								location.search = textBefore + newText + textAfter;
 							}
