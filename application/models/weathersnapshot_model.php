@@ -138,11 +138,11 @@ class Weathersnapshot_model extends CI_MODEL {
 			if ($isInCorrectTimeInterval && ($count % $ratioOfSelection == 0)) {
 				// Only register snapshots after the start date
 				$snapshots['Rain']['Real'][] = $entry;
-				$count++;
 			} else {
 				// Memorize last sum before we start registering the snapshots
 				$rainSum = $snapshot ['RainSum'];
 			}
+			$count++;
 		}
 
 		return $snapshots;
