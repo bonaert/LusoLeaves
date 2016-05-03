@@ -7,16 +7,47 @@ class Weathersnapshot_model extends CI_MODEL {
 
 	public function get_latest_weathersnapshot()
 	{
-		$query = $this->db->select ()->from ( 'WeatherSnapshots' )->order_by ( 'Date', 'DESC' )->limit ( '1' )->get ();
-		$queryYesterday = $this->db->select ()->from ( 'WeatherSnapshots' )->where ('Date < CURDATE()')->order_by( 'Date', 'DESC' )->limit('1')->get ();
-		$queryTwoDaysAgo = $this->db->select()->from('WeatherSnapshots')
-			->where("Date < DATE_SUB(CURDATE(), INTERVAL 1 DAY)")->order_by('Date', 'DESC')->limit('1')->get();
-		$queryStartOfTheMonth = $this->db->select()->from('WeatherSnapshots')
-			->where("Date between DATE_FORMAT(NOW(), '%Y-%m-01') and NOW()")->order_by('Date', 'ASC')->limit('1')->get();
-		$queryStartOfTheTwoMonthAgo = $this->db->select()->from('WeatherSnapshots')
-			->where("Date between DATE_SUB(DATE_FORMAT(NOW(), '%Y-%m-01'), INTERVAL 1 MONTH) and NOW()")->order_by('Date', 'ASC')->limit('1')->get();
-		$queryStartOfTheYear = $this->db->select()->from('WeatherSnapshots')
-			->where("Date between DATE_FORMAT(NOW(), '%Y-01-01') and NOW()")->order_by('Date', 'ASC')->limit('1')->get();
+		$query = $this->db->select()
+			->from ( 'WeatherSnapshots' )
+			->order_by ( 'Date', 'DESC' )
+			->limit ( '1' )
+			->get();
+
+		$queryYesterday = $this->db->select()
+			->from ( 'WeatherSnapshots' )
+			->where ('Date < CURDATE()')
+			->order_by( 'Date', 'DESC' )
+			->limit('1')
+			->get ();
+
+		$queryTwoDaysAgo = $this->db->select()
+			->from('WeatherSnapshots')
+			->where("Date < DATE_SUB(CURDATE(), INTERVAL 1 DAY)")
+			->order_by('Date', 'DESC')
+			->limit('1')
+			->get();
+
+		$queryStartOfTheMonth = $this->db->select()
+			->from('WeatherSnapshots')
+			->where("Date between DATE_FORMAT(NOW(), '%Y-%m-01') and NOW()")
+			->order_by('Date', 'ASC')
+			->limit('1')
+			->get();
+
+		$queryStartOfTheTwoMonthAgo = $this->db->select()
+			->from('WeatherSnapshots')
+			->where("Date between DATE_SUB(DATE_FORMAT(NOW(), '%Y-%m-01'), INTERVAL 1 MONTH) and NOW()")
+			->order_by('Date', 'ASC')
+			->limit('1')
+			->get();
+
+		$queryStartOfTheYear = $this->db->select()
+			->from('WeatherSnapshots')
+			->where("Date between DATE_FORMAT(NOW(), '%Y-01-01') and NOW()")
+			->order_by('Date', 'ASC')
+			->limit('1')
+			->get();
+
 		$result = null;
 		foreach ( $query->result () as $snapshot ) {
 			$result = $snapshot;
@@ -39,7 +70,7 @@ class Weathersnapshot_model extends CI_MODEL {
 				$result->RainSinceStartOfMonth = $result->RainSum - $snapshotFromStartOfTheMonth->RainSum;
 				foreach ($queryStartOfTheTwoMonthAgo->result() as $snapshotStartOfTheTwoMonthAgo)
 				{
-						$result->RainLastMonth = $snapshotFromStartOfTheMonth->RainSum - $snapshotStartOfTheTwoMonthAgo->RainSum;
+					$result->RainLastMonth = $snapshotFromStartOfTheMonth->RainSum - $snapshotStartOfTheTwoMonthAgo->RainSum;
 				}
 			}
 		}
@@ -56,29 +87,32 @@ class Weathersnapshot_model extends CI_MODEL {
 		return $result;
 	}
 
-    public function get_weather_snapshots_between_days($startDay, $endDay){
-        return $this->db->select()
-            ->from('WeatherSnapshots')
-            ->where(sprintf('Date BETWEEN DATE_SUB(NOW(), INTERVAL %d DAY) AND DATE_SUB(NOW(), INTERVAL %d DAY)', $endDay, $startDay))
-            ->order_by('Date', 'ASC')
-            ->get();
-    }
+	public function get_weather_snapshots_between_days($startDay, $endDay)
+	{
+		return $this->db->select()
+			->from('WeatherSnapshots')
+			->where(sprintf('Date BETWEEN DATE_SUB(NOW(), INTERVAL %d DAY) AND DATE_SUB(NOW(), INTERVAL %d DAY)', $endDay, $startDay))
+			->order_by('Date', 'ASC')
+			->get();
+	}
 
-    public function get_last_n_days_of_weather_snapshots($n){
-        return $this->db->select()
-            ->from('WeatherSnapshots')
-            ->where(sprintf('Date BETWEEN DATE_SUB(NOW(), INTERVAL %d DAY) AND NOW()', $n))
-            ->order_by('Date', 'ASC')
-            ->get();
-    }
+	public function get_last_n_days_of_weather_snapshots($n)
+	{
+		return $this->db->select()
+			->from('WeatherSnapshots')
+			->where(sprintf('Date BETWEEN DATE_SUB(NOW(), INTERVAL %d DAY) AND NOW()', $n))
+			->order_by('Date', 'ASC')
+			->get();
+	}
 
-    public function get_last_n_days_of_weather_snapshots_till_midnight($n){
-        return $this->db->select()
-            ->from('WeatherSnapshots')
-            ->where(sprintf('Date BETWEEN DATE_SUB(CURDATE(), INTERVAL %d DAY) AND NOW()', $n))
-            ->order_by('Date', 'ASC')
-            ->get();
-    }
+	public function get_last_n_days_of_weather_snapshots_till_midnight($n)
+	{
+		return $this->db->select()
+			->from('WeatherSnapshots')
+			->where(sprintf('Date BETWEEN DATE_SUB(CURDATE(), INTERVAL %d DAY) AND NOW()', $n))
+			->order_by('Date', 'ASC')
+			->get();
+	}
 
 	public function get_weather_snapshots($startDay = 0, $endDay = 1)
 	{
@@ -150,10 +184,21 @@ class Weathersnapshot_model extends CI_MODEL {
 
 	public function add_snapshot($data)
 	{
-		$data = $this->security->xss_clean ( $data );
-		$sql = $this->db->insert_string ( 'WeatherSnapshots', $data );
-		$sql .= ' ON DUPLICATE KEY UPDATE Date=Date;';
-		$this->db->query ( $sql );
+		if (is_array($data)) 
+		{
+			// We do not want to escape nulls since they will end up as zeros
+			// in the database.
+			foreach ($data as $key => $value) 
+			{
+				if ($data[$key] !== NULL)
+				{
+					$data[$key] = $this->security->xss_clean ( $data[$key] );
+				}
+			}
+			$sql = $this->db->insert_string ( 'WeatherSnapshots', $data );
+			$sql.= ' ON DUPLICATE KEY UPDATE Date=Date;';
+			$this->db->query ( $sql );
+		}
 	}
 }
 
