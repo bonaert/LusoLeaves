@@ -148,7 +148,7 @@ class Weathersnapshot_model extends CI_MODEL {
 			foreach ($fields as $field) {
 				$entry = array('Date' => $snapshotDate + 3600);
 				$type = 'Real';
-				if ($snapshot[$field]) {
+				if (!is_null($snapshot[$field])) {
 					$previousSnapshot[$field] = $snapshot[$field];
 					$type = 'Real';
 				} else {
