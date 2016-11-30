@@ -138,6 +138,7 @@ class Weathersnapshot_model extends CI_MODEL {
 		$startDate = time() - 86400 * $startDay;
 		$endDate = time() - 86400 * $endDay;
 		$rainSum = 0;
+        $rainCumulative = 0;
 
 		$count = 0;
 		$ratioOfSelection = round($endDay / 2);
@@ -169,9 +170,17 @@ class Weathersnapshot_model extends CI_MODEL {
 				'Rain' => $snapshot ['RainSum'] - $rainSum
 			);
 
+            $entryCumulative = array(
+                'Date' => $snapshotDate + 3600,
+                'Rain' => $rainCumulative
+            );
+            $rainCumulative = $rainCumulative + $entry['Rain'];
+
+
 			if ($isInCorrectTimeInterval && ($count % $ratioOfSelection == 0)) {
 				// Only register snapshots after the start date
 				$snapshots['Rain']['Real'][] = $entry;
+                $snapshots['RainCumulative']['Real'][] = $entryCumulative;
 			} else {
 				// Memorize last sum before we start registering the snapshots
 				$rainSum = $snapshot ['RainSum'];

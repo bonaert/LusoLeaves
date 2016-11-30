@@ -150,7 +150,7 @@
 				<h3>Rain</h3>
 				<canvas id="rainChart" width="800" height="200"></canvas>
 				<script>
-					generateGraph('rainChart', snapshots, 'Rain', { scaleLabel: "<%=value%>mm" }); 
+					generateGraph('rainChart', snapshots, 'RainCumulative', { scaleLabel: "<%=value%>mm" });
 				</script>
 
 				<h3>Humidity</h3>
