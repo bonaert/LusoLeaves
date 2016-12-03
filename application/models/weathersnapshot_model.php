@@ -173,7 +173,7 @@ class Weathersnapshot_model extends CI_MODEL {
 
             $entryCumulative = array(
                 'Date' => $snapshotDate + 3600,
-                'RainCumulative' => $snapshot['Rain']
+                'RainCumulative' => $snapshot['RainSum']
             );
             $rainCumulative += $snapshot['Rain'] - $previousSnapshot['RainCumulative'];
 
