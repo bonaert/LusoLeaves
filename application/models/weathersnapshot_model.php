@@ -145,11 +145,14 @@ class Weathersnapshot_model extends CI_MODEL {
 		foreach ( $query->result_array () as $snapshot ) {
 			$snapshotDate = strtotime($snapshot['Date']);
 
-            if ($rainSumStartValue == -1) {
+
+
+			$isInCorrectTimeInterval = $endDate < $snapshotDate && $snapshotDate < $startDate;
+
+            if ($rainSumStartValue == -1 && $isInCorrectTimeInterval) {
                 $rainSumStartValue = $snapshot['RainSum'];
             }
 
-			$isInCorrectTimeInterval = $endDate < $snapshotDate && $snapshotDate < $startDate;
 			foreach ($fields as $field) {
 				$entry = array('Date' => $snapshotDate + 3600);
 				$type = 'Real';
