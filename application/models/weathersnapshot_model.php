@@ -125,7 +125,6 @@ class Weathersnapshot_model extends CI_MODEL {
 			'WindGust' => 0,
 			'WindSpeed' => 0,
 			'WindDirection' => 0,
-            'RainCumulative' => 0,
 		);
 
 		$snapshots = array ();
@@ -139,12 +138,16 @@ class Weathersnapshot_model extends CI_MODEL {
 		$startDate = time() - 86400 * $startDay;
 		$endDate = time() - 86400 * $endDay;
 		$rainSum = 0;
-        $rainCumulative = 0;
+        $rainSumStartValue = -1;
 
 		$count = 0;
 		$ratioOfSelection = round($endDay / 2);
 		foreach ( $query->result_array () as $snapshot ) {
 			$snapshotDate = strtotime($snapshot['Date']);
+
+            if ($rainSumStartValue == -1) {
+                $rainSumStartValue = $snapshot['RainSum'];
+            }
 
 			$isInCorrectTimeInterval = $endDate < $snapshotDate && $snapshotDate < $startDate;
 			foreach ($fields as $field) {
@@ -173,9 +176,8 @@ class Weathersnapshot_model extends CI_MODEL {
 
             $entryCumulative = array(
                 'Date' => $snapshotDate + 3600,
-                'RainCumulative' => $snapshot['RainSum']
+                'RainCumulative' => $snapshot['RainSum'] - $rainSumStartValue
             );
-            $rainCumulative += $snapshot['Rain'] - $previousSnapshot['RainCumulative'];
 
 
 			if ($isInCorrectTimeInterval && ($count % $ratioOfSelection == 0)) {
