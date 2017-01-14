@@ -156,7 +156,16 @@ class Weathersnapshot_model extends CI_MODEL {
 			foreach ($fields as $field) {
 				$entry = array('Date' => $snapshotDate + 3600);
 				$type = 'Real';
-				if (!is_null($snapshot[$field])) {
+
+                if ($field == "WindDirection" && !is_null($snapshot["WindDirection"]) && $snapshot["WindDirection"] == 0){
+                    if ($previousSnapshot["WindDirection"] > 180) {
+                        $snapshot["WindDirection"] = 360;
+                    } else {
+                        $snapshot["WindDirection"] = 0;
+                    }
+                }
+
+                if (!is_null($snapshot[$field])) {
 					$previousSnapshot[$field] = $snapshot[$field];
 					$type = 'Real';
 				} else {
@@ -165,6 +174,9 @@ class Weathersnapshot_model extends CI_MODEL {
 				}
 
 				$entry[$field] = $snapshot[$field];
+
+
+
 				if ($isInCorrectTimeInterval && ($count % $ratioOfSelection == 0)) {
 					$snapshots[$field][$type][] = $entry;
 				} else if ($snapshot['RainSum'] > $rainSum) {
