@@ -119,7 +119,7 @@
 	<div class="container">
 		<div class="row">
     		<div class="col-lg-12">
-    			<p>Copyright (c) 2013-2017 LusoLeaves.com. All rights reserved.</p>
+    			<p>Copyright (c) 2013-<?php echo date("Y"); ?>2017 LusoLeaves.com. All rights reserved.</p>
 			</div>
 		</div>
     </div>
