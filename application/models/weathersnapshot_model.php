@@ -160,8 +160,8 @@ class Weathersnapshot_model extends CI_MODEL {
 		$count = 0;
 		$ratioOfSelection = round($endDay / 2);
 
-		// The timestamp for "February 15 2017 12:00" is 1487156400
-		$pluviometerBreakdownDate = 1487156400;
+		// The timestamp for "February 15 2017 10:00" is 1487156400
+		$pluviometerBreakdownDate = 1487149200;
 		$rainDifferenceDueToBreakdown = 847.9;
 
 		foreach ( $query->result_array () as $snapshot ) {
