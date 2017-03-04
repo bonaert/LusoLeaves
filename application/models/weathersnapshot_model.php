@@ -66,7 +66,7 @@ class Weathersnapshot_model extends CI_MODEL {
 
         // The timestamp for "February 15 2017 12:00" is 1487156400
         $rainDifferenceDueToBreakdown = 847.9;
-        $firstAprilTimeStamp = 1490997600;
+        $firstApril2017TimeStamp = 1490997600;
         $firstJanuary2018TimeStamp = 1514761200;
 
 		if ($queryStartOfTheMonth->num_rows() > 0 && $result){
@@ -79,8 +79,8 @@ class Weathersnapshot_model extends CI_MODEL {
 
 					// Fixes pluviometer breakdown problem
                     $snapshotDate = strtotime($result->Date);
-                    if ($snapshotDate < $firstAprilTimeStamp)  {
-                        $result->RainSinceStartOfYear += $rainDifferenceDueToBreakdown;
+                    if ($snapshotDate < $firstApril2017TimeStamp)  {
+                        $result->RainLastMonth += $rainDifferenceDueToBreakdown;
                     }
 				}
 			}
