@@ -173,6 +173,10 @@ class Weathersnapshot_model extends CI_MODEL {
 
             if ($rainSumStartValue == -1 && $isInCorrectTimeInterval) {
                 $rainSumStartValue = $snapshot['RainSum'];
+
+                if ($snapshotDate > $pluviometerBreakdownDate) {
+                    $rainSumStartValue += $rainDifferenceDueToBreakdown;
+                }
             }
 
 			foreach ($fields as $field) {
@@ -209,7 +213,7 @@ class Weathersnapshot_model extends CI_MODEL {
 
             // $snapshotData is something like "1485963600", e.g. num seconds since the epoch
 			if ($snapshotDate > $pluviometerBreakdownDate) {
-                $snapshot['RainSum'] += $rainDifferenceDueToBreakdown; // La difference
+                $snapshot['RainSum'] += $rainDifferenceDueToBreakdown;
             }
 
 			$entry = array(
