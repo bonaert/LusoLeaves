@@ -64,6 +64,10 @@ class Weathersnapshot_model extends CI_MODEL {
 			}
 		}
 
+        // The timestamp for "February 15 2017 12:00" is 1487156400
+        $pluviometerBreakdownDate = 1487156400;
+        $rainDifferenceDueToBreakdown = 847.9;
+
 		if ($queryStartOfTheMonth->num_rows() > 0 && $result){
 			foreach ($queryStartOfTheMonth->result() as $snapshotFromStartOfTheMonth)
 			{
@@ -80,7 +84,11 @@ class Weathersnapshot_model extends CI_MODEL {
 		if ($queryStartOfTheYear->num_rows() > 0 && $result){
 			foreach ($queryStartOfTheYear->result() as $snapshotFromStartOfTheYear)
 			{
+                $snapshotDate = strtotime($snapshot['Date']);
 				$result->RainSinceStartOfYear = $result->RainSum - $snapshotFromStartOfTheYear->RainSum;
+                if ($snapshot - 365*24*60*60 < $pluviometerBreakdownDate)  {
+                    $result->RainSinceStartOfYear += $rainDifferenceDueToBreakdown;
+                }
 			}
 		}
 
@@ -145,6 +153,7 @@ class Weathersnapshot_model extends CI_MODEL {
 
 		// The timestamp for "February 15 2017 12:00" is 1487156400
 		$pluviometerBreakdownDate = 1487156400;
+		$rainDifferenceDueToBreakdown = 847.9;
 
 		foreach ( $query->result_array () as $snapshot ) {
 			$snapshotDate = strtotime($snapshot['Date']);
@@ -191,8 +200,7 @@ class Weathersnapshot_model extends CI_MODEL {
 
             // $snapshotData is something like "1485963600", e.g. num seconds since the epoch
 			if ($snapshotDate > $pluviometerBreakdownDate) {
-                $snapshot['RainSum'] += 847.9; // La valeur precedente
-                //$snapshot['Rainsum'] += 4.2; // Tests de Papa
+                $snapshot['RainSum'] += $rainDifferenceDueToBreakdown; // La difference
             }
 
 			$entry = array(
