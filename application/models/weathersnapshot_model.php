@@ -65,8 +65,9 @@ class Weathersnapshot_model extends CI_MODEL {
 		}
 
         // The timestamp for "February 15 2017 12:00" is 1487156400
-        $pluviometerBreakdownDate = 1487156400;
         $rainDifferenceDueToBreakdown = 847.9;
+        $firstAprilTimeStamp = 1490997600;
+        $firstJanuary2018TimeStamp = 1514761200;
 
 		if ($queryStartOfTheMonth->num_rows() > 0 && $result){
 			foreach ($queryStartOfTheMonth->result() as $snapshotFromStartOfTheMonth)
@@ -75,6 +76,12 @@ class Weathersnapshot_model extends CI_MODEL {
 				foreach ($queryStartOfTheTwoMonthAgo->result() as $snapshotStartOfTheTwoMonthAgo)
 				{
 					$result->RainLastMonth = $snapshotFromStartOfTheMonth->RainSum - $snapshotStartOfTheTwoMonthAgo->RainSum;
+
+					// Fixes pluviometer breakdown problem
+                    $snapshotDate = strtotime($result->Date);
+                    if ($snapshotDate < $firstAprilTimeStamp)  {
+                        $result->RainSinceStartOfYear += $rainDifferenceDueToBreakdown;
+                    }
 				}
 			}
 		}
@@ -84,9 +91,11 @@ class Weathersnapshot_model extends CI_MODEL {
 		if ($queryStartOfTheYear->num_rows() > 0 && $result){
 			foreach ($queryStartOfTheYear->result() as $snapshotFromStartOfTheYear)
 			{
+                $result->RainSinceStartOfYear = $result->RainSum - $snapshotFromStartOfTheYear->RainSum;
+
+                // Fixes pluviometer breakdown problem
                 $snapshotDate = strtotime($result->Date);
-				$result->RainSinceStartOfYear = $result->RainSum - $snapshotFromStartOfTheYear->RainSum;
-                if ($snapshotDate - 365*24*60*60 < $pluviometerBreakdownDate)  {
+                if ($snapshotDate < $firstJanuary2018TimeStamp)  {
                     $result->RainSinceStartOfYear += $rainDifferenceDueToBreakdown;
                 }
 			}
