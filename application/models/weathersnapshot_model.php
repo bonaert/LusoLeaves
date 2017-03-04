@@ -142,6 +142,10 @@ class Weathersnapshot_model extends CI_MODEL {
 
 		$count = 0;
 		$ratioOfSelection = round($endDay / 2);
+
+		// The timestamp for "February 15 2017 12:00" is 1487156400
+		$pluviometerBreakdownDate = 1487156400;
+
 		foreach ( $query->result_array () as $snapshot ) {
 			$snapshotDate = strtotime($snapshot['Date']);
 
@@ -183,6 +187,13 @@ class Weathersnapshot_model extends CI_MODEL {
 					$rainSum = $snapshot['RainSum'];
 				}
 			}
+
+
+            // $snapshotData is something like "1485963600", e.g. num seconds since the epoch
+			if ($snapshotDate > $pluviometerBreakdownDate) {
+                $snapshot['RainSum'] += 847.9; // La valeur precedente
+                //$snapshot['Rainsum'] += 4.2; // Tests de Papa
+            }
 
 			$entry = array(
 				'Date' => $snapshotDate + 3600,
