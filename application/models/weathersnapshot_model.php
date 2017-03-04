@@ -84,9 +84,9 @@ class Weathersnapshot_model extends CI_MODEL {
 		if ($queryStartOfTheYear->num_rows() > 0 && $result){
 			foreach ($queryStartOfTheYear->result() as $snapshotFromStartOfTheYear)
 			{
-                $snapshotDate = strtotime($snapshot['Date']);
+                $snapshotDate = strtotime($result['Date']);
 				$result->RainSinceStartOfYear = $result->RainSum - $snapshotFromStartOfTheYear->RainSum;
-                if ($snapshot - 365*24*60*60 < $pluviometerBreakdownDate)  {
+                if ($snapshotDate - 365*24*60*60 < $pluviometerBreakdownDate)  {
                     $result->RainSinceStartOfYear += $rainDifferenceDueToBreakdown;
                 }
 			}
