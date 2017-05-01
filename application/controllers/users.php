@@ -7,8 +7,8 @@ class Users extends CI_CONTROLLER
         parent::__construct();
         $this->load->model('users_model');
         $this->lang->load('lusoleaves');
-        if (defined('ENVIRONMENT') && ENVIRONMENT === 'production')  {
-        	use_ssl();
+        if (defined('ENVIRONMENT') && ENVIRONMENT === 'production') {
+            use_ssl();
         }
     }
 
@@ -56,7 +56,7 @@ class Users extends CI_CONTROLLER
             'contribuinteNumber' => $this->input->post('contribuinteNumber'),
             'address' => $this->input->post('address')
         );
-        
+
         if ($this->form_validation->run() === FALSE) {
             $this->load->view('template', $data);
         } else {
