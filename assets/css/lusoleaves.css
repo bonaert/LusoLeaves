@@ -18,10 +18,7 @@ footer {
 
 /* Jumbotron */
 .header-banner {
-	height: 295px;
-	margin: 0 auto;
-	display: block;
-	border: 3px solid #cccccc;
+	border: 1px solid #fbfbfb;
 }
 
 /* Page Sections */

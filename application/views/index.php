@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <img src="<?php echo base_url() ?>/assets/images/logo.png" class="img-responsive img-center">
+                <img src="<?php echo base_url() ?>/assets/images/logo.png" class="img-responsive center-block ">
                 <h2>Luso Leaves</h2>
                 <p><?php echo $this->lang->line("companyDescription1"); ?></p>
                 <p><?php echo $this->lang->line("companyDescription2"); ?></p>
