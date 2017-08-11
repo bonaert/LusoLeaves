@@ -129,10 +129,10 @@
 				</script>
 
 				<div>
-					<button onclick="updateTimeInterval(1)" class="btn btn-success">One Day</button>
-					<button onclick="updateTimeInterval(2)" class="btn btn-success">Two Days</button>
-					<button onclick="updateTimeInterval(7)" class="btn btn-success">One Week</button>
-					<button onclick="updateTimeInterval(31)" class="btn btn-success">One Month</button>
+					<button onclick="updateTimeInterval(1)" class="btn btn-success btn-sm">One Day</button>
+					<button onclick="updateTimeInterval(2)" class="btn btn-success btn-sm">Two Days</button>
+					<button onclick="updateTimeInterval(7)" class="btn btn-success btn-sm">One Week</button>
+					<button onclick="updateTimeInterval(31)" class="btn btn-success btn-sm">One Month</button>
 				</div>
 
 				<h3>Temperature</h3>
