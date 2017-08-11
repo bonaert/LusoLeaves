@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <h2>
+                <h2 class="no-margin-top">
                     <?= lang("productsTitle"); ?>
                 </h2>
 
@@ -12,18 +12,16 @@
                     </p>
                 <?php else: ?>
 
-                    <div class="well">
-                        <ul>
-                            <?php if ($is_logged_in && $companyType !== "unknown"): ?>
-                                <li><?= lang('priceFOB') ?></li>
-                            <?php endif; ?>
+                    <ul>
+                        <?php if ($is_logged_in && $companyType !== "unknown"): ?>
+                            <li><?= lang('priceFOB') ?></li>
+                        <?php endif; ?>
 
-                            <li><?= lang('boxSize') ?>: 100 x 40 x 20 cm</li>
-                            <li><?= lang('lastModified') ?> <?php echo $timestamp ?>
-                            </li>
+                        <li><?= lang('boxSize') ?>: 100 x 40 x 20 cm</li>
+                        <li><?= lang('lastModified') ?><?php echo $timestamp ?>
+                        </li>
 
-                        </ul>
-                    </div>
+                    </ul>
 
                     <table class="ui celled large column table segment">
                         <thead>
@@ -64,10 +62,10 @@
                                 <td>
                                     <?php if ($product['isAvailable']): ?>
                                         <span class="label label-success"><span
-                                                class="glyphicon glyphicon-ok"></span></span>
+                                                    class="glyphicon glyphicon-ok"></span></span>
                                     <?php else: ?>
                                         <span class="label label-danger"><span
-                                                class="glyphicon glyphicon-remove"></span></span>
+                                                    class="glyphicon glyphicon-remove"></span></span>
                                         <br>
                                         <?php echo $this->lang->line("availableFrom"); ?> <?= $product['availabilityDate'] ?>
                                     <?php endif; ?>
