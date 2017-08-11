@@ -18,7 +18,7 @@ vezes por semana para entrega nos principais mercados. Temos 1,80 hectares de es
 plantadas com fetos ornamentais e Ruscus. Estamos também a introduzir novos tipos de verduras, que ainda não são em produção.
 Além das estufas de sombreamento, temos também estufas de plásticos, plantadas com aspidistras, Aralias, Phil Xanadu e Falcatum.';
 
-$lang['companyDescription3'] = 'Para qualquer informação adicional, envie-nos um email. ';
+$lang['companyDescription3'] = 'Para qualquer informação adicional, envie-nos um email:';
 
 
 $lang['findUsTitle'] = 'Onde estamos';

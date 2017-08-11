@@ -20,7 +20,7 @@ Disponemos de 1.8 hectáreas de invernaderos de sombra plantados en su mayoría 
 También estamos introduciendo nuevos tipos de hojas que todavía no están en producción. Además de los invernaderos de sombra
 tenemos Aspidistras, Aralias, Phil, Xanadú Y Falcatum';
 
-$lang['companyDescription3'] = 'Para cualquier consulta no duden en contactar con nosotros por e-mail. ';
+$lang['companyDescription3'] = 'Para cualquier consulta no duden en contactar con nosotros por e-mail:';
 
 
 $lang['findUsTitle'] = 'Dónde estamos:';

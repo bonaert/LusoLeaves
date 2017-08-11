@@ -20,7 +20,7 @@ twice a week assuring constant delivery to the main markets. We have 1,80 hectar
 planted mostly with leatherleaf and in smaller amounts with Ruscus. We are also introducing new kinds of greens which are not yet in production.
 Apart from the shadehouse, we also have greenhouses planted with aspidistras, Aralias, Phil. Xanadu and Falcatum.';
 
-$lang['companyDescription3'] = 'For any inquiry, please feel free to send us a email.';
+$lang['companyDescription3'] = 'For any inquiry, please feel free to send us a email:';
 
 
 
