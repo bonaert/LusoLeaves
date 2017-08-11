@@ -119,7 +119,8 @@
 	<div class="container">
 		<div class="row">
     		<div class="col-lg-12">
-    			<p>Copyright (c) 2013-<?php echo date("Y"); ?> LusoLeaves.com. All rights reserved.</p>
+                <br>
+    			<p>Copyright 2013-<?php echo date("Y"); ?> LusoLeaves.com. All rights reserved.</p>
 			</div>
 		</div>
     </div>
