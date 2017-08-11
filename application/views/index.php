@@ -2,13 +2,16 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <img src="<?php echo base_url() ?>/assets/images/logo.png" class="img-responsive center-block header-banner">
+                <img src="<?php echo base_url() ?>/assets/images/logo.png"
+                     class="img-responsive center-block header-banner">
                 <h2 class="text-center">Luso Leaves</h2>
-                <p><?php echo $this->lang->line("companyDescription1"); ?></p>
-                <p><?php echo $this->lang->line("companyDescription2"); ?></p>
-                <p><?php echo $this->lang->line("companyDescription3"); ?>
-                    <a href="mailto:info@lusoleaves.com">info@lusoleaves.com</a>
-                </p>
+                <div class="center-block header-text">
+                    <p><?php echo $this->lang->line("companyDescription1"); ?></p>
+                    <p><?php echo $this->lang->line("companyDescription2"); ?></p>
+                    <p><?php echo $this->lang->line("companyDescription3"); ?>
+                        <a href="mailto:info@lusoleaves.com">info@lusoleaves.com</a>
+                    </p>
+                </div>
             </div>
         </div>
     </div>
@@ -28,7 +31,8 @@
                         Aljezur, PORTUGAL
                     </li>
                     <li class="list-group-item">
-                        <strong><?php echo $this->lang->line("findUsPostalCode"); ?></strong>: Caixa Postal 363-L, 8670-440,
+                        <strong><?php echo $this->lang->line("findUsPostalCode"); ?></strong>: Caixa Postal 363-L,
+                        8670-440,
                         Rogil, Aljezur, PORTUGAL
                     </li>
                     <li class="list-group-item">
@@ -42,7 +46,7 @@
                     </li>
                 </ul>
 
-                    <!-- map goes here-->
+                <!-- map goes here-->
                 <div id="map-canvas" class="map"></div>
             </div>
         </div>
