@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">
-				<h2><?php echo $this->lang->line("weather"); ?></h2>
+				<h2 class="text-center no-margin-top"><?php echo $this->lang->line("weather"); ?></h2>
 
 				<script>
 					// Reload the page every 5 minutes
@@ -129,10 +129,10 @@
 				</script>
 
 				<div>
-					<button onclick="updateTimeInterval(1)">One Day</button>
-					<button onclick="updateTimeInterval(2)">Two Days</button>
-					<button onclick="updateTimeInterval(7)">One Week</button>
-					<button onclick="updateTimeInterval(31)">One Month</button>
+					<button onclick="updateTimeInterval(1)" class="btn btn-success">One Day</button>
+					<button onclick="updateTimeInterval(2)" class="btn btn-success">Two Days</button>
+					<button onclick="updateTimeInterval(7)" class="btn btn-success">One Week</button>
+					<button onclick="updateTimeInterval(31)" class="btn btn-success">One Month</button>
 				</div>
 
 				<h3>Temperature</h3>
