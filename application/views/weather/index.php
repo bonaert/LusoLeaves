@@ -129,7 +129,7 @@
 				</script>
 
 				<div>
-                    <strong>Interval</strong>
+                    <strong>Interval: </strong>
 					<button onclick="updateTimeInterval(1)" class="btn btn-success btn-sm">One Day</button>
 					<button onclick="updateTimeInterval(2)" class="btn btn-success btn-sm">Two Days</button>
 					<button onclick="updateTimeInterval(7)" class="btn btn-success btn-sm">One Week</button>
