@@ -68,7 +68,7 @@ class Weathersnapshot_model extends CI_MODEL
         // The timestamp for "February 15 2017 12:00" is 1487156400
         $rainDifferenceDueToBreakdown = 847.9;
         $firstApril2017TimeStamp = 1490997600;
-        $firstJanuary2018TimeStamp = 1512086400;
+        $firstJanuary2018TimeStamp = 1514764800;
 
         if ($queryStartOfTheMonth->num_rows() > 0 && $result) {
             foreach ($queryStartOfTheMonth->result() as $snapshotFromStartOfTheMonth) {
