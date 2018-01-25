@@ -10,8 +10,8 @@ class Products_model extends CI_MODEL
     public function get_products($id = FALSE)
     {
         if ($id === FALSE) {
-            $query = $this->db->get('Product');
-            return $query->result_array()->order_by("name asc");
+            $query = $this->db->get('Product')->order_by("name", "asc");
+            return $query->result_array();
         }
 
         $query = $this->db->get_where('Product', array('id' => $id));
