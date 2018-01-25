@@ -14,7 +14,7 @@ class Products_model extends CI_MODEL
             return $query->result_array();
         }
 
-        $query = $this->db->get_where('Product', array('id' => $id));
+        $query = $this->db->get_where('Product', array('id' => $id))->order_by("name asc");
         return $query->row_array();
     }
 
