@@ -11,10 +11,10 @@ class Products_model extends CI_MODEL
     {
         if ($id === FALSE) {
             $query = $this->db->get('Product');
-            return $query->result_array();
+            return $query->result_array()->order_by("name asc");
         }
 
-        $query = $this->db->get_where('Product', array('id' => $id))->order_by("name asc");
+        $query = $this->db->get_where('Product', array('id' => $id));
         return $query->row_array();
     }
 
@@ -26,17 +26,17 @@ class Products_model extends CI_MODEL
 
     public function add_product()
     {
-	if ($_FILES['image']['name']) {
-	    $image_path = $this->get_image_directory() . basename($_FILES['image']['name']);
+        if ($_FILES['image']['name']) {
+            $image_path = $this->get_image_directory() . basename($_FILES['image']['name']);
             $imageSitePath = $this->get_image_site_directory() . basename($_FILES['image']['name']);
-    	    if (!move_uploaded_file($_FILES['image']['tmp_name'], $image_path)) {
-	        exit("There was an error uploading the file, please try again!");
-	    }
-	} else {
+            if (!move_uploaded_file($_FILES['image']['tmp_name'], $image_path)) {
+                exit("There was an error uploading the file, please try again!");
+            }
+        } else {
             $image_path = '';
-	    $imageSitePath = 'https://www.gumtree.com/static/1/resources/assets/rwd/images/orphans/a37b37d99e7cef805f354d47.noimage_thumbnail.png';
-	}
- 
+            $imageSitePath = 'https://www.gumtree.com/static/1/resources/assets/rwd/images/orphans/a37b37d99e7cef805f354d47.noimage_thumbnail.png';
+        }
+
         $data = array(
             'name' => $this->input->post('name'),
             'imageSitePath' => $imageSitePath,
