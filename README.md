@@ -5,4 +5,4 @@ Powers the [Lusoleaves](lusoleaves.com) website, showing the company's products 
 
 **Technologies**: CakePHP (back-end), Chart.js (weather charts) and Bootstrap (CSS).
 
-![Lusoleaves screenshot](https://imgur.com/a/CzjN8)
+![Lusoleaves screenshot](https://i.imgur.com/WQv2vti.png)
