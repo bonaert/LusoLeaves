@@ -19,6 +19,15 @@
 <div class="section">
     <div class="container">
         <div class="row">
+	    <div class="col-lg-12">
+		<img alt="live video feed" src="http://lusoleavsc.cluster021.hosting.ovh.net/images/feed.jpg"/>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section">
+    <div class="container">
+        <div class="row">
             <div class="col-lg-12">
                 <h2 class="text-center no-margin-top"><?php echo $this->lang->line('findUsTitle'); ?></h2>
 
