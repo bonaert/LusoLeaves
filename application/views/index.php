@@ -20,7 +20,7 @@
     <div class="container">
         <div class="row">
 	    <div class="col-lg-12">
-		<img alt="live video feed" src="http://lusoleavsc.cluster021.hosting.ovh.net/images/feed.jpg"/>
+		<img class="img-responsive" alt="Live video feed" src="http://lusoleavsc.cluster021.hosting.ovh.net/images/feed.jpg"/>
             </div>
         </div>
     </div>
