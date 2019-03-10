@@ -37,6 +37,13 @@ class Weathersnapshot_model extends CI_MODEL
             ->limit('1')
             ->get();
 
+        $queryOneYearAgo = $this->db->select()
+            ->from('WeatherSnapshots')
+            ->where("Date between DATE_SUB(NOW(), INTERVAL 1 YEAR) and NOW()")
+            ->order_by('Date', 'ASC')
+            ->limit('1')
+            ->get();
+
         $queryStartOfTheTwoMonthAgo = $this->db->select()
             ->from('WeatherSnapshots')
             ->where("Date between DATE_SUB(DATE_FORMAT(NOW(), '%Y-%m-01'), INTERVAL 1 MONTH) and NOW()")
@@ -44,9 +51,23 @@ class Weathersnapshot_model extends CI_MODEL
             ->limit('1')
             ->get();
 
-        $queryStartOfTheYear = $this->db->select()
+        $month = intval(date('m'));
+        $year = intval(date('Y'));
+        if ($month < 9) {
+            $year = $year - 1;
+        }
+        $twoYearsAgo = $year - 1;
+
+        $querySinceLastSeptember = $this->db->select()
             ->from('WeatherSnapshots')
-            ->where("Date between DATE_FORMAT(NOW(), '%Y-01-01') and NOW()")
+            ->where("Date between '$year-09-01' and NOW()")
+            ->order_by('Date', 'ASC')
+            ->limit('1')
+            ->get();
+
+        $queryPreviousYearSinceSeptember = $this->db->select()
+            ->from('WeatherSnapshots')
+            ->where("Date between '$twoYearsAgo-09-01' and DATE_SUB(NOW(), INTERVAL 1 YEAR)")
             ->order_by('Date', 'ASC')
             ->limit('1')
             ->get();
@@ -55,6 +76,15 @@ class Weathersnapshot_model extends CI_MODEL
         foreach ($query->result() as $snapshot) {
             $result = $snapshot;
         }
+
+        $resultOneYearAgo = null;
+        foreach ($queryOneYearAgo->result() as $snapshotOneYearAgo) {
+            $resultOneYearAgo = $snapshotOneYearAgo;
+        }
+
+
+
+
 
         if ($queryYesterday->num_rows() > 0 && $result) {
             foreach ($queryYesterday->result() as $snapshotFromYesterday) {
@@ -86,14 +116,25 @@ class Weathersnapshot_model extends CI_MODEL
         }
 
 
-        if ($queryStartOfTheYear->num_rows() > 0 && $result) {
-            foreach ($queryStartOfTheYear->result() as $snapshotFromStartOfTheYear) {
-                $result->RainSinceStartOfYear = $result->RainSum - $snapshotFromStartOfTheYear->RainSum;
+        if ($querySinceLastSeptember->num_rows() > 0 && $result) {
+            foreach ($querySinceLastSeptember->result() as $snapshotSinceLastSeptember) {
+                $result->RainSinceLastSeptember = $result->RainSum - $snapshotSinceLastSeptember->RainSum;
 
                 // Fixes pluviometer breakdown problem
                 $snapshotDate = strtotime($result->Date);
                 if ($snapshotDate < $firstJanuary2018TimeStamp) {
-                    $result->RainSinceStartOfYear += $rainDifferenceDueToBreakdown;
+                    $result->RainSinceLastSeptember += $rainDifferenceDueToBreakdown;
+                }
+            }
+        }
+
+        if ($queryPreviousYearSinceSeptember->num_rows() > 0 && $result) {
+            foreach ($queryPreviousYearSinceSeptember->result() as $snapshotPreviousYearSinceLastSeptember) {
+                $result->RainSincePreviousSeptember = $resultOneYearAgo->RainSum - $snapshotPreviousYearSinceLastSeptember->RainSum;
+                // Fixes pluviometer breakdown problem
+                $snapshotDate = strtotime($resultOneYearAgo->Date);
+                if ($snapshotDate < $firstJanuary2018TimeStamp) {
+                    $result->RainSincePreviousSeptember += $rainDifferenceDueToBreakdown;
                 }
             }
         }
