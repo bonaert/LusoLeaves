@@ -34,7 +34,7 @@ class Products_model extends CI_MODEL
             }
         } else {
             $image_path = '';
-            $imageSitePath = 'https://www.gumtree.com/static/1/resources/assets/rwd/images/orphans/a37b37d99e7cef805f354d47.noimage_thumbnail.png';
+            $imageSitePath = '/assets/images/noimage.png';
         }
 
         $data = array(
