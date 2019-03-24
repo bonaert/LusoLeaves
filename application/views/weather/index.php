@@ -90,7 +90,8 @@
                         <th>Rain (Yesterday)</th>
                         <th>Rain (This month)</th>
                         <th>Rain (Last month)</th>
-                        <th>Rain (This year)</th>
+                        <th>Rain (Since last september)</th>
+                        <th>Rain (Same but for year before)</th>
                         <th>Wind Speed</th>
                     </tr>
                     </thead>
@@ -105,7 +106,8 @@
                         <td><?php echo round($latest->RainYesterday, 1) ?> mm</td>
                         <td><?php echo round($latest->RainSinceStartOfMonth, 1) ?> mm</td>
                         <td><?php echo round($latest->RainLastMonth, 1) ?> mm</td>
-                        <td><?php echo round($latest->RainSinceStartOfYear, 1) ?> mm</td>
+                        <td><?php echo round($latest->RainSinceLastSeptember, 1) ?> mm</td>
+                        <td><?php echo round($latest->RainSincePreviousSeptember, 1) ?> mm</td>
                         <td><?php echo $latest->WindSpeed ?> km/h</td>
                     </tr>
                     </tbody>
