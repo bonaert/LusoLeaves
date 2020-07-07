@@ -1,0 +1,20 @@
+{
+  "name": "sensor",
+  "version": "1.0.0",
+  "description": "Uploads weather station information",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "weather",
+    "upload",
+    "api"
+  ],
+  "author": "Gerik Bonaert",
+  "license": "ISC",
+  "dependencies": {
+	  "bodhi-dbf": "git://github.com/bodhi-space/bodhi-dbf",
+	  "iconv-lite": "0.4.13"
+  }
+}

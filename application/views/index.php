@@ -48,7 +48,7 @@
                         <strong>Email</strong>: <a href="mailto:info@lusoleaves.com">info@lusoleaves.com</a>
                     </li>
                     <li class="list-group-item">
-                        <strong><?php echo $this->lang->line("findUsPhoneNumber"); ?></strong>: (00351) 925 303 403
+                        <strong><?php echo $this->lang->line("findUsPhoneNumber"); ?></strong>: (00351) 915 303 403
                     </li>
                     <li class="list-group-item">
                         <strong><?php echo $this->lang->line("findUsCoordinates"); ?></strong>: 37.3666, -8.78535
