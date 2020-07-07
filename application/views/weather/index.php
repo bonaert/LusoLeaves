@@ -47,16 +47,24 @@
                         real = real.map(function (snapshot) {
                             return {x: new Date(snapshot.Date * 1000), y: snapshot[item]};
                         });
-                        points.push(extend(extend({}, dataDefaults), {pointColor: "#00693F", data: real}));
+                        points.push(extend(extend({}, dataDefaults),
+                            {
+                                pointColor: "#00693F",
+                                data: real
+                            }
+                        ));
 
                         generated = generated.map(function (snapshot) {
                             return {x: new Date(snapshot.Date * 1000), y: snapshot[item]};
                         });
                         points.push(extend(extend({}, dataDefaults),
                             {
-                                pointColor: "#45DDBA", data: generated,
-                                bezierCurve: false, datasetStroke: false,
-                                datasetStrokeWidth: 2
+                                pointColor: "#45DDBA",
+                                data: generated,
+                                bezierCurve: false,
+                                datasetStroke: false,
+                                datasetStrokeWidth: 2,
+                                showLine: false
                             }
                         ));
 
